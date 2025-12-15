@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>KSH Ai Main Page</title>
+        <link rel="stylesheet" href="/reset.css">
+        <link rel="stylesheet" href="Aiportal.css">
+    </head>
+    <body>
+
+        <nav id="nav">
+
+            <div class="menu-icon">
+
+                <span class="icon">☰</span>
+
+            </div> <!-- /.menu-icon -->
+
+            <div id="logo">
+
+                KSH(Logo)
+
+            </div> 
+
+            <div id="Login">
+
+                <a href="Login.html" title="로그인 / 내 정보">
+
+                    <span class="icon">로그인 HTML</span>
+
+                </a>
+
+            </div> <!-- /#Login -->
+
+        </nav> <!-- #nav -->
+
+        <div id="layout">
+
+            <aside id="menu">
+
+                <h2 class="logo">KSH(logo)</h2>
+
+                <div class="menu-content">
+
+                    <div class="chat-history-heading"> 내 채팅 </div>
+
+                    <ul>
+
+                        <li>
+                            <span class="chat-log"></span> 제목 1 <span class="chat-list">내용 1</span>
+                        </li>
+
+                        <li>
+                            <span class="chat-log"></span> 제목 2 <span class="chat-list">내용 2</span>
+                        </li>
+
+                        <li>
+                            <span class="chat-log"></span> 제목 3 <span class="chat-list">내용 3</span>
+                        </li>
+
+                    </ul>
+
+                </div> <!-- /.menu-content -->
+
+                <div class="settings-icon">
+
+                    <span class="icon"></span>
+
+                </div> <!-- /.settings-icon -->
+
+            </aside> <!-- /#menu -->
+
+                <main id="search">
+
+                    <div id="question">
+
+                        <form action="Result.html" method="get">
+                            
+                            <div class="search-input-container"> 
+
+                                <textarea name="query" placeholder=" 무엇이든 물어보세요! (텍스트 입력) "></textarea>
+                                
+                                <button type="submit" class="submit-button-inside">
+
+                                    <span>검색</span>
+
+                                </button>
+
+                            </div>
+                            
+                            <div class="bottom-actions-bar">
+                                
+                                <button type="button" class="add-feature-button">
+                                    <span>+</span> 
+                                </button>
+                                
+                                <span class="icon file-upload" title="로컬 파일 업로드">File</span>
+
+                                <span class="icon image-search" title="이미지 검색">Images</span>
+                                
+                            </div>              <!-- /.bottom-actions-bar (검색창 파일,이미지 추가버튼)-->
+
+                        </form>             <!-- /Result.HTML (결과 페이지) -->
+
+                    </div>              <!-- /#question (검색창) -->
+
+                </main>             <!-- /#search -->
+
+        </div>          <!-- /#layout -->
+    </body>
+</html>

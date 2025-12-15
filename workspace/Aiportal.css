@@ -1,0 +1,246 @@
+/* KSH AI Portal 스타일 시트 */
+
+/* 1. 기본 설정 및 전체 레이아웃 (BODY, HTML) */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; 
+}
+
+body {
+    font-family: 'Malgun Gothic', '맑은 고딕', Arial, sans-serif;
+    background-color: #f4f7f9; 
+    display: flex;
+    flex-direction: column; 
+    overflow: hidden; 
+}
+
+/* 2. 상단 내비게이션 바 (#nav) */
+#nav {
+    background-color: #ffffff;
+    height: 60px; 
+    flex-shrink: 0;
+    display: flex;
+    align-items: center; 
+    padding: 0 20px;
+    border-bottom: 1px solid #e0e4e8;
+    justify-content: space-between; 
+}
+
+/* 햄버거 아이콘 및 로그인 영역 아이콘 공통 스타일 */
+#nav > .menu-icon, 
+#nav > #Login {
+    font-size: 1.5em; 
+    cursor: pointer;
+    line-height: 1; 
+}
+
+/* 중앙 로고 (#logo) - Label 역할 (정중앙에 배치) */
+#nav > #logo { 
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* 우측 로그인 링크 */
+#nav > #Login > a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+#nav > #Login > a:hover {
+    color: #007bff;
+}
+
+/* 3. 하단 레이아웃 컨테이너 (#layout)*/
+#layout {
+    display: flex; 
+    flex-grow: 1; 
+    overflow: hidden;
+}
+
+/* 4. 왼쪽 사이드바 (#menu) */
+#menu {
+    width: 250px; 
+    background-color: #ffffff;
+    border-right: 1px solid #e0e4e8;
+    padding: 20px 0;
+    flex-shrink: 0; 
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 로고 스타일 */
+#menu > .logo {
+    color: #007bff;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+/* 메뉴 콘텐츠 컨테이너 */
+#menu > .menu-content {
+    flex-grow: 1; 
+}
+
+/* 검색 기록 헤딩 */
+#menu .chat-history-heading {
+    color: #777;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    padding: 0 20px;
+}
+
+/* 메뉴 리스트 (ul) */
+#menu > .menu-content > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 리스트 항목 (li) */
+#menu > .menu-content > ul > li {
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-left: 3px solid transparent;
+}
+
+#menu > .menu-content > ul > li:hover {
+    background-color: #f0f4f7;
+    border-left-color: #007bff;
+}
+
+/* 리스트 항목 내부 요소 (로그/설명) */
+#menu li > .chat-log { 
+    color: gold; 
+    margin-right: 5px;
+}
+
+#menu li > .chat-list { 
+    font-size: 0.8em;
+    color: #999;
+    display: block;
+}
+
+/* 설정 아이콘 (하단 고정) */
+#menu > .settings-icon {
+    padding: 15px 20px;
+    border-top: 1px solid #e0e4e8;
+    text-align: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* 5. 중앙 메인 검색 영역 (#search) */
+#search {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* 질문 컨테이너 */
+#search > #question {
+    width: 80%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 검색 폼 */
+#search > #question > form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/*1. 입력 영역 컨테이너 (Textarea와 내부 버튼을 감쌈) */
+#search .search-input-container {
+    position: relative;
+}
+
+/* 1-A. Textarea 스타일 */
+#search .search-input-container > textarea {
+    width: 100%;
+    height: 200px; 
+    padding: 15px;
+    padding-right: 70px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.1em;
+    box-sizing: border-box;
+    resize: none;
+    line-height: 1.5;
+}
+
+/*1-B. Textarea 내부 검색 버튼 */
+#search .submit-button-inside {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    z-index: 10;
+}
+
+#search .submit-button-inside:hover {
+    background-color: #0056b3;
+}
+
+/*2. 하단 액션 바 */
+#search .bottom-actions-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: -5px;
+}
+
+/* 2-A. 추가 기능 "+" 버튼 */
+#search .add-feature-button {
+    background-color: #f0f4f7;
+    color: #007bff;
+    width: 40px; 
+    height: 40px; 
+    border: 1px solid #e0e4e8;
+    border-radius: 50%; 
+    cursor: pointer;
+    font-size: 1.5em;
+    font-weight: normal;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#search .add-feature-button:hover {
+    background-color: #e6f7ff;
+}
+
+/* 2-B. 다른 액션 아이콘 */
+#search .bottom-actions-bar > .icon {
+    font-size: 1.2em;
+    color: #777;
+    cursor: pointer;
+    padding: 5px;
+}
