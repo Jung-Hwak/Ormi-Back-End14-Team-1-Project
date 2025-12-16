@@ -1,162 +1,8 @@
-/* =======================================================
-   KSH AI Portal 스타일 시트 (이미지 로드 및 표시 보강 버전)
-   ======================================================= */
+/* KSH AI Portal 메인 검색 페이지 스타일 시트  */
 
-/* 이미지 아이콘 url
- * https://img.icons8.com/?size=100&id=16247&format=png&color=000000 (메뉴 바)
- * https://img.icons8.com/?size=100&id=23392&format=png&color=000000 (로그인)
- * https://img.icons8.com/?size=100&id=ZXRdZOWJvO8k&format=png&color=000000 (설정 톱니바퀴)
- * https://img.icons8.com/?size=100&id=tTiuvBrEmfbh&format=png&color=000000 (파일 가져오기)
- * https://img.icons8.com/?size=100&id=8ax09IWlr80n&format=png&color=000000 (이미지)
- */
-
-/* 1. 기본 설정 및 전체 레이아웃 (BODY, HTML) */
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100vh; 
-}
-
-body {
-    font-family: 'Malgun Gothic', '맑은 고딕', Arial, sans-serif;
-    background-color: #f4f7f9; 
-    display: flex;
-    flex-direction: column; 
-    overflow: hidden; 
-}
-
-/* 2. 상단 내비게이션 바 (#nav) */
-#nav {
-    background-color: #ffffff;
-    height: 60px; 
-    flex-shrink: 0;
-    display: flex;
-    align-items: center; 
-    padding: 0 20px;
-    border-bottom: 1px solid #e0e4e8;
-    justify-content: space-between; 
-}
-
-/* 햄버거 아이콘 및 로그인 영역 아이콘 공통 스타일 */
-#nav > .menu-icon, 
-#nav > #Login {
-    cursor: pointer;
-    line-height: 1; 
-}
-
-/* 중앙 로고 (#logo) - Label 역할 (정중앙에 배치) */
-#nav > #logo { 
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-weight: bold;
-    font-size: 1.1em;
-}
-
-/* 우측 로그인 링크 */
-#nav > #Login > a {
-    text-decoration: none;
-    color: #333;
-    transition: color 0.3s;
-}
-
-#nav > #Login > a:hover {
-    color: #007bff;
-}
-
-/* 3. 하단 레이아웃 컨테이너 (#layout)*/
-#layout {
-    display: flex; 
-    flex-grow: 1; 
-    overflow: hidden;
-    transition: margin-left 0.3s ease;
-}
-
-/* 사이드바 숨김 상태 (inactive) */
-#layout.inactive {
-    margin-left: -250px; 
-}
-
-
-/* 4. 왼쪽 사이드바 (#menu) */
-#menu {
-    width: 250px; 
-    background-color: #ffffff;
-    border-right: 1px solid #e0e4e8;
-    padding: 20px 0;
-    flex-shrink: 0; 
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-}
-
-/* 로고 스타일 */
-#menu > .logo {
-    color: #007bff;
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-bottom: 30px;
-    padding: 0 20px;
-}
-
-/* 메뉴 콘텐츠 컨테이너 */
-#menu > .menu-content {
-    flex-grow: 1; 
-}
-
-/* 검색 기록 헤딩 */
-#menu .chat-history-heading {
-    color: #777;
-    font-size: 0.9em;
-    margin-bottom: 5px;
-    padding: 0 20px;
-}
-
-/* 메뉴 리스트 (ul) */
-#menu > .menu-content > ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* 리스트 항목 (li) */
-#menu > .menu-content > ul > li {
-    padding: 12px 20px;
-    cursor: pointer;
-    border-left: 3px solid transparent;
-}
-
-#menu > .menu-content > ul > li:hover {
-    background-color: #f0f4f7;
-    border-left-color: #007bff;
-}
-
-/* 리스트 항목 내부 요소 (로그/설명) */
-#menu li > .chat-log { 
-    color: gold; 
-    margin-right: 5px;
-}
-
-#menu li > .chat-list { 
-    font-size: 0.8em;
-    color: #999;
-    display: block;
-}
-
-/* 설정 아이콘 (하단 고정) */
-#menu > .settings-icon {
-    padding: 15px 20px;
-    border-top: 1px solid #e0e4e8;
-    text-align: center;
-    /* 폰트 크기 관련 스타일 제거 (이미지 사용) */
-    cursor: pointer;
-    color: #555;
-    margin-top: 10px;
-}
-
-/* 5. 중앙 메인 검색 영역 (#search) */
+/* 1. 중앙 메인 검색 영역 (#search) */
 #search {
-    flex-grow: 1;
+    flex-grow: 1; 
     display: flex;
     justify-content: center;
     align-items: center; 
@@ -178,8 +24,8 @@ body {
     align-items: center;
 }
 
-/* 환영 문구 스타일 (이미지 기반) */
-#search .welcome-message {
+/* 환영 문구 스타일 */
+#search > #question > .welcome-message {
     font-size: 1.5em;
     color: #333;
     font-weight: 300;
@@ -194,32 +40,31 @@ body {
     width: 100%;
 }
 
-/* 1. 입력 영역 컨테이너 (Textarea와 내부 버튼을 감쌈) */
-#search .search-input-container {
+/* 2. 입력 영역 컨테이너 (Textarea와 내부 버튼을 감쌈) */
+#search > #question > form > .search-input-container {
     position: relative;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* 1-A. Textarea 스타일 */
-#search .search-input-container > textarea {
+/* 2-A. Textarea 스타일 */
+.search-input-container > textarea {
     width: 100%;
     height: 200px; 
     padding: 15px;
     padding-right: 70px;
-    border: 1px solid #ccc;
+    border: none; 
     border-radius: 8px;
     font-size: 1.1em;
     box-sizing: border-box;
     resize: none;
     line-height: 1.5;
-    border: none; 
     box-shadow: none; 
 }
 
-/* 1-B. Textarea 내부 검색 버튼 */
-#search .submit-button-inside {
+/* 2-B. Textarea 내부 검색 버튼 */
+.search-input-container > .submit-button-inside {
     position: absolute;
     right: 10px;
     bottom: 10px;
@@ -234,20 +79,20 @@ body {
     z-index: 10;
 }
 
-#search .submit-button-inside:hover {
+.search-input-container > .submit-button-inside:hover {
     background-color: #0056b3;
 }
 
-/* 2. 하단 액션 바 */
-#search .bottom-actions-bar {
+/* 3. 하단 액션 바 */
+#search > #question > form > .bottom-actions-bar {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-top: 10px;
 }
 
-/* 2-A. 추가 기능 "+" 버튼 */
-#search .add-feature-button {
+/* 3-A. 추가 기능 "+" 버튼 */
+.bottom-actions-bar > .add-feature-button {
     background-color: #f0f4f7;
     color: #007bff;
     width: 40px; 
@@ -263,66 +108,32 @@ body {
     align-items: center;
 }
 
-#search .add-feature-button:hover {
+.bottom-actions-bar > .add-feature-button:hover {
     background-color: #e6f7ff;
 }
 
-/* 2-B. 다른 액션 아이콘 */
-#search .bottom-actions-bar > .icon {
-    /* 폰트 크기 관련 스타일 제거 (이미지 사용) */
+/* 3-B. 다른 액션 아이콘 */
+.bottom-actions-bar > .icon {
     color: #777;
     cursor: pointer;
     padding: 5px;
 }
 
+/* 파일 업로드 아이콘 */
+.bottom-actions-bar > .icon.file-upload {
+    background-image: url('https://img.icons8.com/?size=100&id=tTiuvBrEmfbh&format=png&color=000000');
+}
+
+/* 이미지 검색 아이콘 */
+.bottom-actions-bar > .icon.image-search {
+    background-image: url('https://img.icons8.com/?size=100&id=8ax09IWlr80n&format=png&color=000000');
+}
+
+
 /* 주의 문구 스타일 */
-#search .info-message {
+#search > #question > .info-message { 
     font-size: 0.8em;
     color: #999;
     text-align: center;
     padding-top: 10px;
-}
-
-/* 아이콘 섹션 */
-
-/* 0. 아이콘 이미지 공통 설정 */
-.icon {
-    display: inline-block; 
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 24px; 
-    height: 24px;
-}
-
-/* 0-1. 햄버거 아이콘 (메뉴 바) */
-#nav .menu-icon .icon {
-    background-image: url('https://img.icons8.com/?size=100&id=16247&format=png&color=000000');
-    width: 30px; 
-    height: 30px;
-    display: block; 
-}
-
-/* 0-2. 로그인 아이콘 */
-#nav #Login .icon {
-    background-image: url('https://img.icons8.com/?size=100&id=23392&format=png&color=000000');
-}
-
-/* 0-3. 설정 톱니바퀴 아이콘 */
-#menu .settings-icon .icon {
-    background-image: url('https://img.icons8.com/?size=100&id=ZXRdZOWJvO8k&format=png&color=000000');
-    width: 30px; 
-    height: 30px;
-    display: block;
-    margin: 0 auto;
-}
-
-/* 0-4. 파일 업로드 아이콘 */
-.icon.file-upload {
-    background-image: url('https://img.icons8.com/?size=100&id=tTiuvBrEmfbh&format=png&color=000000');
-}
-
-/* 0-5. 이미지 검색 아이콘 */
-.icon.image-search {
-    background-image: url('https://img.icons8.com/?size=100&id=8ax09IWlr80n&format=png&color=000000');
 }
