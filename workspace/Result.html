@@ -3,14 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Result</title>
-    <link rel="stylesheet" href="./css/reset.css">
-    
-    <script>
+    <title>KSH Ai Result</title>
 
-    </script>
+    <!-- 기존 CSS 그대로 사용 -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/aiportal.css">
+
+    <style>
+        /* 결과 페이지 전용 최소 스타일 (말풍선) */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .chat-bubble {
+            max-width: 70%;
+            padding: 12px 15px;
+            border-radius: 15px;
+            line-height: 1.5;
+            font-size: 1em;
+            word-break: break-word;
+        }
+
+        .chat-bubble.user {
+            align-self: flex-end;
+            background-color: #007bff;
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-bubble.ai {
+            align-self: flex-start;
+            background-color: #f0f4f7;
+            color: #333;
+            border-bottom-left-radius: 4px;
+        }
+    </style>
 </head>
 <body>
-    
+
+<nav id="nav">
+    <div class="menu-icon">
+        <span class="icon">☰</span>
+    </div>
+
+    <div id="logo">KSH(Logo)</div>
+
+    <div id="Login">
+        <a href="Login.html">
+            <span class="icon">로그인 HTML</span>
+        </a>
+    </div>
+</nav>
+
+<div id="layout">
+
+    <!-- 사이드바 -->
+    <aside id="menu">
+        <h2 class="logo">KSH(logo)</h2>
+
+        <div class="menu-content">
+            <div class="chat-history-heading"> 내 채팅 </div>
+            <ul>
+                <li>제목 1<span class="chat-list">내용 1</span></li>
+                <li>제목 2<span class="chat-list">내용 2</span></li>
+                <li>제목 3<span class="chat-list">내용 3</span></li>
+            </ul>
+        </div>
+
+        <div class="settings-icon">⚙</div>
+    </aside>
+
+    <!-- 메인 -->
+    <main id="search">
+
+        <div id="question">
+
+            <!-- 채팅 결과 영역 -->
+            <div class="chat-container" id="chatContainer"></div>
+
+            <!-- 입력창 (항상 유지됨) -->
+            <form id="chatForm">
+                <div class="search-input-container">
+                    <textarea id="input" placeholder="무엇이든 물어보세요!"></textarea>
+
+                    <button type="submit" class="submit-button-inside">
+                        <span>검색</span>
+                    </button>
+                </div>
+            </form>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+    const chatContainer = document.getElementById('chatContainer');
+    const form = document.getElementById('chatForm');
+    const input = document.getElementById('input');
+
+    // 처음 페이지 들어올 때 query 출력
+    const params = new URLSearchParams(window.location.search);
+    const firstQuery = params.get("query");
+
+    if (firstQuery) {
+        addUserMessage(firstQuery);
+        addAiMessage("대답");
+    }
+
+    function addUserMessage(text) {
+        const div = document.createElement('div');
+        div.className = 'chat-bubble user';
+        div.textContent = text;
+        chatContainer.appendChild(div);
+    }
+
+    function addAiMessage(text) {
+        const div = document.createElement('div');
+        div.className = 'chat-bubble ai';
+        div.textContent = text;
+        chatContainer.appendChild(div);
+    }
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const text = input.value.trim();
+        if (!text) return;
+
+        addUserMessage(text);
+        addAiMessage("대답");
+
+        input.value = '';
+    });
+</script>
+
 </body>
 </html>
