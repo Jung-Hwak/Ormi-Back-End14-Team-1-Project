@@ -6,32 +6,34 @@
         <title>KSH Ai Main Page</title>
         <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="./css/aiportal.css">
+        <script src="./js/aiproject.js"></script>
     </head>
     <body>
         <nav id="nav">
 
             <div class="menu-icon">
 
-                <span class="icon">☰</span>
-
-            </div> 
+                <span class="icon" id="hamburger-icon"></span> </div> 
 
             <div id="logo">
 
                 Label
+
             </div> 
 
             <div id="Login">
 
                 <a href="login.html" title="로그인 / 내 정보">
 
-                    <span class="icon">로그인 HTML</span>
+                    <span class="icon" id="login-icon"></span> 
 
                 </a>
-
+                
             </div> 
+
         </nav> 
-        <div id="layout">
+
+        <div id="layout" class="active"> 
 
             <aside id="menu">
 
@@ -42,31 +44,25 @@
                     <div class="chat-history-heading"> 내 채팅 </div>
 
                     <ul>
-
                         <li>
-
                             <span class="chat-log"></span> 제목 1 <span class="chat-list">내용 1</span>
-
                         </li>
 
                         <li>
-
                             <span class="chat-log"></span> 제목 2 <span class="chat-list">내용 2</span>
-
                         </li>
 
                         <li>
-
                             <span class="chat-log"></span> 제목 3 <span class="chat-list">내용 3</span>
-
                         </li>
 
                     </ul>
+
                 </div> 
 
                 <div class="settings-icon">
 
-                    <span class="icon">톱니 바퀴(설정)</span>
+                    <span class="icon" id="settings-icon"></span> 
 
                 </div> 
 
@@ -100,11 +96,11 @@
 
                             </button>
                             
-                            <span class="icon file-upload" title="로컬 파일 업로드">File</span>
+                            <span class="icon file-upload" id="file-upload-icon" title="로컬 파일 업로드"></span> 
 
-                            <span class="icon image-search" title="이미지 검색">Images</span>
-                            
-                        </div>              <!-- /.bottom-actions-bar (검색창 파일,이미지 추가버튼)--> 
+                            <span class="icon image-search" id="image-search-icon" title="이미지 검색"></span>
+
+                         </div>              <!-- /.bottom-actions-bar (검색창 파일,이미지 추가버튼)--> 
 
                     </form>             <!-- /Result.HTML (결과 페이지) -->
 
