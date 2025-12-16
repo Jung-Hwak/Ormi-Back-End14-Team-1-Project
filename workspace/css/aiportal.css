@@ -107,7 +107,6 @@ body {
 #menu > .menu-content > ul > li {
     padding: 12px 20px;
     cursor: pointer;
-    transition: background-color 0.2s;
     border-left: 3px solid transparent;
 }
 
@@ -144,7 +143,7 @@ body {
     flex-grow: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
     padding: 20px;
     overflow-y: auto;
 }
@@ -156,10 +155,19 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    background-color: #ffffff;
-    padding: 25px;
+    background-color: transparent; 
+    padding: 25px 0;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
+    align-items: center;
+}
+
+/* 환영 문구 스타일 (이미지 기반) */
+#search .welcome-message {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: 300;
+    margin-bottom: 30px;
 }
 
 /* 검색 폼 */
@@ -167,11 +175,15 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
 }
 
-/*1. 입력 영역 컨테이너 (Textarea와 내부 버튼을 감쌈) */
+/* 1. 입력 영역 컨테이너 (Textarea와 내부 버튼을 감쌈) */
 #search .search-input-container {
     position: relative;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* 1-A. Textarea 스타일 */
@@ -186,9 +198,11 @@ body {
     box-sizing: border-box;
     resize: none;
     line-height: 1.5;
+    border: none; 
+    box-shadow: none; 
 }
 
-/*1-B. Textarea 내부 검색 버튼 */
+/* 1-B. Textarea 내부 검색 버튼 */
 #search .submit-button-inside {
     position: absolute;
     right: 10px;
@@ -208,12 +222,12 @@ body {
     background-color: #0056b3;
 }
 
-/*2. 하단 액션 바 */
+/* 2. 하단 액션 바 */
 #search .bottom-actions-bar {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-top: -5px;
+    margin-top: 10px;
 }
 
 /* 2-A. 추가 기능 "+" 버튼 */
@@ -239,8 +253,16 @@ body {
 
 /* 2-B. 다른 액션 아이콘 */
 #search .bottom-actions-bar > .icon {
-    font-size: 1.2em;
+    font-size: 1.0em; 
     color: #777;
     cursor: pointer;
     padding: 5px;
+}
+
+/* 주의 문구 스타일 */
+#search .info-message {
+    font-size: 0.8em;
+    color: #999;
+    text-align: center;
+    padding-top: 10px;
 }
