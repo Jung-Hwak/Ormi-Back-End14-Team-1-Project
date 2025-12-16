@@ -15,7 +15,7 @@
 
         body {
             font-family: 'Malgun Gothic', '맑은 고딕', Arial, sans-serif;
-            background-color: white; /* 전체 배경 흰색으로 변경 */
+            background-color: white; 
             display: flex;
             flex-direction: column;
         }
@@ -23,9 +23,9 @@
         /* 메인 컨테이너 (전체 화면 꽉 채우기) */
         .container {
             width: 100%;
-            max-width: none; /* 너비 제한 제거 (800px -> none) */
+            max-width: none;
             background-color: white;
-            box-shadow: none; /* 그림자 제거 */
+            box-shadow: none; 
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -38,17 +38,18 @@
             flex-shrink: 0;
             display: flex;
             align-items: center; 
-            padding: 0 30px; /* 좌우 여백 조금 더 넉넉하게 */
+            padding: 0 30px; 
             border-bottom: 1px solid #e0e4e8;
             justify-content: space-between;         
         }
 
-        /* 햄버거 아이콘 및 로그인 영역 아이콘 공통 스타일 */
+        /* 글자 크기(font-size) 대신 너비(width)로 크기 조절 */
         .menu-icon, 
         .user-icon {
-            font-size: 1.5em; 
+            width: 28px; 
+            height: 28px;
             cursor: pointer;
-            line-height: 1; 
+            object-fit: contain; 
         }
 
         .header-title {
@@ -170,9 +171,11 @@
 <div class="container">
     <!-- 헤더 -->
     <header>
-        <div class="menu-icon">☰</div>
+        <img src="https://img.icons8.com/?size=100&id=16247&format=png&color=000000" class="menu-icon" alt="메뉴">
+        
         <div class="header-title">KSH(logo)</div>
-        <div class="user-icon">👤</div>
+        
+        <img src="https://img.icons8.com/?size=100&id=23392&format=png&color=000000" class="user-icon" alt="로그인">
     </header>
 
     <!-- 메인 컨텐츠 -->
@@ -387,4 +390,3 @@ KSH(이하 ‘회사’)는 「개인정보 보호법」 등 관련 법령을 �
 </script>
 
 </body>
-</html>
