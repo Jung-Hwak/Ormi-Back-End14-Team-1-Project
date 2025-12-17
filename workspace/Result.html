@@ -3,14 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Result</title>
-    <link rel="stylesheet" href="/reset.css">
-    
-    <script>
+    <title>KSH Ai Result</title>
 
-    </script>
-</head>
-<body>
+    <!-- 공통 CSS -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/aiportal.css">
+    <link rel="stylesheet" href="./css/scroll bar.css">
     
+
+    <style>
+        /* 질문 영역을 세로 레이아웃 */
+        #question {
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 120px);
+        }
+
+        /* 채팅 영역만 스크롤 */
+        .chat-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow-y: auto;
+            padding-right: 6px;
+        }
+
+        /* 말풍선 공통 */
+        .chat-bubble {
+            max-width: 70%;
+            padding: 12px 15px;
+            border-radius: 15px;
+            line-height: 1.5;
+            word-break: break-word;
+        }
+
+        /* 사용자 말풍선 */
+        .chat-bubble.user {
+            align-self: flex-end;
+            background-color: #007bff;
+            color: #fff;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* AI 말풍선 */
+        .chat-bubble.ai {
+            align-self: flex-start;
+            background-color: #f0f4f7;
+            color: #333;
+            border-bottom-left-radius: 4px;
+        }
+
+        /* textarea 커서 보정 */
+        #question textarea {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            line-height: 1.4;
+            vertical-align: top;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- 상단 네비 -->
+<nav id="nav">
+    <div class="menu-icon">☰</div>
+    <div id="logo">KSH(Logo)</div>
+    <div id="Login">
+        <a href="Login.html">로그인 HTML</a>
+    </div>
+</nav>
+
+<div id="layout">
+
+    <!-- 사이드바 -->
+    <aside id="menu">
+        <h2 class="logo">KSH(logo)</h2>
+
+        <div class="menu-content">
+            <div class="chat-history-heading">내 채팅</div>
+
+            <!-- 🔴 JS가 여기다 채움 -->
+            <ul id="chatHistoryList"></ul>
+        </div>
+
+        <div class="settings-icon">⚙</div>
+    </aside>
+
+    <!-- 메인 -->
+    <main id="search">
+        <div id="question">
+
+            <!-- 채팅 결과 -->
+            <div class="chat-container" id="chatContainer"></div>
+
+            <!-- 입력창 -->
+            <form id="chatForm">
+                <div class="search-input-container">
+                    <textarea
+                        id="input"
+                        placeholder="무엇이든 물어보세요! (텍스트 입력)"
+                    ></textarea>
+
+                    <button type="submit" class="submit-button-inside">
+                        <span>검색</span>
+                    </button>
+                </div>
+
+                <div class="bottom-actions-bar">
+                    <button type="button" class="add-feature-button">+</button>
+                    <span class="icon">File</span>
+                    <span class="icon">Images</span>
+                </div>
+            </form>
+
+        </div>
+    </main>
+
+</div>
+
+
+
 </body>
 </html>
