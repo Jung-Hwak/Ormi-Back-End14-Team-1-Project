@@ -1,0 +1,203 @@
+/* KSH AI Portal 스타일 시트 (공통 ui) */
+
+/* 이미지 아이콘 url
+* 메뉴바: https://img.icons8.com/?size=100&id=16247&format=png&color=000000
+* 로그인: https://img.icons8.com/?size=100&id=23392&format=png&color=000000
+* 설정 톱니바퀴: https://img.icons8.com/?size=100&id=ZXRdZOWJvO8k&format=png&color=000000
+* 파일 가져오기: https://img.icons8.com/?size=100&id=tTiuvBrEmfbh&format=png&color=000000
+* 이미지 업로드: https://img.icons8.com/?size=100&id=8ax09IWlr80n&format=png&color=000000
+*/
+
+/* 1. 기본 설정 및 전체 레이아웃 */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+body {
+    font-family: 'Malgun Gothic', '맑은 고딕', Arial, sans-serif;
+    background-color: #f4f7f9; 
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* 2. 상단 내비게이션 바 (#nav) */
+#nav {
+    background-color: #ffffff;
+    height: 60px; 
+    flex-shrink: 0;
+    display: flex;
+    align-items: center; 
+    padding: 0 20px;
+    border-bottom: 1px solid #e0e4e8;
+    justify-content: space-between; 
+}
+
+/* 햄버거 아이콘 및 로그인 영역 아이콘 공통 스타일 */
+#nav > .menu-icon, 
+#nav > #Login {
+    cursor: pointer;
+}
+
+/* 중앙 로고 (#logo) */
+#nav > #logo { 
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* 우측 로그인 링크 */
+#nav > #Login > a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+#nav > #Login > a:hover {
+    color: #007bff;
+}
+
+/* 3. 하단 레이아웃 컨테이너 (#layout) */
+#layout {
+    display: flex; 
+    flex-grow: 1; 
+    overflow: hidden;
+    transition: margin-left 0.3s ease;
+}
+
+/* 사이드바 숨김 상태 (inactive) */
+#layout.inactive {
+    margin-left: -250px; 
+}
+
+/* 사이드바 열림 상태 (active) */
+#layout.active {
+    margin-left: 0;
+}
+
+
+/* 4. 왼쪽 사이드바 (#menu) */
+#menu {
+    width: 250px; 
+    background-color: #ffffff;
+    border-right: 1px solid #e0e4e8;
+    padding: 20px 0;
+    flex-shrink: 0; 
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 로고 스타일 */
+#menu > .logo {
+    color: #007bff;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+/* 메뉴 콘텐츠 컨테이너 */
+#menu > .menu-content {
+    flex-grow: 1; 
+}
+
+/* 검색 기록 헤딩 */
+#menu > .menu-content > .chat-history-heading {
+    color: #777;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    padding: 0 20px;
+}
+
+/* 메뉴 리스트 (ul) */
+#menu > .menu-content > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 리스트 항목 (li) */
+#menu > .menu-content > ul > li {
+    padding: 12px 20px;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+}
+
+#menu > .menu-content > ul > li:hover {
+    background-color: #f0f4f7;
+    border-left-color: #007bff;
+}
+
+/* 리스트 항목 내부 요소 (로그/설명) */
+#menu > .menu-content > ul > li > .chat-log {
+    color: gold; 
+    margin-right: 5px;
+}
+
+#menu > .menu-content > ul > li > .chat-list {
+    font-size: 0.8em;
+    color: #999;
+    display: block;
+}
+
+/* 설정 아이콘 (하단 고정) */
+#menu > .settings-icon {
+    padding: 15px 20px;
+    border-top: 1px solid #e0e4e8;
+    text-align: center;
+    cursor: pointer;
+    color: #555;
+    margin-top: auto; /* 하단에 붙도록 수정 */
+}
+
+/* 5. 메인 콘텐츠 영역 (모든 페이지의 기본 레이아웃) */
+#main-content {
+    flex-grow: 1;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* 6. 아이콘 이미지 공통 및 개별 설정 */
+/* 0. 아이콘 이미지 공통 설정 */
+.icon {
+    display: inline-block; 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 24px; 
+    height: 24px;
+    overflow: hidden;
+}
+
+/* 0-1. 햄버거 아이콘 (메뉴 바) */
+#nav > .menu-icon > .icon {
+    background-image: url('https://img.icons8.com/?size=100&id=16247&format=png&color=000000');
+    width: 30px; 
+    height: 30px;
+    display: block; 
+}
+
+/* 0-2. 로그인 아이콘 */
+#nav > #Login > a > .icon {
+    background-image: url('https://img.icons8.com/?size=100&id=23392&format=png&color=000000');
+    width: 30px; 
+    height: 30px;
+    display: block;
+}
+
+/* 0-3. 설정 톱니바퀴 아이콘 */
+#menu > .settings-icon > .icon {
+    background-image: url('https://img.icons8.com/?size=100&id=ZXRdZOWJvO8k&format=png&color=000000');
+    width: 30px; 
+    height: 30px;
+    display: block;
+    margin: 0 auto;
+}

@@ -6,36 +6,31 @@
         <title>KSH Ai Main Page</title>
         <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="./css/aiportal.css">
+        <link rel="stylesheet" href="./css/common.css">
+        <script src="./js/aiproject.js"></script>
     </head>
     <body>
-
         <nav id="nav">
 
             <div class="menu-icon">
 
-                <span class="icon">☰</span>
+                <span class="icon" id="hamburger-icon"></span> </div> 
 
-            </div> <!-- /.menu-icon -->
-
-            <div id="logo">
-
-                KSH(Logo)
-
-            </div> 
+            <div id="logo"> Label </div> 
 
             <div id="Login">
 
-                <a href="Login.html" title="로그인 / 내 정보">
+                <a href="login.html" title="로그인 / 내 정보">
 
-                    <span class="icon">로그인 HTML</span>
+                    <span class="icon" id="user-icon"></span> 
 
                 </a>
+                
+            </div> 
 
-            </div> <!-- /#Login -->
+        </nav> 
 
-        </nav> <!-- #nav -->
-
-        <div id="layout">
+        <div id="layout" class="active"> 
 
             <aside id="menu">
 
@@ -46,7 +41,6 @@
                     <div class="chat-history-heading"> 내 채팅 </div>
 
                     <ul>
-
                         <li>
                             <span class="chat-log"></span> 제목 1 <span class="chat-list">내용 1</span>
                         </li>
@@ -61,52 +55,63 @@
 
                     </ul>
 
-                </div> <!-- /.menu-content -->
+                </div>  <!-- /.chat-history-heading (채팅 기록)-->
 
                 <div class="settings-icon">
 
-                    <span class="icon"></span>
+                    <span class="icon" id="settings-icon"></span> 
 
-                </div> <!-- /.settings-icon -->
+                </div> 
 
-            </aside> <!-- /#menu -->
+            </aside> <!-- /#menu (왼쪽 사이드 매뉴바(채팅 기록(설정))) -->
 
-                <main id="search">
+            <main id="search">
 
-                    <div id="question">
+                <div id="question">
 
-                        <form action="Result.html" method="get">
+                    <p class="welcome-message">궁금하신 게 무엇인지 알려주시겠어요?</p> 
+
+                    <form action="result.html" method="get">
+                        
+                        <div class="search-input-container"> 
                             
-                            <div class="search-input-container"> 
-
-                                <textarea name="query" placeholder=" 무엇이든 물어보세요! (텍스트 입력) "></textarea>
-                                
-                                <button type="submit" class="submit-button-inside">
-
-                                    <span>검색</span>
-
-                                </button>
-
-                            </div>
+                            <textarea name="query" placeholder=" What would you like to know? "></textarea>
                             
-                            <div class="bottom-actions-bar">
-                                
-                                <button type="button" class="add-feature-button">
-                                    <span>+</span> 
-                                </button>
-                                
-                                <span class="icon file-upload" title="로컬 파일 업로드">File</span>
+                            <button type="submit" class="submit-button-inside">
 
-                                <span class="icon image-search" title="이미지 검색">Images</span>
-                                
-                            </div>              <!-- /.bottom-actions-bar (검색창 파일,이미지 추가버튼)-->
+                                <span>검색</span>
 
-                        </form>             <!-- /Result.HTML (결과 페이지) -->
+                            </button>
 
-                    </div>              <!-- /#question (검색창) -->
+                        </div> 
 
-                </main>             <!-- /#search -->
+                        <div class="bottom-actions-bar">
+                            
+                            <button type="button" class="add-feature-button">
+
+                                <span>+</span> 
+
+                            </button>
+                            
+                            <span class="icon file-upload" id="file-upload-icon" title="로컬 파일 업로드"></span> 
+
+                            <span class="icon image-search" id="image-search-icon" title="이미지 검색"></span>
+
+                         </div>              <!-- /.bottom-actions-bar (검색창 파일,이미지 추가버튼)--> 
+
+                    </form>             <!-- /Result.HTML (결과 페이지) -->
+
+                    <div class="info-message">
+
+                        <p>프로토 타입의 AI 검색 사이트입니다 학습이 덜되어 정확성이 떨어질 수 있습니다.</p>
+
+                    </div>
+
+                </div>              <!-- /#question (검색창) -->
+
+            </main>             <!-- /#search -->
 
         </div>          <!-- /#layout -->
+
     </body>
 </html>
