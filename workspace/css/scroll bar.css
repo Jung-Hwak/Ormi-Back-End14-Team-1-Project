@@ -1,0 +1,23 @@
+/* search 영역은 이미 aiportal.css에서 중앙 정렬됨 */
+#search {
+    align-items: stretch;   /* 중앙 말고 전체 높이 사용 */
+}
+
+/* 질문 영역: 세로 레이아웃 */
+#question {
+    display: flex;
+    flex-direction: column;
+    height: 100%;           /* 부모(#search) 높이 그대로 */
+}
+
+/* 말풍선 영역만 스크롤 */
+.chat-container {
+    flex: 1;                /* 입력창 제외한 나머지 영역 */
+    overflow-y: auto;       /* 말풍선 많아질 때만 스크롤 */
+    padding-right: 6px;
+}
+
+/* 입력창은 항상 하단 고정 */
+#chatForm {
+    flex-shrink: 0;
+}
