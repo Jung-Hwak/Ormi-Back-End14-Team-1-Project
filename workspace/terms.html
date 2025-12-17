@@ -6,186 +6,55 @@
     <title>회원가입 약관</title>
     <link rel="stylesheet" href="/reset.css">    
     <style>
-        /* 전체 페이지 설정 */
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
+        /* 기본 설정 */
+        html, body { margin: 0; padding: 0; height: 100%; }
+        body { font-family: 'Malgun Gothic', sans-serif; background-color: white; display: flex; flex-direction: column; }
+        .container { width: 100%; min-height: 100vh; display: flex; flex-direction: column; }
 
-        body {
-            font-family: 'Malgun Gothic', '맑은 고딕', Arial, sans-serif;
-            background-color: white; 
-            display: flex;
-            flex-direction: column;
-        }
+        /* 헤더 */
+        header { background-color: #ffffff; height: 60px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #e0e4e8; position: relative; }
+        .header-title { font-size: 18px; font-weight: bold; }
 
-        /* 메인 컨테이너 (전체 화면 꽉 채우기) */
-        .container {
-            width: 100%;
-            max-width: none;
-            background-color: white;
-            box-shadow: none; 
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+        /* 메인 컨텐츠 */
+        main { padding: 50px 20px; text-align: center; flex-grow: 1; width: 100%; box-sizing: border-box; }
+        h1 { font-size: 32px; margin-bottom: 60px; font-weight: bold; }
 
-        /* 헤더 스타일 */
-        header {
-            background-color: #ffffff;
-            height: 60px; 
-            flex-shrink: 0;
-            display: flex;
-            align-items: center; 
-            padding: 0 30px; 
-            border-bottom: 1px solid #e0e4e8;
-            justify-content: space-between;         
-        }
+        /* 약관 영역 */
+        .terms-section { margin-bottom: 50px; width: 90%; max-width: 1200px; margin-left: auto; margin-right: auto; text-align: left; }
+        h2 { font-size: 18px; text-align: left; margin-bottom: 15px; font-weight: bold; color: #333; }
+        .terms-box { width: 100%; height: 200px; border: 1px solid #ccc; padding: 20px; box-sizing: border-box; overflow-y: scroll; background-color: #f9f9f9; line-height: 1.6; resize: vertical; font-family: inherit; }
+        .terms-box:focus { outline: 2px solid #007bff; }
 
-        /* 글자 크기(font-size) 대신 너비(width)로 크기 조절 */
-        .menu-icon, 
-        .user-icon {
-            width: 28px; 
-            height: 28px;
-            cursor: pointer;
-            object-fit: contain; 
-        }
+        /* 체크박스 */
+        .checkbox-container { display: flex; justify-content: flex-end; align-items: center; font-size: 16px; margin-top: 10px; }
+        .checkbox-container input { width: 24px; height: 24px; margin-right: 12px; cursor: pointer; }
+        .checkbox-container label { cursor: pointer; user-select: none; }
 
-        .header-title {
-            font-size: 18px; /* 글자 크기 약간 키움 */
-            font-weight: bold;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+        /* 다음 버튼 */
+        .submit-btn { background-color: #007bff; color: white; border: none; padding: 15px 80px; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; margin: 40px 0; transition: all 0.3s; }
+        .submit-btn:hover { background-color: #0056b3; transform: translateY(-2px); }
 
-        /* 메인 컨텐츠 영역 */
-        main {
-            padding: 50px 20px;
-            text-align: center;
-            flex-grow: 1;
-            width: 100%;
-            box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
-        }
-
-        /* 제목 스타일 */
-        h1 {
-            font-size: 32px;
-            margin-bottom: 60px;
-            font-weight: bold;
-            color: #000;
-        }
-
-        /* 약관 섹션 */
-        .terms-section {
-            margin-bottom: 50px;
-            width: 90%; 
-            max-width: 1200px; 
-            margin-left: auto;
-            margin-right: auto;
-            text-align: left;
-        }
-
-        /* 소제목 */
-        h2 {
-            font-size: 18px;
-            text-align: left; 
-            margin-bottom: 15px;
-            font-weight: bold;
-            color: #333;
-            padding-left: 5px;
-        }
-
-        /* 약관 텍스트 박스 */
-        .terms-box {
-            width: 100%;
-            height: 200px;
-            border: 1px solid #ccc;
-            padding: 20px;
-            box-sizing: border-box;
-            overflow-y: scroll;
-            background-color: #f9f9f9; 
-            font-size: 15px; 
-            color: #444;
-            margin-bottom: 15px;
-            resize: vertical; 
-            line-height: 1.6;
-            font-family: 'Malgun Gothic', sans-serif;
-        }
-        
-        .terms-box:focus {
-            outline: 2px solid #007bff; 
-        }
-
-        /* 체크박스 영역 */
-        .checkbox-container {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            font-size: 16px; /* 글자 크기 키움 */
-            color: #333;
-            margin-top: 10px;
-        }
-
-        /* 체크박스 크기 키우기 */
-        .checkbox-container input[type="checkbox"] {
-            width: 24px; /* 체크박스 더 크게 */
-            height: 24px;
-            margin-right: 12px;
-            cursor: pointer;
-            accent-color: #007bff; 
-        }
-
-        .checkbox-container label {
-            cursor: pointer;
-            user-select: none; /* 드래그 방지 */
-        }
-
-        /* 하단 버튼 */
-        .submit-btn {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 15px 80px; 
-            border-radius: 8px; 
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 40px;
-            margin-bottom: 40px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .submit-btn:hover {
-            background-color: #007bff;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-        }
-
+        /* 팝업창(모달) 스타일 */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1000; justify-content: center; align-items: center; }
+        .modal { background: white; padding: 30px; border-radius: 12px; text-align: center; width: 90%; max-width: 350px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        .modal-message { margin-bottom: 25px; font-size: 16px; line-height: 1.5; color: #333; }
+        .modal-btn { background-color: #007bff; color: white; border: none; padding: 10px 30px; border-radius: 6px; font-size: 16px; cursor: pointer; }
+        .modal-icon { font-size: 40px; margin-bottom: 15px; display: block; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- 헤더 -->
     <header>
-        <img src="https://img.icons8.com/?size=100&id=16247&format=png&color=000000" class="menu-icon" alt="메뉴">
-        
-        <div class="header-title">KSH(logo)</div>
-        
-        <img src="https://img.icons8.com/?size=100&id=23392&format=png&color=000000" class="user-icon" alt="로그인">
+        <div class="header-title">KSH(logo)</div> 
     </header>
 
-    <!-- 메인 컨텐츠 -->
     <main>
         <h1>회원가입 약관</h1>
 
-        <!-- 1. 사이트 이용 약관 -->
+        <!-- 1. 이용 약관 -->
         <div class="terms-section">
             <h2>사이트 이용 약관</h2>
-            <!-- readonly 속성을 지우면 사용자가 내용을 수정할 수 있습니다 -->
             <textarea class="terms-box" readonly>
 이용약관 (개정안)
 제1조 (목적)
@@ -292,7 +161,7 @@
             </div>
         </div>
 
-        <!-- 2. 개인정보 수집 및 이용 동의 -->
+        <!-- 2. 개인정보 동의 -->
         <div class="terms-section">
             <h2>개인정보 수집 및 이용에 대한 동의</h2>
             <textarea class="terms-box" readonly>
@@ -372,21 +241,20 @@ KSH(이하 ‘회사’)는 「개인정보 보호법」 등 관련 법령을 �
         </div>
 
         <!-- 다음 버튼 -->
-        <button class="submit-btn" onclick="checkAgreement()">다음</button>
+        <button class="submit-btn" id="nextBtn">다음</button>
     </main>
 </div>
 
-<script>
-    function checkAgreement() {
-        var term1 = document.getElementById("terms1");
-        var term2 = document.getElementById("terms2");
+<!-- 팝업창 요소 -->
+<div class="modal-overlay" id="customModal">
+    <div class="modal">
+        <span class="modal-icon" id="modalIcon">⚠️</span>
+        <div class="modal-message" id="modalMessage">알림</div>
+        <button class="modal-btn" id="modalCloseBtn">확인</button>
+    </div>
+</div>
 
-        if (term1.checked && term2.checked) {
-            alert("모든 약관에 동의하셨습니다. 가입을 진행합니다.");
-        } else {
-            alert("모든 필수 약관에 동의해주셔야 가입이 가능합니다.");
-        }
-    }
-</script>
-
+<!-- 외부 스크립트 연결 -->
+<script src="js/terms.js"></script>
 </body>
+</html>
