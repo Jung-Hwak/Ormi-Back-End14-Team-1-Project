@@ -16,3 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+ 
+    /* Enter 전송 / Shift+Enter 줄바꿈 */
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            form.requestSubmit();
+        }
+    });
