@@ -40,7 +40,7 @@
     width: 100%;
 }
 
-/* 2. 입력 영역 컨테이너 (Textarea와 내부 버튼을 감쌈) */
+/* 2. 입력 영역 컨테이너 */
 #search > #question > form > .search-input-container {
     position: relative;
     background-color: #ffffff;
@@ -76,7 +76,6 @@
     cursor: pointer;
     font-size: 0.9em;
     font-weight: bold;
-    z-index: 10;
 }
 
 .search-input-container > .submit-button-inside:hover {
