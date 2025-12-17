@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 약관</title>
+    <link rel="stylesheet" href="/reset.css">    
+    <style>
+        /* 기본 설정 */
+        html, body { margin: 0; padding: 0; height: 100%; }
+        body { font-family: 'Malgun Gothic', sans-serif; background-color: white; display: flex; flex-direction: column; }
+        .container { width: 100%; min-height: 100vh; display: flex; flex-direction: column; }
+
+        /* 헤더 */
+        header { background-color: #ffffff; height: 60px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #e0e4e8; position: relative; }
+        .header-title { font-size: 18px; font-weight: bold; }
+
+        /* 메인 컨텐츠 */
+        main { padding: 50px 20px; text-align: center; flex-grow: 1; width: 100%; box-sizing: border-box; }
+        h1 { font-size: 32px; margin-bottom: 60px; font-weight: bold; }
+
+        /* 약관 영역 */
+        .terms-section { margin-bottom: 50px; width: 90%; max-width: 1200px; margin-left: auto; margin-right: auto; text-align: left; }
+        h2 { font-size: 18px; text-align: left; margin-bottom: 15px; font-weight: bold; color: #333; }
+        .terms-box { width: 100%; height: 200px; border: 1px solid #ccc; padding: 20px; box-sizing: border-box; overflow-y: scroll; background-color: #f9f9f9; line-height: 1.6; resize: vertical; font-family: inherit; }
+        .terms-box:focus { outline: 2px solid #007bff; }
+
+        /* 체크박스 */
+        .checkbox-container { display: flex; justify-content: flex-end; align-items: center; font-size: 16px; margin-top: 10px; }
+        .checkbox-container input { width: 24px; height: 24px; margin-right: 12px; cursor: pointer; }
+        .checkbox-container label { cursor: pointer; user-select: none; }
+
+        /* 다음 버튼 */
+        .submit-btn { background-color: #007bff; color: white; border: none; padding: 15px 80px; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; margin: 40px 0; transition: all 0.3s; }
+        .submit-btn:hover { background-color: #0056b3; transform: translateY(-2px); }
+
+        /* 팝업창(모달) 스타일 */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1000; justify-content: center; align-items: center; }
+        .modal { background: white; padding: 30px; border-radius: 12px; text-align: center; width: 90%; max-width: 350px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        .modal-message { margin-bottom: 25px; font-size: 16px; line-height: 1.5; color: #333; }
+        .modal-btn { background-color: #007bff; color: white; border: none; padding: 10px 30px; border-radius: 6px; font-size: 16px; cursor: pointer; }
+        .modal-icon { font-size: 40px; margin-bottom: 15px; display: block; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="header-title">KSH(logo)</div> 
+    </header>
+
+    <main>
+        <h1>회원가입 약관</h1>
+
+        <!-- 1. 이용 약관 -->
+        <div class="terms-section">
+            <h2>사이트 이용 약관</h2>
+            <textarea class="terms-box" readonly>
+이용약관 (개정안)
+제1조 (목적)
+
+본 약관은 KSH(이하 "회사")가 제공하는 모든 서비스의 이용 조건 및 절차, 그리고 기타 필요한 사항을 규정함을 목적으로 합니다.
+
+제2조 (약관의 효력)
+
+본 약관은 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」 및 「전자상거래 등에서의 소비자보호에 관한 법률」에 따라 공시 절차를 거쳐, 서비스를 통하여 게시하거나 전자우편 및 기타 방법으로 회원에게 통지함으로써 효력이 발생합니다.
+
+회사는 관련 법령을 위반하지 않는 범위에서 본 약관을 변경할 수 있으며, 변경된 약관은 제1항과 같은 방법으로 공지 또는 통지함으로써 효력이 발생합니다.
+
+제3조 (약관의 변경)
+
+회사는 서비스 운영상 또는 기타 필요한 사유가 있을 경우 약관을 변경할 수 있으며, 변경된 약관은 제2조와 동일한 방법으로 공지 또는 통지합니다.
+
+제4조 (약관 외 준칙)
+
+본 약관에서 정하지 않은 사항은 「전자상거래 등에서의 소비자보호에 관한 법률」, 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」, 「전기통신사업법」 등 관계 법령 및 일반적인 상관습에 따릅니다.
+
+제2장 회원가입 및 탈퇴
+제1조 (회원가입)
+
+가입 신청자가 온라인으로 등록 절차를 거쳐 ‘동의함’ 버튼을 클릭하면 본 약관에 동의한 것으로 간주합니다.
+
+회사는 다음 각 호에 해당하지 않는 한 신청자를 회원으로 등록합니다.
+
+등록 내용에 허위, 누락 또는 오기가 있는 경우
+
+회원 등록이 기술상 또는 업무 수행상 현저히 지장을 초래할 우려가 있는 경우
+
+사회 질서나 미풍양속을 저해할 목적으로 신청한 경우
+
+제2조 (회원 탈퇴 및 자격 상실)
+
+회원은 언제든지 회사에 탈퇴를 요청할 수 있으며, 회사는 지체 없이 회원 등록 말소 절차를 진행합니다.
+
+회원이 다음 각 호의 사유에 해당하는 경우, 회사는 사전 통지 없이 회원 자격을 제한·정지하거나 상실시킬 수 있습니다.
+
+가입 신청 시 허위 내용을 기재한 경우
+
+본 약관을 위반한 경우
+
+공공질서 및 미풍양속에 반하는 행위를 한 경우
+
+범죄와 관련된 행위를 한 경우
+
+서비스 운영을 고의로 방해하거나 위해를 가한 경우
+
+기타 회원 자격 유지가 부적절하다고 판단되는 경우
+
+회원이 사망한 경우 회원 자격은 자동 상실됩니다.
+
+제3장 서비스 제공 및 이용
+제1조 (서비스 내용)
+
+회사는 제공하는 서비스의 내용을 추가하거나 변경할 수 있으며, 그 내용을 회원에게 사전 공지합니다.
+
+제2조 (서비스 이용시간)
+
+서비스는 특별한 사정이 없는 한 연중무휴, 1일 24시간 제공됩니다.
+
+회사는 일부 서비스의 이용시간을 별도로 정할 수 있으며, 이 경우 사전에 공지합니다.
+
+제3조 (정보 제공 및 광고 게재)
+
+회사는 서비스 운영과 관련하여 각종 정보를 서비스 화면에 게재하거나 이메일, 문자 등으로 회원에게 제공할 수 있습니다.
+
+회사는 광고 수익을 기반으로 서비스를 제공할 수 있으며, 서비스를 이용하는 회원은 광고 게재에 동의하는 것으로 간주됩니다.
+
+제4조 (서비스 제공의 중지)
+
+회사는 서비스의 일부 또는 전부를 일시적 또는 영구적으로 수정·중단할 수 있으며, 이로 인해 발생하는 문제에 대하여 회원 또는 제3자에게 책임을 지지 않습니다.
+
+제4장 의무사항
+제1조 (회사의 의무)
+
+회사는 안정적이고 지속적인 서비스 제공을 위해 최선을 다합니다.
+
+회사는 관계 법령에 따라 회원의 개인정보를 보호하며, 본인의 동의 없이 제3자에게 제공하지 않습니다.
+
+회사는 회원 전체 또는 일부의 개인정보를 식별 불가능한 형태로 가공하여 내부 통계, 마케팅 및 광고 영업 목적으로 활용할 수 있습니다.
+
+회사는 회원의 정당한 의견이나 불만 제기를 신속히 처리하기 위해 노력합니다.
+
+종이카드 서비스는 우편을 통해 제공되며, 배송 과정에서 발생하는 우편 사고에 대해서는 회사가 책임을 지지 않습니다.
+
+제2조 (회원의 의무)
+
+회원은 본 약관 및 관계 법령을 준수하여야 합니다.
+
+아이디(ID) 및 비밀번호 관리 책임은 회원에게 있으며, 관리 소홀로 인한 손해는 회원 본인에게 있습니다.
+
+회원은 본 서비스를 이용하여 불법·음란물·불온한 정보를 전송하거나 공공질서에 위반되는 행위를 하여서는 안 되며, 이를 위반할 경우 모든 법적 책임은 회원 본인에게 있습니다.
+
+회원은 자신의 ID가 부정하게 사용된 경우 즉시 회사에 통보하여야 합니다.
+
+[부칙]
+본 약관은 2025년 9월 23일부로 시행합니다.
+            </textarea>
+            <div class="checkbox-container">
+                <input type="checkbox" id="terms1">
+                <label for="terms1">이용 약관에 동의합니다.</label>
+            </div>
+        </div>
+
+        <!-- 2. 개인정보 동의 -->
+        <div class="terms-section">
+            <h2>개인정보 수집 및 이용에 대한 동의</h2>
+            <textarea class="terms-box" readonly>
+개인정보처리방침
+
+[총칙]
+
+개인정보란 살아 있는 개인에 관한 정보로서, 성명·연락처·이메일 주소 등 해당 정보로 특정 개인을 식별할 수 있는 정보를 말합니다. (해당 정보만으로는 특정 개인을 식별할 수 없더라도 다른 정보와 쉽게 결합하여 개인을 식별할 수 있는 경우 포함)
+
+KSH(이하 ‘회사’)는 「개인정보 보호법」 등 관련 법령을 준수하며, 개인정보를 안전하게 보호하기 위해 최선을 다하고 있습니다.
+
+회사는 개인정보처리방침을 홈페이지 첫 화면 또는 관련 화면에 공개하여 이용자가 언제든 쉽게 확인할 수 있도록 하고 있습니다.
+
+회사는 법령, 정책 또는 보안기술의 변경에 따라 개인정보처리방침을 개정할 수 있으며, 개정 시 버전번호와 개정일자를 명시하여 이용자가 쉽게 알 수 있도록 공지합니다.
+
+[개인정보의 수집 항목 및 방법]
+
+회사는 회원가입, 상담, 서비스 신청 등을 위해 아래와 같은 개인정보를 수집할 수 있습니다.
+
+필수항목: 성명, 아이디, 비밀번호, 전화번호, 주소, 이메일 주소
+
+회사는 원칙적으로 주민등록번호 등 고유식별정보는 수집하지 않습니다. (법령에 의해 불가피하게 수집해야 하는 경우, 별도의 동의를 받습니다.)
+
+개인정보 수집 방법: 홈페이지, 고객센터, 이벤트 응모 등
+
+[개인정보의 수집 및 이용 목적]
+회사는 수집한 개인정보를 다음과 같은 목적을 위해 이용합니다.
+
+회원가입 및 관리: 본인 확인, 서비스 제공을 위한 식별, 부정이용 방지
+
+서비스 제공: 콘텐츠·상품·배송 등 계약 이행 및 요금 정산
+
+고객지원: 고지사항 전달, 민원 처리, 원활한 의사소통 경로 확보
+
+마케팅 및 광고: 신규 서비스·이벤트 안내, 고객 맞춤형 서비스 제공 (동의한 경우에 한함)
+
+[개인정보의 보유 및 이용 기간]
+회사는 원칙적으로 개인정보 수집·이용 목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다. 단, 관계 법령에 따라 일정 기간 보존할 필요가 있는 경우는 아래와 같습니다.
+
+계약 또는 청약 철회 등에 관한 기록: 5년
+
+대금결제 및 재화 등의 공급에 관한 기록: 5년
+
+소비자의 불만 또는 분쟁처리에 관한 기록: 3년
+
+[개인정보 제3자 제공 및 위탁]
+
+회사는 원칙적으로 이용자의 개인정보를 고지한 범위 내에서만 사용하며, 이용자의 사전 동의 없이는 제3자에게 제공하지 않습니다.
+
+다만, 원활한 서비스 제공을 위해 개인정보를 위탁 처리할 수 있으며, 이 경우 위탁받는 자와 업무의 내용을 홈페이지에 공개합니다.
+
+[이용자의 권리와 행사 방법]
+이용자는 언제든지 자신의 개인정보를 열람·정정·삭제·처리정지 요구할 수 있으며, 회원 탈퇴를 통해 개인정보의 수집 및 이용에 대한 동의를 철회할 수 있습니다.
+
+[개인정보의 안전성 확보 조치]
+회사는 개인정보 보호를 위해 다음과 같은 조치를 취하고 있습니다.
+
+기술적 조치: 암호화, 접근통제, 보안 프로그램 설치 등
+
+관리적 조치: 개인정보 처리 인력 최소화, 정기적 보안 교육, 내부 점검 절차 운영
+
+물리적 조치: 자료 보관실 및 서버실의 출입통제
+
+[쿠키(cookie)의 사용]
+회사는 이용자의 편의를 위하여 쿠키를 사용할 수 있습니다. 이용자는 브라우저 설정을 통해 쿠키 저장을 거부할 수 있으며, 다만 이 경우 일부 서비스 이용에 제한이 있을 수 있습니다.
+
+[개인정보 보호책임자]
+회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보와 관련한 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.
+
+[고지의 의무]
+본 개인정보처리방침은 2025년 9월 제정되었으며, 이후 법령 개정 및 정책 변경에 따라 내용이 추가·삭제·수정될 수 있습니다. 변경 시 최소 7일 전부터 홈페이지 공지사항을 통해 고지합니다.
+            </textarea>
+            <div class="checkbox-container">
+                <input type="checkbox" id="terms2">
+                <label for="terms2">개인정보 제공에 동의합니다.</label>
+            </div>
+        </div>
+
+        <!-- 다음 버튼 -->
+        <button class="submit-btn" id="nextBtn">다음</button>
+    </main>
+</div>
+
+<!-- 팝업창 요소 -->
+<div class="modal-overlay" id="customModal">
+    <div class="modal">
+        <span class="modal-icon" id="modalIcon">⚠️</span>
+        <div class="modal-message" id="modalMessage">알림</div>
+        <button class="modal-btn" id="modalCloseBtn">확인</button>
+    </div>
+</div>
+
+<!-- 외부 스크립트 연결 -->
+<script src="js/terms.js"></script>
+</body>
+</html>

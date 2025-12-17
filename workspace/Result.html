@@ -5,17 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KSH Ai Result</title>
 
-   
+    <!-- CSS -->
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/aiportal.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/scroll bar.css">
+    
+
+    <!-- JS -->
+    <script src="./js/result.js" defer></script>
+    <script src="./js/aiproject.js" defer></script>
+    <script src="./js/enter.js" defer></script>
+
 
     <style>
         
+
+        /* 채팅 영역 */
         .chat-container {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            margin-bottom: 20px;
+            max-height: 55vh;
+            overflow-y: auto;
+            margin-bottom: 16px;
+            padding-right: 6px;
+            width: 700px;
         }
 
         .chat-bubble {
@@ -23,14 +38,13 @@
             padding: 12px 15px;
             border-radius: 15px;
             line-height: 1.5;
-            font-size: 1em;
             word-break: break-word;
         }
 
         .chat-bubble.user {
             align-self: flex-end;
             background-color: #007bff;
-            color: white;
+            color: #fff;
             border-bottom-right-radius: 4px;
         }
 
@@ -42,105 +56,75 @@
         }
     </style>
 </head>
+
 <body>
 
+<!-- 네비게이션 -->
 <nav id="nav">
-    <div class="menu-icon">
-        <span class="icon">☰</span>
-    </div>
 
-    <div id="logo">KSH(Logo)</div>
+            <div class="menu-icon">
 
-    <div id="Login">
-        <a href="Login.html">
-            <span class="icon">로그인 HTML</span>
-        </a>
-    </div>
-</nav>
+                <span class="icon" id="hamburger-icon"></span> </div> 
+
+            <div id="logo"> Label </div> 
+
+            <div id="Login">
+
+                <a href="login.html" title="로그인 / 내 정보">
+
+                    <span class="icon" id="user-icon"></span> 
+
+                </a>
+                
+            </div> 
+
+        </nav> 
+
 
 <div id="layout">
 
-    <!-- 사이드바 -->
+    <!-- 사이드바  -->
     <aside id="menu">
         <h2 class="logo">KSH(logo)</h2>
-
         <div class="menu-content">
             <div class="chat-history-heading"> 내 채팅 </div>
-            <ul>
-                <li>제목 1<span class="chat-list">내용 1</span></li>
-                <li>제목 2<span class="chat-list">내용 2</span></li>
-                <li>제목 3<span class="chat-list">내용 3</span></li>
-            </ul>
+            <ul id="historyList"></ul>
         </div>
-
         <div class="settings-icon">⚙</div>
     </aside>
 
-    <!-- 메인 -->
+    <!-- 메인 영역  -->
     <main id="search">
-
         <div id="question">
 
-            <!-- 채팅 결과 영역 -->
+            <!--  결과 영역  -->
             <div class="chat-container" id="chatContainer"></div>
 
-            <!-- 입력창-->
+            <!-- 검색창 -->
             <form id="chatForm">
                 <div class="search-input-container">
-                    <textarea id="input" placeholder="무엇이든 물어보세요!"></textarea>
+                    <textarea
+                        id="input"
+                        name="query"
+                        placeholder=" 무엇이든 물어보세요! (텍스트 입력) "
+                    ></textarea>
 
                     <button type="submit" class="submit-button-inside">
                         <span>검색</span>
                     </button>
                 </div>
+
+                <div class="bottom-actions-bar">
+                    <button type="button" class="add-feature-button"><span>+</span></button>
+                    <span class="icon file-upload"></span>
+                    <span class="icon image-search"></span>
+                </div>
             </form>
 
         </div>
-
     </main>
 
 </div>
-
-<script>
-    const chatContainer = document.getElementById('chatContainer');
-    const form = document.getElementById('chatForm');
-    const input = document.getElementById('input');
-
-    // 처음 페이지 들어올 때 query 출력
-    const params = new URLSearchParams(window.location.search);
-    const firstQuery = params.get("query");
-
-    if (firstQuery) {
-        addUserMessage(firstQuery);
-        addAiMessage("대답");
-    }
-
-    function addUserMessage(text) {
-        const div = document.createElement('div');
-        div.className = 'chat-bubble user';
-        div.textContent = text;
-        chatContainer.appendChild(div);
-    }
-
-    function addAiMessage(text) {
-        const div = document.createElement('div');
-        div.className = 'chat-bubble ai';
-        div.textContent = text;
-        chatContainer.appendChild(div);
-    }
-
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const text = input.value.trim();
-        if (!text) return;
-
-        addUserMessage(text);
-        addAiMessage("대답");
-
-        input.value = '';
-    });
-</script>
 
 </body>
 </html>
