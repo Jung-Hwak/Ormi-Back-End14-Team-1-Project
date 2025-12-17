@@ -5,31 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KSH Ai Result</title>
 
-    <!-- 공통 CSS -->
+    <!-- index와 동일한 CSS -->
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/aiportal.css">
+    <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/scroll bar.css">
     
 
-    <style>
-        /* 질문 영역을 세로 레이아웃 */
-        #question {
-            display: flex;
-            flex-direction: column;
-            height: calc(100vh - 120px);
-        }
+    <!-- JS -->
+    <script src="./js/script.js" defer></script>
+    <script src="./js/aiproject.js" defer></script>
+    <script src="./js/enter.js " defer></script>
 
-        /* 채팅 영역만 스크롤 */
+
+    <style>
+        
+
+        /* 채팅 영역 */
         .chat-container {
-            flex: 1;
             display: flex;
             flex-direction: column;
             gap: 12px;
+            max-height: 55vh;
             overflow-y: auto;
+            margin-bottom: 16px;
             padding-right: 6px;
         }
 
-        /* 말풍선 공통 */
         .chat-bubble {
             max-width: 70%;
             padding: 12px 15px;
@@ -38,7 +40,6 @@
             word-break: break-word;
         }
 
-        /* 사용자 말풍선 */
         .chat-bubble.user {
             align-self: flex-end;
             background-color: #007bff;
@@ -46,64 +47,65 @@
             border-bottom-right-radius: 4px;
         }
 
-        /* AI 말풍선 */
         .chat-bubble.ai {
             align-self: flex-start;
             background-color: #f0f4f7;
             color: #333;
             border-bottom-left-radius: 4px;
         }
-
-        /* textarea 커서 보정 */
-        #question textarea {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            line-height: 1.4;
-            vertical-align: top;
-        }
     </style>
 </head>
 
 <body>
 
-<!-- 상단 네비 -->
+<!-- 네비게이션 -->
 <nav id="nav">
-    <div class="menu-icon">☰</div>
-    <div id="logo">KSH(Logo)</div>
-    <div id="Login">
-        <a href="Login.html">로그인 HTML</a>
-    </div>
-</nav>
+
+            <div class="menu-icon">
+
+                <span class="icon" id="hamburger-icon"></span> </div> 
+
+            <div id="logo"> Label </div> 
+
+            <div id="Login">
+
+                <a href="login.html" title="로그인 / 내 정보">
+
+                    <span class="icon" id="user-icon"></span> 
+
+                </a>
+                
+            </div> 
+
+        </nav> 
+
 
 <div id="layout">
 
-    <!-- 사이드바 -->
+    <!-- 사이드바  -->
     <aside id="menu">
         <h2 class="logo">KSH(logo)</h2>
-
         <div class="menu-content">
-            <div class="chat-history-heading">내 채팅</div>
-
-            <!-- 🔴 JS가 여기다 채움 -->
-            <ul id="chatHistoryList"></ul>
+            <div class="chat-history-heading"> 내 채팅 </div>
+            <ul id="historyList"></ul>
         </div>
-
         <div class="settings-icon">⚙</div>
     </aside>
 
-    <!-- 메인 -->
+    <!-- 메인 영역  -->
     <main id="search">
         <div id="question">
 
-            <!-- 채팅 결과 -->
+            <!--  결과 영역  -->
             <div class="chat-container" id="chatContainer"></div>
 
-            <!-- 입력창 -->
+            <!-- 검색창 -->
             <form id="chatForm">
                 <div class="search-input-container">
                     <textarea
                         id="input"
-                        placeholder="무엇이든 물어보세요! (텍스트 입력)"
+                        name="query"
+                        placeholder=" 무엇이든 물어보세요! (텍스트 입력) "
                     ></textarea>
 
                     <button type="submit" class="submit-button-inside">
@@ -112,9 +114,9 @@
                 </div>
 
                 <div class="bottom-actions-bar">
-                    <button type="button" class="add-feature-button">+</button>
-                    <span class="icon">File</span>
-                    <span class="icon">Images</span>
+                    <button type="button" class="add-feature-button"><span>+</span></button>
+                    <span class="icon file-upload">File</span>
+                    <span class="icon image-search">Images</span>
                 </div>
             </form>
 
@@ -122,8 +124,6 @@
     </main>
 
 </div>
-
-
 
 </body>
 </html>
