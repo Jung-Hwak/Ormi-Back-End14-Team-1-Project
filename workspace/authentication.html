@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>본인 인증</title>
+    <!-- CSS 파일 연결 (경로 확인 필요) -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/aiportal.css">
+
+    <style>
+        /* 기존 스타일 유지 + 버튼 스타일 보완 */
+        html, body { margin: 0; padding: 0; height: 100%; }
+        body { font-family: 'Malgun Gothic', '맑은 고딕', Arial, sans-serif; background-color: white; display: flex; flex-direction: column; }
+        .container { width: 100%; min-height: 100vh; display: flex; flex-direction: column; }
+        
+        header { background-color: #ffffff; height: 60px; flex-shrink: 0; display: flex; align-items: center; padding: 0 30px; border-bottom: 1px solid #e0e4e8; justify-content: space-between; }
+        .header-title { font-size: 18px; font-weight: bold; position: absolute; left: 50%; transform: translateX(-50%); cursor: pointer; }
+
+        main { padding: 50px 20px; text-align: center; flex-grow: 1; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; }
+        h1 { font-size: 32px; margin-bottom: 10px; font-weight: bold; color: #000; }
+        .subtitle { font-size: 16px; color: #666; margin-bottom: 40px; }
+
+        .auth-method-list { display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 600px; margin-bottom: 30px; }
+        
+        /* [수정] 클래스(.auth-card) 대신 ID(#...)로 스타일 적용 
+           모든 인증 카드에 공통 스타일을 적용하기 위해 콤마(,)로 나열했습니다.
+        */
+        #method-phone, #method-ipin, #method-toss { 
+            display: flex; align-items: center; padding: 25px; 
+            border: 1px solid #e0e4e8; border-radius: 12px; cursor: pointer; 
+            transition: all 0.2s; background-color: #f9f9f9; text-align: left; 
+        }
+
+        /* 호버 효과 */
+        #method-phone:hover, #method-ipin:hover, #method-toss:hover { 
+            border-color: #007bff; background-color: #f0f8ff; 
+        }
+
+        /* 선택된 상태 (.selected 클래스는 JS에서 토글되므로 유지하거나 JS도 수정 필요) */
+        /* 여기서는 JS 수정을 최소화하기 위해 class="selected"는 유지하는 것이 좋습니다. */
+        #method-phone.selected, #method-ipin.selected, #method-toss.selected { 
+            border-color: #007bff; background-color: #e6f7ff; box-shadow: 0 0 0 1px #007bff inset; 
+        }
+        
+        .auth-icon { font-size: 28px; margin-right: 20px; width: 40px; text-align: center; }
+        .auth-info { flex-grow: 1; }
+        .auth-name { font-size: 18px; font-weight: bold; color: #333; display: block; margin-bottom: 5px; }
+        .auth-desc { font-size: 14px; color: #777; }
+        
+        .check-circle { width: 24px; height: 24px; border: 2px solid #ccc; border-radius: 50%; margin-left: 15px; position: relative; background-color: white; }
+        
+        /* 선택 시 체크박스 스타일 */
+        .selected .check-circle { border-color: #007bff; background-color: #007bff; }
+        .selected .check-circle::after { content: '✔'; color: white; font-size: 14px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+        /* 버튼 및 메시지 스타일 */
+        .submit-btn { background-color: #007bff; color: white; border: none; padding: 15px 0; width: 100%; max-width: 600px; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .submit-btn:disabled { background-color: #ccc; cursor: not-allowed; box-shadow: none; }
+        .submit-btn:hover:not(:disabled) { background-color: #0056b3; transform: translateY(-2px); }
+
+        #auth-message { display: none; margin-top: 20px; color: #28a745; font-weight: bold; font-size: 18px; padding: 15px; background-color: #d4edda; border-radius: 8px; width: 100%; max-width: 570px; border: 1px solid #c3e6cb; }
+
+        .button-group { display: flex; gap: 20px; margin-top: 50px; width: 100%; max-width: 600px; }
+        .action-btn { flex: 1; padding: 15px; font-size: 16px; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s; }
+        .btn-cancel { background-color: #f1f3f5; color: #495057; }
+        .btn-next { background-color: #333; color: white; }
+        .action-btn:hover { opacity: 0.9; }
+    </style>
+    
+    <!-- JS 파일 연결 -->
+    <script src="js/authentication.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <header>
+            <div class="header-title" id="logo-btn">KSH(logo)</div>
+        </header>
+
+        <!-- 메인 컨텐츠 -->
+        <main>
+            <h1>본인 인증</h1>
+            <p class="subtitle">안전한 서비스 이용을 위해 인증 방식을 선택해주세요.</p>
+
+            <!-- 인증 수단 선택 리스트 -->
+            <div class="auth-method-list">
+                
+                <!-- 1. 휴대폰 인증 -->
+                <div id="method-phone" class="auth-card" data-method="phone">
+                    <div class="auth-icon">📱</div>
+                    <div class="auth-info">
+                        <span class="auth-name">휴대폰 인증</span>
+                        <span class="auth-desc">통신사 문자 메시지로 인증합니다.</span>
+                    </div>
+                    <div class="check-circle"></div>
+                </div>
+
+                <!-- 2. 아이핀 인증 -->
+                <div id="method-ipin" class="auth-card" data-method="ipin">
+                    <div class="auth-icon">🆔</div>
+                    <div class="auth-info">
+                        <span class="auth-name">아이핀(i-PIN) 인증</span>
+                        <span class="auth-desc">발급받은 아이핀 ID로 인증합니다.</span>
+                    </div>
+                    <div class="check-circle"></div>
+                </div>
+
+                <!-- 3. 토스 인증 -->
+                <div id="method-toss" class="auth-card" data-method="toss">
+                    <div class="auth-icon">🔵</div>
+                    <div class="auth-info">
+                        <span class="auth-name">토스(Toss) 인증</span>
+                        <span class="auth-desc">토스 앱 푸시 알림으로 인증합니다.</span>
+                    </div>
+                    <div class="check-circle"></div>
+                </div>
+            </div>
+
+            <button id="main-auth-btn" class="submit-btn" disabled>인증 수단을 선택해주세요</button>
+            <div id="auth-message"></div>
+
+            <div class="button-group">
+                <button id="cancel-btn" class="action-btn btn-cancel">취소</button>
+                <button id="next-btn" class="action-btn btn-next">다음 단계</button>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
