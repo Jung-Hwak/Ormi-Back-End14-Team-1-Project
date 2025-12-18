@@ -78,7 +78,7 @@
                 
             </div> 
 
-        </nav> 
+        </nav>
 
 
 <div id="layout">
@@ -90,7 +90,72 @@
             <div class="chat-history-heading"> 내 채팅 </div>
             <ul id="historyList"></ul>
         </div>
-        <div class="settings-icon">⚙</div>
+        <button type="button" class="settings-btn" id="settings-open-btn">
+
+                <span class="icon" id="settings-icon"></span>
+
+                <span class="btn-text">setting</span>
+
+            </button>
+
+        </aside> <!-- /#munu -->
+
+        <div id="settings-box" class="box-hidden">
+
+            <div class="box-overlay"></div>
+
+            <div class="box-content">
+
+                <div class="box-header">
+
+                    <h2>시스템 설정</h2>
+
+                    <button type="button" id="box-close">&times;</button>
+
+                </div> <!-- /.box-header -->
+
+                <div class="box-body">
+
+                    <div class="setting-item">
+
+                        <label>테마 모드</label>
+
+                        <div class="radio-group">
+
+                            <label><input type="radio" name="theme" value="light" checked> 라이트</label>
+
+                            <label><input type="radio" name="theme" value="dark"> 다크</label>
+
+                        </div> <!-- /.radio-group -->
+
+                    </div> <!-- /.setting-item -->
+
+                    <div class="setting-item">
+
+                        <label for="lang-select">언어 설정</label>
+
+                        <select id="lang-select">
+
+                            <option value="ko">한국어 (Korean)</option>
+                            <option value="en">English (US)</option>
+                            <option value="Ch">China (CH)</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="box-footer">
+
+                    <button type="button" class="btn-save">저장</button>
+                    <button type="button" class="btn-cancel">취소</button>
+
+                </div>
+
+            </div> <!-- /.box-content -->
+
+        </div> <!-- /#settings-box -->
     </aside>
 
     <!-- 메인 영역  -->
