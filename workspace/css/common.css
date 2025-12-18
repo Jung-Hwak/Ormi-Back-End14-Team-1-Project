@@ -36,13 +36,13 @@ body {
     position: relative;
 }
 
-/* 햄버거 아이콘 및 로그인 영역 아이콘 공통 스타일 */
-#nav > .menu-icon, 
+/* 상단바 내 클릭 가능한 요소(햄버거, 로그인 버튼) 커서 설정 */
+#nav > div:first-child, 
 #nav > #Login {
     cursor: pointer;
 }
 
-/* 중앙 로고 (#logo) */
+/* 중앙 로고 위치 설정 (#logo) */
 #nav > #logo { 
     position: absolute;
     left: 50%;
@@ -51,7 +51,7 @@ body {
     font-size: 1.1em;
 }
 
-/* 우측 로그인 링크 */
+/* 상단 우측 로그인 링크 스타일 */
 #nav > #Login > a {
     text-decoration: none;
     color: #333;
@@ -62,20 +62,20 @@ body {
     color: #007bff;
 }
 
-/* 3. 하단 레이아웃 컨테이너 (#layout) */
+/* 3. 하단 레이아웃 컨테이너 */
 #layout {
     display: flex; 
-    flex-grow: 1; 
+    flex-grow: 1; /* 상단바 제외 남은 공간 모두 차지 */
     overflow: hidden;
     transition: margin-left 0.3s ease;
 }
 
-/* 사이드바 숨김 상태 (inactive) */
+/* 사이드바 숨김 상태 */
 #layout.inactive {
     margin-left: -250px; 
 }
 
-/* 사이드바 열림 상태 (active) */
+/* 사이드바 노출 상태 (제자리) */
 #layout.active {
     margin-left: 0;
 }
@@ -86,13 +86,13 @@ body {
     background-color: #ffffff;
     border-right: 1px solid #e0e4e8;
     padding: 20px 0;
-    flex-shrink: 0; 
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
 }
 
-/* 로고 스타일 */
-#menu > .logo {
+/* 사이드바 상단 서비스명 */
+#menu > h2 {
     color: #007bff;
     font-size: 1.5em;
     font-weight: bold;
@@ -100,46 +100,50 @@ body {
     padding: 0 20px;
 }
 
-/* 메뉴 콘텐츠 컨테이너 */
-#menu > .menu-content {
+/* 사이드바 내 채팅 목록 영역 */
+#menu > div:nth-child(2) {
     flex-grow: 1;
     overflow-y: auto;
 }
 
-/* 검색 기록 헤딩 */
-#menu > .menu-content > .chat-history-heading {
+/* '내 채팅' 텍스트 헤더 */
+#menu > div:nth-child(2) > div:nth-child(1) {
     color: #777;
     font-size: 0.9em;
     margin-bottom: 5px;
     padding: 0 20px;
 }
 
-/* 메뉴 리스트 (ul) */
-#menu > .menu-content > ul {
+/* 채팅 목록 리스트 설정 */
+#menu > div:nth-child(2) > ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-/* 리스트 항목 (li) */
-#menu > .menu-content > ul > li {
+/* 개별 채팅 항목 리스트 스타일 */
+#menu > div:nth-child(2) > ul > li {
     padding: 12px 20px;
     cursor: pointer;
     border-left: 3px solid transparent;
 }
 
-#menu > .menu-content > ul > li:hover {
+#menu > div:nth-child(2) > ul > li:hover {
     background-color: #f0f4f7;
     border-left-color: #007bff;
 }
 
-#menu > .menu-content > ul > li > .chat-list {
+/* 채팅 리스트 내 미리보기 텍스트 숨기기 설정 */
+#menu > div:nth-child(2) > ul > li > span:nth-child(2) {
     font-size: 0.8em;
     color: #999;
     display: block;
+    color: transparent;
+    font-size: 0;
 }
 
-.settings-btn {
+/* 사이드바 하단 설정 열기 버튼 */
+#settings-open-btn {
     padding: 15px 20px;
     border: none;
     border-top: 1px solid #e0e4e8;
@@ -148,19 +152,12 @@ body {
     margin-top: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     transition: background-color 0.2s;
 }
 
-.settings-btn:hover {
+#settings-open-btn:hover {
     background-color: #f0f4f7;
-}
-
-.settings-btn .btn-text {
-    font-size: 11px;
-    color: #888;
-    visibility: hidden;
-    margin-top: 4px;
 }
 
 /* 5. 설정 박스 디자인 */
@@ -176,109 +173,156 @@ body {
     z-index: 10;
 }
 
+/* 설정 박스 숨김 상태 클래스 */
 #settings-box.box-hidden {
     display: none;
 }
 
-.box-overlay {
+/* 설정창 열렸을 때 뒷 배경 반투명 처리 */
+#settings-box > div:nth-child(1) {
     position: absolute;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.box-content {
+/* 실제 설정창 콘텐츠 박스 */
+#settings-box > div:nth-child(2) {
     position: relative;
     background-color: #ffffff;
-    width: 350px;
-    padding: 25px;
+    width: 600px;
+    height: 400px;
+    padding: 30px;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
 }
 
-.box-header {
+/* (제목 및 닫기버튼) */
+#settings-box > div:nth-child(2) > div:nth-child(1) {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    flex-shrink: 0;
 }
 
-.box-header h2 { font-size: 1.2em; margin: 0; }
+#settings-box > div:nth-child(2) > div:nth-child(1) > h2 { 
+    font-size: 1.4em;
+    margin: 0;
+}
 
+/* 설정창 X 닫기 버튼 */
 #box-close { 
     background: none; 
     border: none; 
-    font-size: 1.5em; 
+    font-size: 2em; 
     cursor: pointer; 
     color: #999; 
 }
 
-.setting-item { margin-bottom: 20px; }
+/* 설정창 중앙 입력 영역 (테마, 언어 등) */
+#settings-box > div:nth-child(2) > div:nth-child(2) {
+    flex-grow: 1;
+    overflow-y: auto;
+}
 
-.setting-item label { 
+/* 각 설정 항목 그룹간 간격 */
+#settings-box > div:nth-child(2) > div:nth-child(2) > div { margin-bottom: 30px; }
+
+/* 설정 항목 이름 스타일 */
+#settings-box > div:nth-child(2) > div:nth-child(2) > div label { 
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     font-weight: bold;
-    font-size: 0.9em;
+    font-size: 1em;
 }
 
-.radio-group label { 
-    margin-right: 15px;
+/* 라디오 버튼 라벨 간격 설정 */
+#settings-box > div:nth-child(2) > div:nth-child(2) > div > div label { 
+    display: inline-block;
+    margin-right: 25px;
     cursor: pointer;
-    font-size: 0.9em;
+    font-size: 1em;
 }
 
+/* 언어 선택 드롭다운 스타일 */
 #lang-select {
     width: 100%;
-    padding: 8px;
+    padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 6px;
+    font-size: 1em;
 }
 
-.box-footer {
+/* 설정창 최하단 버튼 그룹 */
+#settings-box > div:nth-child(2) > div:nth-last-child(1) {
     display: flex;
     justify-content: flex-end;
-    gap: 10px;
+    gap: 15px;
+    margin-top: 20px;
+    flex-shrink: 0;
 }
 
-.box-footer button {
-    padding: 8px 16px;
-    border-radius: 4px;
+/* 하단 버튼 공통 스타일 */
+#settings-box > div:nth-child(2) > div:nth-last-child(1) > button {
+    padding: 10px 24px;
+    border-radius: 6px;
     border: none;
     cursor: pointer;
+    font-size: 1em;
 }
 
-.btn-save { background-color: #007bff; color: white; }
-.btn-cancel { background-color: #eee; }
+/* 하단 저장 버튼 (오른쪽에서 두 번째 요소) */
+#settings-box > div:nth-child(2) > div:nth-last-child(1) > button:nth-last-child(2) { 
+    background-color: #007bff;
+    color: white;
+}
+
+/* 하단 취소 버튼 (오른쪽에서 첫 번째 요소) */
+#settings-box > div:nth-child(2) > div:nth-last-child(1) > button:nth-last-child(1) { 
+    background-color: #eee;
+}
 
 /* 6. 아이콘 이미지 설정 */
-.icon {
+/* 모든 아이콘 공통 속성: 글자를 숨기고 배경 이미지만 노출 */
+#hamburger-icon, #user-icon, #settings-icon, #file-upload-icon, #image-search-icon {
     display: inline-block; 
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     width: 24px; 
     height: 24px;
+    color: transparent;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
 }
 
+/* 각 개별 아이콘 이미지 경로 및 크기 상세 설정 */
 #hamburger-icon { 
     background-image: url('https://img.icons8.com/?size=100&id=16247&format=png&color=000000'); 
     width: 30px; 
     height: 30px; 
 }
+
 #user-icon { 
     background-image: url('https://img.icons8.com/?size=100&id=23392&format=png&color=000000'); 
     width: 30px; 
     height: 30px; 
 }
+
 #settings-icon { 
     background-image: url('https://img.icons8.com/?size=100&id=ZXRdZOWJvO8k&format=png&color=000000'); 
     width: 30px; 
     height: 30px; 
 }
+
 #file-upload-icon {
     background-image: url('https://img.icons8.com/?size=100&id=tTiuvBrEmfbh&format=png&color=000000');
 }
+
 #image-search-icon { 
     background-image: url('https://img.icons8.com/?size=100&id=8ax09IWlr80n&format=png&color=000000');
 }
