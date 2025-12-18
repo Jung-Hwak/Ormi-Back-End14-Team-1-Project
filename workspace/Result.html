@@ -136,9 +136,9 @@
 
                 <div> 
 
-                    <button type="button">저장</button>
+                    <button type="button" id="save">저장</button>
 
-                    <button type="button">취소</button>
+                    <button type="button" id="cancel">취소</button>
 
                 </div>
 
@@ -153,14 +153,17 @@
             <div class="chat-container" id="chatContainer"></div>
 
             <form id="chatForm">
-                <div class="search-input-container">
-                    <textarea
-                        id="input"
-                        placeholder="무엇이든 물어보세요!"
-                    ></textarea>
-                    <button type="submit" class="submit-button-inside">
+
+                <div id="search-input-box">
+
+                    <textarea name="query" placeholder="What would you like to know?"></textarea>
+
+                    <button type="submit">
+
                         <span>검색</span>
+
                     </button>
+
                 </div>
 
                 <div id="search-actions">
