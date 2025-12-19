@@ -326,3 +326,19 @@ body {
 #image-search-icon { 
     background-image: url('https://img.icons8.com/?size=100&id=8ax09IWlr80n&format=png&color=000000');
 }
+
+.profile-hidden {
+  display: none;
+}
+
+#profile-box {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 220px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  z-index: 1000;
+}
