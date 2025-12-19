@@ -21,7 +21,13 @@
 
         </div> 
 
-        <div id="logo">Label</div> 
+        <div id="logo">
+            <h1 id="input-logo">
+                <a href="index.html">
+                    <img src="./images/ksh-logo.png" alt="KSH Logo">
+                </a>
+            </h1>
+        </div> 
 
         <div id="Login">
 
@@ -57,7 +63,7 @@
 
             <button type="button" id="settings-open-btn">
 
-                <span id="settings-icon"></span>
+                <span id="settings-icon">setting</span>
 
             </button>
 
@@ -115,9 +121,9 @@
 
                 <div> 
 
-                    <button type="button">저장</button>
+                    <button type="button" id="save">저장</button>
 
-                    <button type="button">취소</button>
+                    <button type="button" id="cancel">취소</button>
 
                 </div>
 
@@ -138,7 +144,7 @@
 
                     <div id="search-input-box"> 
 
-                        <textarea name="query" placeholder="What would you like to know?"></textarea>
+                        <textarea id="input" name="query" placeholder="What would you like to know?"></textarea>
 
                         <button type="submit">검색</button>
 
@@ -149,6 +155,7 @@
                         <button type="button">+</button>
 
                         <span id="file-upload-icon" title="로컬 파일 업로드">file-upload</span> 
+                        
                         <span id="image-search-icon" title="이미지 업로드">image-upload</span>
 
                      </div>

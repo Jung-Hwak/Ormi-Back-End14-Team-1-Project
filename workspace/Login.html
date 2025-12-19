@@ -3,10 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login - KSH AI Portal</title>
     <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
-    
+    <nav id="nav">
+
+        <div id="logo">
+
+            <h1 id="input-logo">
+
+                <a href="index.html">
+
+                    <img src="./images/ksh-logo.png" alt="KSH Logo">
+
+                </a>
+
+            </h1>
+
+        </div>
+
+    </nav>
+
+    <div id="layout">
+
+        <main id="login-main">
+
+            <div class="login-box">
+
+                <div id="input-section">
+
+                    <div class="input-field">
+
+                        <input type="text" placeholder="아이디">
+
+                        <button type="button" class="delete-btn">x</button>
+
+                    </div>
+
+                    <div id="input-field">
+
+                        <input type="password" placeholder="비밀번호">
+
+                        <button type="button" class="delete-btn">x</button>
+
+                    </div>
+
+                </div>
+
+                <button type="submit" id="login-submit-btn">로그인</button>
+
+                <div id="helper-buttons">
+
+                    <button type="button" class="small-btn">아이디/비밀번호 찾기</button>
+
+                    <button type="button" class="small-btn">회원 가입</button>
+
+                </div>
+
+                <div id="social-login-area">
+
+                    <div id="social-label">간단 회원가입/로그인</div>
+
+                    <div id="social-list">
+
+                        <button type="button" class="social-btn" id="naver">Naver 아이디로 로그인</button>
+
+                        <button type="button" class="social-btn" id="google">Google 아이디로 로그인</button>
+
+                        <button type="button" class="social-btn" id="apple">Apple 아이디로 로그인</button>
+
+                        <button type="button" class="social-btn" id="kakao">Kakao 아이디로 로그인</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
 </body>
 </html>
