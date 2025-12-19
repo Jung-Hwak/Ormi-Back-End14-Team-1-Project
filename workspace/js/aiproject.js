@@ -72,3 +72,39 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+/* 
+document.addEventListener('DOMContentLoaded', () => {
+  const loginLink = document.getElementById('login-link');
+  const profileBox = document.getElementById('profile-box');
+
+  if (!loginLink || !profileBox) return;
+
+  loginLink.addEventListener('click', (e) => {
+    const isLogin = localStorage.getItem('isLogin') === 'true';
+
+    if (!isLogin) return; // 로그인 안됐으면 원래대로 로그인 페이지 이동
+
+    e.preventDefault(); // 로그인 상태면 이동 막기
+    profileBox.classList.toggle('profile-hidden');
+  });
+
+  // 바깥 클릭 시 닫기
+  document.addEventListener('click', (e) => {
+    if (!profileBox.contains(e.target) && !loginLink.contains(e.target)) {
+      profileBox.classList.add('profile-hidden');
+    }
+  });
+});
+
+
+document.getElementById('logout-btn')?.addEventListener('click', () => {
+  localStorage.removeItem('isLogin');
+  location.reload();
+});
+
+
+localStorage.setItem('isLogin', 'true');
+
+*/ /*로그인 후 회원 정보 */
+

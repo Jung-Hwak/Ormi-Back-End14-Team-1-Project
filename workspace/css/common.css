@@ -6,6 +6,7 @@
 * 설정 톱니바퀴: https://img.icons8.com/?size=100&id=ZXRdZOWJvO8k&format=png&color=000000
 * 파일 가져오기: https://img.icons8.com/?size=100&id=tTiuvBrEmfbh&format=png&color=000000
 * 이미지 업로드: https://img.icons8.com/?size=100&id=8ax09IWlr80n&format=png&color=000000
+* 로고 이미지 : ./images/ksh-logo.png
 */
 
 /* 1. 기본 설정 및 전체 레이아웃 */
@@ -42,13 +43,40 @@ body {
     cursor: pointer;
 }
 
-/* 중앙 로고 위치 설정 (#logo) */
-#nav > #logo { 
+/* 중앙 로고 위치 설정 */
+#logo { 
     position: absolute;
     left: 50%;
+    top: 0;
     transform: translateX(-50%);
-    font-weight: bold;
-    font-size: 1.1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* h1 태그의 기본 마진 제거 및 높이 설정 */
+#input-logo {
+    margin: 0;
+    height: 100%;
+    display: flex;
+}
+
+/* 로고 클릭 가능한 링크 영역 */
+#input-logo > a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+/*  로고 이미지 상세 설정 */
+#input-logo > a > img {
+    height: 100%;
+    width: auto;
+    display: block;
+    background-color: #ffffff; 
+    mix-blend-mode: multiply;   
+    border: none;
+    padding: 0;
 }
 
 /* 상단 우측 로그인 링크 스타일 */
@@ -65,7 +93,7 @@ body {
 /* 3. 하단 레이아웃 컨테이너 */
 #layout {
     display: flex; 
-    flex-grow: 1; /* 상단바 제외 남은 공간 모두 차지 */
+    flex-grow: 1;
     overflow: hidden;
     transition: margin-left 0.3s ease;
 }
@@ -325,4 +353,20 @@ body {
 
 #image-search-icon { 
     background-image: url('https://img.icons8.com/?size=100&id=8ax09IWlr80n&format=png&color=000000');
+}
+
+.profile-hidden {
+  display: none;
+}
+
+#profile-box {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 220px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  z-index: 1000;
 }
