@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>본인 인증</title>
-    <!-- CSS 파일 연결 (경로 확인 필요) -->
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/aiportal.css">
 
     <style>
-        /* 기존 스타일 유지 + 버튼 스타일 보완 */
         html, body { margin: 0; padding: 0; height: 100%; }
         body { font-family: 'Malgun Gothic', '맑은 고딕', Arial, sans-serif; background-color: white; display: flex; flex-direction: column; }
         .container { width: 100%; min-height: 100vh; display: flex; flex-direction: column; }
@@ -22,23 +20,17 @@
         .subtitle { font-size: 16px; color: #666; margin-bottom: 40px; }
 
         .auth-method-list { display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 600px; margin-bottom: 30px; }
-        
-        /* [수정] 클래스(.auth-card) 대신 ID(#...)로 스타일 적용 
-           모든 인증 카드에 공통 스타일을 적용하기 위해 콤마(,)로 나열했습니다.
-        */
+
         #method-phone, #method-ipin, #method-toss { 
             display: flex; align-items: center; padding: 25px; 
             border: 1px solid #e0e4e8; border-radius: 12px; cursor: pointer; 
             transition: all 0.2s; background-color: #f9f9f9; text-align: left; 
         }
 
-        /* 호버 효과 */
         #method-phone:hover, #method-ipin:hover, #method-toss:hover { 
             border-color: #007bff; background-color: #f0f8ff; 
         }
 
-        /* 선택된 상태 (.selected 클래스는 JS에서 토글되므로 유지하거나 JS도 수정 필요) */
-        /* 여기서는 JS 수정을 최소화하기 위해 class="selected"는 유지하는 것이 좋습니다. */
         #method-phone.selected, #method-ipin.selected, #method-toss.selected { 
             border-color: #007bff; background-color: #e6f7ff; box-shadow: 0 0 0 1px #007bff inset; 
         }
@@ -68,7 +60,6 @@
         .action-btn:hover { opacity: 0.9; }
     </style>
     
-    <!-- JS 파일 연결 -->
     <script src="js/authentication.js"></script>
 </head>
 
