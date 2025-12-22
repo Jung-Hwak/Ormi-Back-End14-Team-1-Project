@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/login.css">
+    <script src="./js/login.js" defer></script>
 </head>
 <body>
     <nav id="nav">
-
+        
         <div id="logo">
 
             <h1 id="input-logo">
@@ -25,7 +26,7 @@
 
         </div>
 
-    </nav>
+    </nav>      <!-- /#nav -->
 
     <div id="layout">
 
@@ -33,33 +34,34 @@
 
             <div class="login-box">
 
-                <div id="input-section">
+                <form id="login-form">
 
-                    <div class="input-field">
+                    <div id="input-section">
 
-                        <input type="text" placeholder="아이디">
+                        <div class="input-field">
 
-                        <button type="button" class="delete-btn">x</button>
+                            <input type="text" id="user-id" placeholder="아이디" required>
 
-                    </div>
+                            <button type="button" class="delete-btn">x</button>
 
-                    <div id="input-field">
+                        </div>
 
-                        <input type="password" placeholder="비밀번호">
+                        <div class="input-field">
 
-                        <button type="button" class="delete-btn">x</button>
+                            <input type="password" id="user-pw" placeholder="비밀번호" required>
 
-                    </div>
+                            <button type="button" class="delete-btn">x</button>
+                        </div>
+                    </div>      <!-- input-section -->
 
-                </div>
-
-                <button type="submit" id="login-submit-btn">로그인</button>
+                    <button type="submit" id="login-submit-btn">로그인</button>
+                </form>
 
                 <div id="helper-buttons">
 
                     <button type="button" class="small-btn">아이디/비밀번호 찾기</button>
 
-                    <button type="button" class="small-btn">회원 가입</button>
+                    <button type="button" class="small-btn" id="join-btn">회원 가입</button>
 
                 </div>
 
@@ -69,23 +71,18 @@
 
                     <div id="social-list">
 
-                        <button type="button" class="social-btn" id="naver">Naver 아이디로 로그인</button>
+                        <a href="#" class="social-btn" id="naver">Naver 아이디로 로그인</a>
 
-                        <button type="button" class="social-btn" id="google">Google 아이디로 로그인</button>
+                        <a href="#" class="social-btn" id="google">Google 아이디로 로그인</a>
 
-                        <button type="button" class="social-btn" id="apple">Apple 아이디로 로그인</button>
+                        <a href="#" class="social-btn" id="apple">Apple 아이디로 로그인</a>
 
-                        <button type="button" class="social-btn" id="kakao">Kakao 아이디로 로그인</button>
+                        <a href="#" class="social-btn" id="kakao">Kakao 아이디로 로그인</a>
 
-                    </div>
-
-                </div>
-
-            </div>
-
-        </main>
-
-    </div>
-
+                    </div>      <!-- /#social-list-->
+                </div>      <!-- /#social-login-area -->
+            </div>      <!-- /.login-box -->
+        </main>     <!-- /#login-main -->
+    </div>      <!--/#layout -->
 </body>
 </html>
