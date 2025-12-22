@@ -18,31 +18,40 @@
             flex-direction: column;
         }
 
-        /* 헤더 스타일 */
-        header {
-            background-color: #ffffff;
-            height: 60px; 
-            flex-shrink: 0;
-            display: flex;
+        header { 
+            background-color: #ffffff; 
+            height: 60px; flex-shrink: 0; 
+            display: flex; 
             align-items: center; 
-            padding: 0 30px;
-            border-bottom: 1px solid #e0e4e8;
-            justify-content: space-between;         
+            justify-content: center; 
+            border-bottom: 1px solid #e0e4e8; 
+            position: relative; 
+        }
+        #logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%; 
         }
 
-        .menu-icon, .user-icon {
-            width: 30px;  
-            height: 30px;
-            cursor: pointer;
-            object-fit: contain; 
+        #input-logo {
+            margin: 0;
+            line-height: 0;
+            display: flex; 
+            align-items: center;
         }
 
-        .header-title {
-            font-size: 18px;
-            font-weight: bold;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+        #input-logo a {
+            display: block;
+            height: 60px; 
+        }
+
+        #input-logo img {
+            height: 100%; 
+            width: auto;  
+            max-width: 100%; 
+            object-fit: contain;
+            display: block; 
         }
 
         /* 메인 컨텐츠 영역 */
