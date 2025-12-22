@@ -8,6 +8,7 @@
     align-items: center;
     background-color: #f4f7f9;
     padding: 20px;
+    min-height: calc(100vh - 80px);
 }
 
 .login-box {
@@ -16,7 +17,7 @@
     background-color: #ffffff;
     padding: 40px 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -29,72 +30,65 @@
     gap: 12px;
 }
 
-.input-field, #input-field {
+.input-field {
     position: relative;
     width: 100%;
 }
 
-.input-field input, #input-field input {
+.input-field input {
     width: 100%;
     height: 52px;
-    padding: 0 15px;
+    padding: 0 45px 0 15px;
     border: 1px solid #e0e4e8;
     border-radius: 8px;
     font-size: 1em;
-    background-color: #ffffff;
     box-sizing: border-box;
     transition: all 0.2s ease;
 }
 
-.input-field input:focus, #input-field input:focus {
+.input-field input:focus {
     border-color: #007bff;
     outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
 }
 
+/* 삭제 버튼(x) 스타일 */
 .delete-btn {
     position: absolute;
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
-    background: none;
-    border: 1px solid #ddd;
+    background: #f0f0f0;
+    border: none;
     border-radius: 50%;
     width: 22px;
     height: 22px;
     color: #999;
     cursor: pointer;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
-    padding: 0;
+    font-size: 10px;
 }
 
-/* 3. 로그인 버튼 (새로 추가됨) */
+/* 추가: 로그인 실행 버튼 */
 #login-submit-btn {
     width: 100%;
-    height: 50px;
+    height: 52px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 1.1em;
+    font-size: 1.05em;
     font-weight: bold;
     cursor: pointer;
     margin-top: 5px;
-    transition: background-color 0.2s, transform 0.1s;
+    transition: background-color 0.2s;
 }
 
-#login-submit-btn:hover {
-    background-color: #0056b3;
-}
+#login-submit-btn:hover { background-color: #0069d9; }
 
-#login-submit-btn:active {
-    transform: scale(0.98);
-}
-
-/* 4. 보조 버튼 (찾기 / 가입) */
+/* 3. 찾기 / 가입 */
 #helper-buttons {
     display: flex;
     gap: 10px;
@@ -103,16 +97,76 @@
 .small-btn {
     flex: 1;
     padding: 12px;
-    background-color: #f0f4f7;
-    border: 1px solid #e0e4e8;
-    color: #007bff;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    color: #666;
     font-size: 0.85em;
-    font-weight: bold;
+    font-weight: 500;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    text-align: center;
+    transition: all 0.2s;
 }
 
 .small-btn:hover {
-    background-color: #e6f7ff;
+    border-color: #007bff;
+    color: #007bff;
+}
+
+/* 4. 소셜 로그인 섹션 */
+#social-login-area {
+    margin-top: 25px;
+    border-top: 1px solid #f1f3f5;
+    padding-top: 25px;
+    text-align: center;
+}
+
+#social-label {
+    display: inline-block;
+    padding: 0 15px;
+    background-color: #ffffff;
+    font-size: 13px;
+    color: #adb5bd;
+    position: relative;
+    top: -35px;
+}
+
+#social-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: -15px;
+}
+
+.social-btn {
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    font-size: 0.95em;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.social-btn:active { transform: scale(0.98); }
+
+/* 5. 소셜 로그인 색깔 설정 */
+#naver { 
+    background-color: #03C75A; 
+    color: #ffffff;
+}
+#google {
+    background-color: #ffffff;
+    color: #3c4043;
+    border: 1px solid #dee2e6;
+}
+#apple { 
+    background-color: #000000;
+    color: #ffffff;
+}
+#kakao {
+    background-color: #FEE500;
+    color: #191919;
 }
