@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         nextBtn.addEventListener('click', function() {
             if (isAuthenticated) {
                 alert("인증이 확인되었습니다. 회원정보 입력 페이지로 이동합니다.");
+                window.location.href = 'terms.html'; 
             } else {
                 alert("본인 인증을 먼저 완료해주세요.");
             }
