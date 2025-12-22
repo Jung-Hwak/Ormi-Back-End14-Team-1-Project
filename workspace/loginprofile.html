@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>KSH AI Portal</title>
+
+<link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/aiportal.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/scroll bar.css">
+
+    <!-- JS -->
+    <script src="./js/result.js" defer></script>
+    <script src="./js/result enter.js" defer></script>
+    <script src="./js/aiproject.js" defer></script>
+    <script src="./js/terms.js" defer></script>
+</head>
+
+<body>
+
+<nav id="nav">
+
+    <!-- 햄버거 자리 -->
+    <div>
+        <span id="hamburger-icon"></span>
+    </div>
+
+    <!-- 중앙 로고 -->
+    <div id="logo">
+        <h1 id="input-logo">
+            <a href="#">
+                <img src="./images/ksh-logo.png" alt="KSH AI">
+            </a>
+        </h1>
+    </div>
+
+    <!-- 로그인 / 프로필 -->
+    <div id="Login">
+
+        <!-- 로그인 아이콘 -->
+        <span id="user-icon"></span>
+
+        <!-- 프로필 박스 -->
+        <div id="profile-box" class="profile-hidden">
+
+            <button id="profile-close" style="float:right;">×</button>
+
+            <div class="profile-avatar"
+                 style="width:60px;height:60px;border-radius:50%;background:#eee;margin:10px auto;">
+            </div>
+
+            <div class="profile-nickname"
+                 style="text-align:center;border:1px solid #ddd;border-radius:6px;padding:6px;margin-bottom:12px;">
+                닉네임
+            </div>
+
+            <div class="profile-actions" style="display:flex;gap:8px;">
+                <button style="flex:1;">회원 정보 수정</button>
+                <button id="logout-btn" style="flex:1;">로그아웃</button>
+            </div>
+
+        </div>
+    </div>
+
+</nav>
+
+<script>
+/* 로그인 완료 상태 가정 */
+localStorage.setItem("isLoggedIn", "true");
+
+const userIcon = document.getElementById("user-icon");
+const profileBox = document.getElementById("profile-box");
+const closeBtn = document.getElementById("profile-close");
+
+userIcon.addEventListener("click", () => {
+  profileBox.classList.toggle("profile-hidden");
+});
+
+closeBtn.addEventListener("click", () => {
+  profileBox.classList.add("profile-hidden");
+});
+
+/* 바깥 클릭 시 닫기 */
+document.addEventListener("click", (e) => {
+  if (!document.getElementById("Login").contains(e.target)) {
+    profileBox.classList.add("profile-hidden");
+  }
+});
+
+const logoutBtn = document.getElementById("logout-btn");
+
+logoutBtn.addEventListener("click", () => {
+  localStorage.removeItem("isLoggedIn");
+  window.location.href = "index.html";
+});
+
+</script>
+
+</body>
+</html>
