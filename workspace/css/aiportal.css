@@ -149,3 +149,63 @@
     text-align: center;
     padding-top: 10px;
 }
+/* 설정창 - 도움말 / 고객센터 */
+.settings-extra {
+    margin-top: 30px;
+}
+
+.settings-extra label {
+    display: block;
+    margin-bottom: 14px;
+    font-weight: bold;
+    font-size: 1em;
+    font-family: inherit;
+}
+
+/* 한 줄 텍스트 링크 */
+.settings-link-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 10px 4px;
+    cursor: pointer;
+
+    font-family: 'Malgun Gothic', '맑은 고딕', Arial, sans-serif;
+    font-size: 1em;
+    color: #333;
+}
+
+.settings-link-row:hover {
+    color: #007bff;
+}
+
+
+
+/* 아이콘 공통 */
+.settings-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* 도움말 아이콘 */
+.help-icon {
+    background-image: url("https://img.icons8.com/ios-glyphs/30/help.png");
+}
+
+/* 고객센터 아이콘 */
+.support-icon {
+    background-image: url("https://img.icons8.com/ios-glyphs/30/customer-support.png");
+}
+
+
+/* 도움말 / 고객센터 가로 정렬 */
+.settings-links {
+    display: flex;
+    gap: 40px;        /* 도움말 ↔ 고객센터 간격 */
+}
