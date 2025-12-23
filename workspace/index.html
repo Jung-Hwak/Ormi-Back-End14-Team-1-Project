@@ -1,76 +1,112 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>KSH Ai Main Page</title>
-        <link rel="stylesheet" href="./css/reset.css">
-        <link rel="stylesheet" href="./css/common.css">
-        <link rel="stylesheet" href="./css/aiportal.css">
-        <script src="./js/aiproject.js"></script>
-        <script src="./js/index enter.js"></script>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSH Ai Main Page</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/aiportal.css">
+    <script src="./js/aiproject.js" defer></script>
+    <script src="./js/index_enter.js" defer></script>
+</head>
+<body>
 
-        <nav id="nav">
+    <nav id="nav">
 
-            <div>
+        <div>
 
-                <span id="hamburger-icon">메뉴</span>
+            <span id="hamburger-icon">메뉴</span>
 
-            </div>
+        </div>
 
-            <div id="logo">
-                <h1 id="input-logo">
-                    <a href="index.html">
-                        <img src="./images/ksh_logo-1.png" alt="KSH Logo">
-                    </a>
-                </h1>
-            </div>
+        <div id="logo">
 
-            <div id="Login">
+            <h1 id="input-logo">
 
-                <a href="login.html" title="로그인 / 내 정보">
+                <a href="index.html">
 
-                    <span id="user-icon">로그인</span>
+                    <img src="./images/ksh_logo-1.png" alt="KSH Logo">
 
                 </a>
 
+            </h1>
+
+        </div>
+
+        <div id="Login">
+
+            <a href="login.html" id="user-link" title="로그인 / 내 정보">
+
+                <span id="user-icon">로그인</span>
+
+            </a>
+
+            <div id="profile-box" class="profile-hidden">
+
+                <div class="profile-header">
+
+                    <div class="user-avatar-large"></div>
+
+                    <div id="user-nickname-display">닉네임</div>
+
+                </div>
+
+                <div class="profile-buttons">
+
+                    <button type="button" class="profile-btn">회원 정보 수정</button>
+
+                    <button type="button" id="logout-btn" class="profile-btn logout">로그 아웃</button>
+
+                </div>
+
+            </div>      <!-- /#profile-box -->
+
+        </div>      <!-- /#Login -->
+
+    </nav>      <!-- /#nav -->
+
+    <div id="layout" class="active">
+
+        <aside id="menu">
+
+            <h2>KSH AI</h2>
+
+            <div>
+
+                <div>내 채팅</div>
+
+                <ul>
+
+                    <li>
+                            
+                        <span></span> 제목 1 <span>내용 1</span>
+
+                    </li>
+
+                </ul>
+
             </div>
 
-        </nav> <!-- #nav-->
+            <button type="button" id="settings-open-btn">
 
-        <div id="layout" class="active">
+                <span id="settings-icon">setting</span>
 
-            <aside id="menu">
+            </button>
 
-                <h2>KSH AI</h2>
+        </aside>    <!-- /#menu -->
+
+        <div id="settings-box" class="box-hidden">
+
+            <div id="setting-overlay"></div>
+
+            <div>
 
                 <div>
 
-                    <div>
-                        내 채팅
-                    </div>
+                    <h2>시스템 설정</h2>
 
-                    <ul>
-
-                        <li><span></span> 제목 1 <span>내용 1</span></li>
-
-                    </ul>
-
-                </div>
-
-                <button type="button" id="settings-open-btn">
-
-                    <span id="settings-icon">setting</span>
-
-                </button>
-
-            </aside>
-
-            <div id="settings-box" class="box-hidden">
-
-                <div id="setting-overlay">
+                    <button type="button" id="box-close">&times;</button>
 
                 </div>
 
@@ -78,121 +114,109 @@
 
                     <div>
 
-                        <h2>시스템 설정</h2>
+                        <label>테마 모드</label>
 
-                        <button type="button" id="box-close">&times;</button>
+                        <div>
+
+                            <label><input type="radio" name="theme" value="light" checked> 라이트 모드</label>
+
+                            <label><input type="radio" name="theme" value="dark"> 다크 모드</label>
+
+                        </div>
 
                     </div>
 
                     <div>
 
-                        <div>
+                        <label for="lang-select">언어 설정</label>
 
-                            <label>테마 모드</label>
+                        <select id="lang-select">
 
-                            <div>
+                            <option value="ko">한국어 (Korean)</option>
 
-                                <label><input type="radio" name="theme" value="light" checked> 라이트 모드</label>
+                            <option value="en">English (US)</option>
 
-                                <label><input type="radio" name="theme" value="dark"> 다크 모드</label>
+                            <option value="Ch">China (CH)</option>
 
-                            </div>
-
-                        </div>
-
-                        <div>
-
-                            <label for="lang-select">언어 설정</label>
-
-                            <select id="lang-select">
-
-                                <option value="ko">한국어 (Korean)</option>
-
-                                <option value="en">English (US)</option>
-
-                                <option value="Ch">China (CH)</option>
-
-                            </select>
-
-                        </div>
-                        <div class="settings-extra">
-                            <label>기타</label>
-
-                            <div class="settings-links">
-
-                                <div class="settings-link-row">
-                                    <span class="settings-icon help-icon"></span>
-                                    도움말
-                                </div>
-
-                                <div class="settings-link-row">
-                                    <span class="settings-icon support-icon"></span>
-                                    고객센터
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
+                        </select>
 
                     </div>
 
-                    <div>
+                    <div class="settings-extra">
 
-                        <button type="button" id="save">저장</button>
+                        <label>기타</label>
 
-                        <button type="button" id="cancel">취소</button>
+                        <div class="settings-links">
+
+                            <div class="settings-link-row">
+
+                                <span class="settings-icon help-icon"></span>도움말
+
+                            </div>
+
+                            <div class="settings-link-row">
+
+                                <span class="settings-icon support-icon"></span>고객센터
+
+                            </div>
+
+                        </div>
 
                     </div>
 
                 </div>
 
-            </div> <!-- /#settings-box-->
+                <div>
 
-            <main id="search">
+                    <button type="button" id="save">저장</button>
 
-                <div id="question">
+                    <button type="button" id="cancel">취소</button>
 
+                </div>
 
+            </div>
 
-                    <p>궁금하신 게 무엇인지 알려주시겠어요?</p>
+        </div> <!-- /#setting-box -->
 
+        <main id="search">
 
-                    <form
-                        action="result.html"
-                        method="get"
-                    >
+            <div id="question">
 
-                        <div id="search-input-box">
+                <p>궁금하신 게 무엇인지 알려주시겠어요?</p>
 
-                            <textarea id="input" name="query" placeholder="What would you like to know?"></textarea>
+                <form action="result.html" method="get">
 
-                            <button type="submit">검색</button>
+                    <div id="search-input-box">
 
-                        </div>
+                        <textarea id="input" name="query" placeholder="What would you like to know?"></textarea>
 
-                        <div id="search-actions">
+                        <button type="submit">검색</button>
 
-                            <button type="button">+</button>
-
-                            <span id="file-upload-icon" title="로컬 파일 업로드">file-upload</span>
-
-                            <span id="image-search-icon" title="이미지 업로드">image-upload</span>
-
-                        </div>
-
-                    </form> <!-- /result.html -->
-
-                    <div>
-                        <p>프로토 타입의 AI 검색 사이트입니다. 원하시는 정답과는 거리가 멀수있습니다.</p>
                     </div>
 
-                </div> <!-- /#question -->
+                    <div id="search-actions">
 
-            </main> <!-- /#search -->
+                        <button type="button">+</button>
 
-        </div> <!-- /#layout -->
+                        <span id="file-upload-icon" title="로컬 파일 업로드">file-upload</span>
 
-    </body>
+                        <span id="image-search-icon" title="이미지 업로드">image-upload</span>
+
+                    </div>
+
+                </form>     <!-- /result.html -->
+
+                <div>
+
+                    <p>프로토 타입의 AI 검색 사이트입니다. 원하시는 정답과는 거리가 멀수있습니다.</p>
+
+                </div>
+
+            </div>      <!-- /#question -->
+
+        </main>     <!-- /#serch -->
+
+    </div>  <!-- /#layout -->
+
+</body>
 </html>
