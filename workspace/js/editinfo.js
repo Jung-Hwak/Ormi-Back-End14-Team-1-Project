@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const formFields = [
-        { id: 'input-nickname', label: '닉네임', type: 'text', value: userInfo.nickname }, // 닉네임 필드 추가 (수정 가능)
+        { id: 'input-nickname', label: '닉네임', type: 'text', value: userInfo.nickname },
         { id: 'input-pw', label: '새 비밀번호', type: 'password', placeholder: '변경할 비밀번호를 입력해주세요 (영문, 숫자)' },
         { id: 'input-pw-check', label: '새 비밀번호 확인', type: 'password', placeholder: '비밀번호를 한번 더 입력해주세요' },
         { id: 'input-email', label: '이메일 변경', type: 'email', value: userInfo.email }
