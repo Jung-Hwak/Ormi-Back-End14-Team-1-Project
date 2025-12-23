@@ -68,12 +68,12 @@ body {
     height: 100%;
 }
 
-/*  로고 이미지 상세 설정 */
+/* 로고 이미지 상세 설정 */
 #input-logo > a > img {
     height: 100%;
     width: auto;
     display: block;
-    background-color: #ffffff; 
+    background-color: inherit; 
     mix-blend-mode: multiply;   
     border: none;
     padding: 0;
@@ -370,3 +370,20 @@ body {
   padding: 12px;
   z-index: 1000;
 }
+
+/* 7. 다크 모드 (공통 UI 대응) */
+/* 바디 및 배경 색상 반전 */
+body.dark-mode { background-color: #444; color: #e0e0e0; }
+.dark-mode #nav, .dark-mode #menu { background-color: #3d3d3d; border-color: #444; }
+.dark-mode #nav > #Login > a { color: #e0e0e0; }
+.dark-mode #menu > div:nth-child(2) > ul > li:hover { background-color: #3d3d3d; }
+
+/* 설정창 다크모드 가시성 보정 */
+.dark-mode #settings-box > div:nth-child(2) { background-color: #2d2d2d; color: #e0e0e0; border: 1px solid #444; }
+.dark-mode #settings-box h2, .dark-mode #settings-box label { color: #e0e0e0; }
+.dark-mode #lang-select { background-color: #3d3d3d; color: #fff; border-color: #555; }
+
+/* 아이콘 밝기 반전 (어두운 배경용) */
+.dark-mode #hamburger-icon, 
+.dark-mode #user-icon, 
+.dark-mode #settings-icon { filter: invert(0.9); }

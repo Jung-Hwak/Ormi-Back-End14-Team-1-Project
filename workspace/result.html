@@ -1,186 +1,215 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KSH Ai Result</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>KSH Ai Result</title>
 
-    <!-- CSS (index와 동일) -->
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/aiportal.css">
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/scroll bar.css">
+        <!-- CSS (index와 동일) -->
+        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/aiportal.css">
+        <link rel="stylesheet" href="./css/common.css">
+        <link rel="stylesheet" href="./css/scroll bar.css">
 
-    <!-- JS -->
-    <script src="./js/result.js" defer></script>
-    <script src="./js/result enter.js" defer></script>
-    <script src="./js/aiproject.js" defer></script>
-    <script src="./js/terms.js" defer></script>
-
-
-
-    <style>
-        .chat-container {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            max-height: 55vh;
-            overflow-y: auto;
-            padding-right: 6px;
-            width: 700px;
-        }
-
-        .chat-bubble {
-            max-width: 70%;
-            padding: 12px 15px;
-            border-radius: 16px;
-            line-height: 1.5;
-            word-break: break-word;
-        }
-
-        .chat-bubble.user {
-            align-self: flex-end;
-            background-color: #1677ff;
-            color: #fff;
-            border-bottom-right-radius: 4px;
-        }
-
-        .chat-bubble.ai {
-            align-self: flex-start;
-            background-color: #f1f3f5;
-            color: #222;
-            border-bottom-left-radius: 4px;
-        }
-    </style>
-</head>
-
-<body>
-
-<nav id="nav">
-    <div class="menu-icon"><span class="icon" id="hamburger-icon"></span></div>
-    <div id="logo">Label</div>
-    <div id="Login">
-        <a href="login.html"><span class="icon" id="user-icon"></span></a>
-    </div>
+        <!-- JS -->
+        <script src="./js/result.js" defer></script>
+        <script src="./js/result enter.js" defer></script>
+        <script src="./js/aiproject.js" defer></script>
+        <script src="./js/terms.js" defer></script>
 
 
-</nav>
 
-<div id="layout" class="active">
+        <style>
+            .chat-container {
+                display: flex;
+                flex-direction: column;
+                gap: 14px;
+                max-height: 55vh;
+                overflow-y: auto;
+                padding-right: 6px;
+                width: 700px;
+            }
 
-    <aside id="menu">
-        <h2 class="logo">KSH AI</h2>
-        <div class="menu-content">
-            <div class="chat-history-heading">내 채팅</div>
-            <ul id="historyList"></ul>
-        </div>
+            .chat-bubble {
+                max-width: 70%;
+                padding: 12px 15px;
+                border-radius: 16px;
+                line-height: 1.5;
+                word-break: break-word;
+            }
 
-          <button type="button" id="settings-open-btn">
+            .chat-bubble.user {
+                align-self: flex-end;
+                background-color: #1677ff;
+                color: #fff;
+                border-bottom-right-radius: 4px;
+            }
 
-                <span id="settings-icon"></span>
+            .chat-bubble.ai {
+                align-self: flex-start;
+                background-color: #f1f3f5;
+                color: #222;
+                border-bottom-left-radius: 4px;
+            }
+        </style>
+    </head>
 
-            </button>
+    <body>
 
-    </aside>
+        <nav id="nav">
+            <div class="menu-icon"><span class="icon" id="hamburger-icon"></span></div>
+            <div id="logo">
+                <h1 id="input-logo">
+                    <a href="index.html">
+                        <img src="./images/ksh_logo-1.png" alt="KSH Logo">
+                    </a>
+                </h1>
+            </div>
 
-     <div id="settings-box" class="box-hidden">
+            <div id="Login">
+                <a href="login.html"><span class="icon" id="user-icon"></span></a>
+            </div>
 
-            <div id="setting-overlay">
 
-            </div> 
+        </nav>
 
-            <div> 
+        <div id="layout" class="active">
 
-                <div> 
+            <aside id="menu">
+                <h2 class="logo">KSH AI</h2>
+                <div class="menu-content">
+                    <div class="chat-history-heading">내 채팅</div>
+                    <ul id="historyList"></ul>
+                </div>
 
-                    <h2>시스템 설정</h2>
+                <button type="button" id="settings-open-btn">
 
-                    <button type="button" id="box-close">&times;</button>
+                    <span id="settings-icon"></span>
+
+                </button>
+
+            </aside>
+
+            <div id="settings-box" class="box-hidden">
+
+                <div id="setting-overlay">
 
                 </div>
 
-                <div> 
+                <div>
 
                     <div>
 
-                        <label>테마 모드</label>
+                        <h2>시스템 설정</h2>
+
+                        <button type="button" id="box-close">&times;</button>
+
+                    </div>
+
+                    <div>
 
                         <div>
 
-                            <label><input type="radio" name="theme" value="light" checked> 라이트 모드</label>
+                            <label>테마 모드</label>
 
-                            <label><input type="radio" name="theme" value="dark"> 다크 모드</label>
+                            <div>
 
+                                <label><input type="radio" name="theme" value="light" checked> 라이트 모드</label>
+
+                                <label><input type="radio" name="theme" value="dark" > 다크 모드</label>
+
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <label for="lang-select">언어 설정</label>
+
+                            <select id="lang-select">
+
+                                <option value="ko">한국어 (Korean)</option>
+
+                                <option value="en">English (US)</option>
+
+                                <option value="Ch">China (CH)</option>
+
+                            </select>
+
+                        </div>
+                        <div class="settings-extra">
+                            <label>기타</label>
+
+                            <div class="settings-links">
+
+                                <div class="settings-link-row" onclick="location.href='help.html'">
+                                <span class="settings-icon help-icon"></span>
+                                    도움말
+                                </div>
+
+                                <div class="settings-link-row" onclick="location.href='support.html'">
+                                    <span class="settings-icon support-icon"></span>
+                                    고객센터
+                                </div>
+
+
+                            </div>
                         </div>
 
                     </div>
 
                     <div>
 
-                        <label for="lang-select">언어 설정</label>
+                        <button type="button" id="save">저장</button>
 
-                        <select id="lang-select">
-
-                            <option value="ko">한국어 (Korean)</option>
-
-                            <option value="en">English (US)</option>
-
-                            <option value="Ch">China (CH)</option>
-
-                        </select>
+                        <button type="button" id="cancel">취소</button>
 
                     </div>
 
                 </div>
 
-                <div> 
-
-                    <button type="button" id="save">저장</button>
-
-                    <button type="button" id="cancel">취소</button>
-
-                </div>
-
             </div>
 
-        </div>
 
+            <main id="search">
+                <div id="question">
 
-    <main id="search">
-        <div id="question">
+                    <div
+                        class="chat-container"
+                        id="chatContainer"
+                    ></div>
 
-            <div class="chat-container" id="chatContainer"></div>
+                    <form id="chatForm">
 
-            <form id="chatForm">
+                        <div id="search-input-box">
 
-                <div id="search-input-box">
+                            <textarea id="input" name="query" placeholder="What would you like to know?" autofocus>
 
-                    <textarea id="input" name="query" placeholder="What would you like to know?" autofocus>
-                        
                     </textarea>
 
-                    <button type="submit">
+                            <button type="submit">
 
-                        <span>검색</span>
+                                <span>검색</span>
 
-                    </button>
+                            </button>
+
+                        </div>
+
+                        <div id="search-actions">
+
+                            <button type="button">+</button>
+
+                            <span id="file-upload-icon" title="로컬 파일 업로드">file-upload</span>
+                            <span id="image-search-icon" title="이미지 업로드">image-upload</span>
+
+                        </div>
+                    </form>
 
                 </div>
-
-                <div id="search-actions">
-
-                        <button type="button">+</button>
-
-                        <span id="file-upload-icon" title="로컬 파일 업로드">file-upload</span> 
-                        <span id="image-search-icon" title="이미지 업로드">image-upload</span>
-
-                     </div>
-            </form>
+            </main>
 
         </div>
-    </main>
 
-</div>
+    </body>
 
-</body>
 </html>

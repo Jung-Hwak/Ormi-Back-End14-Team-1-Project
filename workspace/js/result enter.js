@@ -21,3 +21,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const chatForm = document.getElementById("chatForm");
+  const input = document.getElementById("input");
+
+  if (!chatForm || !input) return;
+
+  chatForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const query = input.value.trim();
+    if (!query) return;
+
+    const history = JSON.parse(localStorage.getItem("chatHistory")) || [];
+
+    const exists = history.some(item => item.question === query);
+    if (!exists) {
+      history.push({
+        id: Date.now().toString(),
+        question: query,
+        createdAt: Date.now()
+      });
+      localStorage.setItem("chatHistory", JSON.stringify(history));
+      renderHistory(); // result.js에 있는 함수 호출
+    }
+
+    input.value = "";
+  });
+});

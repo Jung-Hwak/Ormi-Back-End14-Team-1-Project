@@ -149,6 +149,7 @@
     text-align: center;
     padding-top: 10px;
 }
+
 /* 설정창 - 도움말 / 고객센터 */
 .settings-extra {
     margin-top: 30px;
@@ -167,10 +168,8 @@
     display: flex;
     align-items: center;
     gap: 12px;
-
     padding: 10px 4px;
     cursor: pointer;
-
     font-family: 'Malgun Gothic', '맑은 고딕', Arial, sans-serif;
     font-size: 1em;
     color: #333;
@@ -180,14 +179,11 @@
     color: #007bff;
 }
 
-
-
 /* 아이콘 공통 */
 .settings-icon {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
-
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -203,9 +199,19 @@
     background-image: url("https://img.icons8.com/ios-glyphs/30/customer-support.png");
 }
 
-
 /* 도움말 / 고객센터 가로 정렬 */
 .settings-links {
     display: flex;
     gap: 40px;        /* 도움말 ↔ 고객센터 간격 */
 }
+
+/* 4. 다크 모드 (메인 검색 대응) */
+.dark-mode #search > #question > p:first-child { color: #e0e0e0; }
+.dark-mode #search > #question > form > div:nth-child(1) { background-color: #333; }
+.dark-mode #search > #question > form > div:nth-child(1) > textarea { background-color: #333; color: #fff; }
+
+/* 설정창 내부 도움말/고객센터 다크모드 가시성 보정 */
+.dark-mode .settings-link-row { color: #e0e0e0; } /* 글자색을 밝게 변경 */
+.dark-mode .settings-link-row:hover { color: #4da3ff; }
+.dark-mode .settings-icon { filter: invert(0.9); } /* 도움말/고객센터 아이콘 반전 */
+.dark-mode #file-upload-icon, .dark-mode #image-search-icon { filter: invert(0.9); }

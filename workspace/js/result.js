@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    renderHistory();
+
     const chatContainer = document.getElementById('chatContainer');
     const historyList = document.getElementById('historyList');
     const form = document.getElementById('chatForm');
@@ -12,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
         addUserMessage(firstQuery);
         addAiMessage('대답');
         addHistory(firstQuery);
+
+        renderHistory();
 
         // URL 정리 → 새로고침 시 중복 방지
         history.replaceState({}, '', location.pathname);
@@ -48,12 +52,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function addHistory(text) {
-        const li = document.createElement('li');
-        li.textContent = text.substring(0, 10);
-        historyList.prepend(li);
-    }
+    const history = JSON.parse(localStorage.getItem('chatHistory')) || [];
+
+    const exists = history.some(item => item.text === text);
+    if (exists) return;
+
+    history.unshift({
+        id: Date.now(),
+        text
+    });
+
+    localStorage.setItem('chatHistory', JSON.stringify(history));
+}
+
 
     function scrollToBottom() {
         chatContainer.scrollTop = chatContainer.scrollHeight;
     }
 });
+
+function renderHistory() {
+    const history = JSON.parse(localStorage.getItem('chatHistory')) || [];
+    historyList.innerHTML = ''; // ⭐ 중복 방지 핵심
+
+    history.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item.text.substring(0, 10);
+        historyList.appendChild(li);
+    });
+}

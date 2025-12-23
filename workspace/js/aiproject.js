@@ -12,6 +12,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const saveBtn = document.getElementById('save');            // 저장 버튼
     const cancelBtn = document.getElementById('cancel');        // 취소 버튼
 
+    /* [추가] 테마 설정을 위한 라디오 버튼 탐색 */
+    const lightThemeRadio = document.querySelector('input[name="theme"][value="light"]');
+    const darkThemeRadio = document.querySelector('input[name="theme"][value="dark"]');
+
+    /* [신규] 페이지 로드 시 저장된 테마 불러오기 */
+    const savedTheme = localStorage.getItem('theme'); // 'dark' 또는 'light' 저장된 값 가져오기
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        if (darkThemeRadio) darkThemeRadio.checked = true; // 설정창 라디오 버튼 상태 업데이트
+    } else {
+        document.body.classList.remove('dark-mode');
+        if (lightThemeRadio) lightThemeRadio.checked = true;
+    }
+
     /* [유효성 검사 A] 필수 레이아웃 요소 확인 */
     if (!layout || !menubar) {
         console.error('에러 : 필수 레이아웃 요소를 찾을 수 없습니다.');
@@ -59,7 +73,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // 저장 버튼 클릭 시
     if (saveBtn) {
         saveBtn.addEventListener('click', function() {
-            // alert('설정이 저장되었습니다.');         // 저장을 눌렀을 때 브라우저가 띄워주는 알림
+            /* [수정] 테마 변경 및 로컬 스토리지 저장 로직 */
+            if (darkThemeRadio && darkThemeRadio.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark'); // 브라우저에 'dark' 저장
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light'); // 브라우저에 'light' 저장
+            }
+
+            // alert('설정이 저장되었습니다.'); 
             closeSettings(); 
         });
     }
@@ -73,3 +96,27 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector("form");
+  const textarea = document.querySelector("#input");
+
+  if (!form || !textarea) return;
+
+  form.addEventListener("submit", () => {
+    const query = textarea.value.trim();
+    if (!query) return;
+
+    const history = JSON.parse(localStorage.getItem("chatHistory")) || [];
+
+    // 중복 방지
+    const exists = history.some(item => item.question === query);
+    if (!exists) {
+      history.push({
+        id: Date.now().toString(),
+        question: query,
+        createdAt: Date.now()
+      });
+      localStorage.setItem("chatHistory", JSON.stringify(history));
+    }
+  });
+});
