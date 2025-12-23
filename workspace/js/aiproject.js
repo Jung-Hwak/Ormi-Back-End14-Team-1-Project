@@ -12,6 +12,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const saveBtn = document.getElementById('save');            // 저장 버튼
     const cancelBtn = document.getElementById('cancel');        // 취소 버튼
 
+    /* [추가] 로그인 및 프로필 관련 요소 탐색 */
+    const userLink = document.getElementById('user-link');
+    const profileBox = document.getElementById('profile-box');
+    const userNicknameDisplay = document.getElementById('user-nickname-display');
+    const logoutBtn = document.getElementById('logout-btn');
+
     /* [추가] 테마 설정을 위한 라디오 버튼 탐색 */
     const lightThemeRadio = document.querySelector('input[name="theme"][value="light"]');
     const darkThemeRadio = document.querySelector('input[name="theme"][value="dark"]');
@@ -25,6 +31,51 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.remove('dark-mode');
         if (lightThemeRadio) lightThemeRadio.checked = true;
     }
+
+    /* [수정] 로그인 상태 확인 및 드롭다운 제어 로직 */
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const loggedInId = localStorage.getItem('loggedInUserId');
+
+    // 사용자 아이콘(로그인 링크) 클릭 이벤트
+    if (userLink) {
+        userLink.addEventListener('click', (e) => {
+            if (isLoggedIn) {
+                // 로그인이 된 상태라면: 
+                e.preventDefault(); // login.html 이동 차단
+                if (profileBox) {
+                    profileBox.classList.toggle('profile-hidden'); // 드롭다운 토글
+                }
+            } else {
+                // 로그인이 안 된 상태라면:
+                // e.preventDefault()를 호출하지 않으므로 <a> 태그의 href="login.html"이 정상 작동합니다.
+                return; 
+            }
+        });
+    }
+
+    // 로그인 상태일 때 초기 화면 세팅
+    if (isLoggedIn) {
+        // 닉네임 표시 업데이트
+        if (userNicknameDisplay) userNicknameDisplay.innerText = loggedInId;
+
+        // 로그아웃 버튼 기능 연결
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // 드롭다운이 닫히지 않게 이벤트 전파 방지
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('loggedInUserId');
+                alert('로그아웃 되었습니다.');
+                window.location.href = 'index.html'; // 메인으로 새로고침
+            });
+        }
+    }
+
+    // 드롭다운 외부 클릭 시 닫기
+    window.addEventListener('click', (e) => {
+        if (profileBox && !profileBox.contains(e.target) && !userLink.contains(e.target)) {
+            profileBox.classList.add('profile-hidden');
+        }
+    });
 
     /* [유효성 검사 A] 필수 레이아웃 요소 확인 */
     if (!layout || !menubar) {
@@ -94,29 +145,4 @@ document.addEventListener('DOMContentLoaded', function() {
             closeSettings();
         }
     });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("form");
-  const textarea = document.querySelector("#input");
-
-  if (!form || !textarea) return;
-
-  form.addEventListener("submit", () => {
-    const query = textarea.value.trim();
-    if (!query) return;
-
-    const history = JSON.parse(localStorage.getItem("chatHistory")) || [];
-
-    // 중복 방지
-    const exists = history.some(item => item.question === query);
-    if (!exists) {
-      history.push({
-        id: Date.now().toString(),
-        question: query,
-        createdAt: Date.now()
-      });
-      localStorage.setItem("chatHistory", JSON.stringify(history));
-    }
-  });
 });

@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 초기 히스토리 렌더링
     renderHistory();
 
     const chatContainer = document.getElementById('chatContainer');
@@ -52,30 +53,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function addHistory(text) {
-    const history = JSON.parse(localStorage.getItem('chatHistory')) || [];
+        const historyData = JSON.parse(localStorage.getItem('chatHistory')) || [];
 
-    const exists = history.some(item => item.text === text);
-    if (exists) return;
+        const exists = historyData.some(item => item.text === text);
+        if (exists) return;
 
-    history.unshift({
-        id: Date.now(),
-        text
-    });
+        historyData.unshift({
+            id: Date.now(),
+            text
+        });
 
-    localStorage.setItem('chatHistory', JSON.stringify(history));
-}
-
+        localStorage.setItem('chatHistory', JSON.stringify(historyData));
+        renderHistory(); // 데이터 추가 후 리스트 즉시 갱신
+    }
 
     function scrollToBottom() {
         chatContainer.scrollTop = chatContainer.scrollHeight;
     }
 });
 
+// 히스토리 렌더링 함수
 function renderHistory() {
-    const history = JSON.parse(localStorage.getItem('chatHistory')) || [];
+    const historyList = document.getElementById('historyList');
+    if (!historyList) return;
+
+    const historyData = JSON.parse(localStorage.getItem('chatHistory')) || [];
     historyList.innerHTML = ''; // ⭐ 중복 방지 핵심
 
-    history.forEach(item => {
+    historyData.forEach(item => {
         const li = document.createElement('li');
         li.textContent = item.text.substring(0, 10);
         historyList.appendChild(li);
