@@ -95,3 +95,28 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector("form");
+  const textarea = document.querySelector("#input");
+
+  if (!form || !textarea) return;
+
+  form.addEventListener("submit", () => {
+    const query = textarea.value.trim();
+    if (!query) return;
+
+    const history = JSON.parse(localStorage.getItem("chatHistory")) || [];
+
+    // 중복 방지
+    const exists = history.some(item => item.question === query);
+    if (!exists) {
+      history.push({
+        id: Date.now().toString(),
+        question: query,
+        createdAt: Date.now()
+      });
+      localStorage.setItem("chatHistory", JSON.stringify(history));
+    }
+  });
+});
