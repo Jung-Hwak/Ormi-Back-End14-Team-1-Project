@@ -16,6 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // 아이디와 비밀번호 확인 로직
             if (userId === VALID_ID && userPw === VALID_PW) {
                 alert('로그인에 성공했습니다!');
+                
+                // [추가] 로그인 상태 유지 로직: 브라우저에 유저 정보 저장
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('loggedInUserId', userId);
+
                 window.location.href = 'index.html';
             } else {
                 alert('아이디 또는 비밀번호가 일치하지 않습니다.');

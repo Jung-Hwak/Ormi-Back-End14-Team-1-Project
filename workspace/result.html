@@ -4,21 +4,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>KSH Ai Result</title>
-
         <!-- CSS (index와 동일) -->
         <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="./css/aiportal.css">
         <link rel="stylesheet" href="./css/common.css">
-        <link rel="stylesheet" href="./css/scroll bar.css">
-
+        <link rel="stylesheet" href="./css/scroll_bar.css">
         <!-- JS -->
         <script src="./js/result.js" defer></script>
-        <script src="./js/result enter.js" defer></script>
+        <script src="./js/result_enter.js" defer></script>
         <script src="./js/aiproject.js" defer></script>
         <script src="./js/terms.js" defer></script>
-
-
-
         <style>
             .chat-container {
                 display: flex;
@@ -53,33 +48,70 @@
             }
         </style>
     </head>
-
     <body>
 
         <nav id="nav">
+
             <div class="menu-icon"><span class="icon" id="hamburger-icon"></span></div>
+
             <div id="logo">
+
                 <h1 id="input-logo">
+
                     <a href="index.html">
+
                         <img src="./images/ksh_logo-1.png" alt="KSH Logo">
+
                     </a>
+
                 </h1>
+
             </div>
 
             <div id="Login">
-                <a href="login.html"><span class="icon" id="user-icon"></span></a>
-            </div>
 
+                <a href="login.html" id="user-link">
+
+                    <span class="icon" id="user-icon"></span>
+
+                </a>
+                
+                <div id="profile-box" class="profile-hidden">
+
+                    <div class="profile-header">
+
+                        <div class="user-avatar-large"></div>
+
+                        <div id="user-nickname-display">닉네임</div>
+
+                    </div>
+
+                    <div class="profile-buttons">
+
+                        <button type="button" class="profile-btn">회원 정보 수정</button>
+
+                        <button type="button" id="logout-btn" class="profile-btn logout">로그 아웃</button>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </nav>
 
         <div id="layout" class="active">
 
             <aside id="menu">
+
                 <h2 class="logo">KSH AI</h2>
+
                 <div class="menu-content">
+
                     <div class="chat-history-heading">내 채팅</div>
+
                     <ul id="historyList"></ul>
+
                 </div>
 
                 <button type="button" id="settings-open-btn">
@@ -143,17 +175,23 @@
                             <div class="settings-links">
 
                                 <div class="settings-link-row" onclick="location.href='help.html'">
+
                                 <span class="settings-icon help-icon"></span>
+
                                     도움말
+
                                 </div>
 
                                 <div class="settings-link-row" onclick="location.href='support.html'">
+
                                     <span class="settings-icon support-icon"></span>
+
                                     고객센터
+
                                 </div>
 
-
                             </div>
+
                         </div>
 
                     </div>
@@ -172,20 +210,16 @@
 
 
             <main id="search">
+
                 <div id="question">
 
-                    <div
-                        class="chat-container"
-                        id="chatContainer"
-                    ></div>
+                    <div class="chat-container" id="chatContainer"></div>
 
                     <form id="chatForm">
 
                         <div id="search-input-box">
 
-                            <textarea id="input" name="query" placeholder="What would you like to know?" autofocus>
-
-                    </textarea>
+                            <textarea id="input" name="query" placeholder="What would you like to know?" autofocus></textarea>
 
                             <button type="submit">
 
@@ -200,16 +234,18 @@
                             <button type="button">+</button>
 
                             <span id="file-upload-icon" title="로컬 파일 업로드">file-upload</span>
+
                             <span id="image-search-icon" title="이미지 업로드">image-upload</span>
 
                         </div>
+
                     </form>
 
                 </div>
+                
             </main>
 
         </div>
 
     </body>
-
 </html>
