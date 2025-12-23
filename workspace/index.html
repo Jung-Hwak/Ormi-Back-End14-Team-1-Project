@@ -1,193 +1,198 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KSH Ai Main Page</title>
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/aiportal.css">
-    <script src="./js/aiproject.js"></script>
-    <script src="./js/index enter.js"></script>
-    
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>KSH Ai Main Page</title>
+        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/common.css">
+        <link rel="stylesheet" href="./css/aiportal.css">
+        <script src="./js/aiproject.js"></script>
+        <script src="./js/index enter.js"></script>
+    </head>
+    <body>
 
-    <nav id="nav">
+        <nav id="nav">
 
-        <div>
+            <div>
 
-            <span id="hamburger-icon">메뉴</span>
-
-        </div> 
-
-        <div id="logo">
-            <h1 id="input-logo">
-                <a href="index.html">
-                    <img src="./images/ksh_logo-1.png" alt="KSH Logo">
-                </a>
-            </h1>
-        </div> 
-
-        <div id="Login">
-
-            <a href="login.html" title="로그인 / 내 정보">
-
-                <span id="user-icon">로그인</span> 
-
-            </a>
-
-        </div> 
-
-    </nav>  <!-- #nav-->
-
-    <div id="layout" class="active"> 
-
-        <aside id="menu">
-
-            <h2>KSH AI</h2>
-            
-            <div> 
-
-                <div>
-                    내 채팅
-                </div>
-
-                <ul>
-                    
-                    <li><span></span> 제목 1 <span>내용 1</span></li>
-
-                </ul>
+                <span id="hamburger-icon">메뉴</span>
 
             </div>
 
-            <button type="button" id="settings-open-btn">
+            <div id="logo">
+                <h1 id="input-logo">
+                    <a href="index.html">
+                        <img src="./images/ksh_logo-1.png" alt="KSH Logo">
+                    </a>
+                </h1>
+            </div>
 
-                <span id="settings-icon">setting</span>
+            <div id="Login">
 
-            </button>
+                <a href="login.html" title="로그인 / 내 정보">
 
-        </aside>
+                    <span id="user-icon">로그인</span>
 
-        <div id="settings-box" class="box-hidden">
+                </a>
 
-            <div id="setting-overlay">
+            </div>
 
-            </div> 
+        </nav> <!-- #nav-->
 
-            <div> 
+        <div id="layout" class="active">
 
-                <div> 
+            <aside id="menu">
 
-                    <h2>시스템 설정</h2>
+                <h2>KSH AI</h2>
 
-                    <button type="button" id="box-close">&times;</button>
+                <div>
+
+                    <div>
+                        내 채팅
+                    </div>
+
+                    <ul>
+
+                        <li><span></span> 제목 1 <span>내용 1</span></li>
+
+                    </ul>
 
                 </div>
 
-                <div> 
+                <button type="button" id="settings-open-btn">
+
+                    <span id="settings-icon">setting</span>
+
+                </button>
+
+            </aside>
+
+            <div id="settings-box" class="box-hidden">
+
+                <div id="setting-overlay">
+
+                </div>
+
+                <div>
 
                     <div>
 
-                        <label>테마 모드</label>
+                        <h2>시스템 설정</h2>
+
+                        <button type="button" id="box-close">&times;</button>
+
+                    </div>
+
+                    <div>
 
                         <div>
 
-                            <label><input type="radio" name="theme" value="light" checked> 라이트 모드</label>
+                            <label>테마 모드</label>
 
-                            <label><input type="radio" name="theme" value="dark"> 다크 모드</label>
+                            <div>
+
+                                <label><input type="radio" name="theme" value="light" checked> 라이트 모드</label>
+
+                                <label><input type="radio" name="theme" value="dark"> 다크 모드</label>
+
+                            </div>
 
                         </div>
+
+                        <div>
+
+                            <label for="lang-select">언어 설정</label>
+
+                            <select id="lang-select">
+
+                                <option value="ko">한국어 (Korean)</option>
+
+                                <option value="en">English (US)</option>
+
+                                <option value="Ch">China (CH)</option>
+
+                            </select>
+
+                        </div>
+                        <div class="settings-extra">
+                            <label>기타</label>
+
+                            <div class="settings-links">
+
+                                <div class="settings-link-row">
+                                    <span class="settings-icon help-icon"></span>
+                                    도움말
+                                </div>
+
+                                <div class="settings-link-row">
+                                    <span class="settings-icon support-icon"></span>
+                                    고객센터
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
 
                     </div>
 
                     <div>
 
-                        <label for="lang-select">언어 설정</label>
+                        <button type="button" id="save">저장</button>
 
-                        <select id="lang-select">
-
-                            <option value="ko">한국어 (Korean)</option>
-
-                            <option value="en">English (US)</option>
-
-                            <option value="Ch">China (CH)</option>
-
-                        </select>
-
-                    </div>
-<div class="settings-extra">
-    <label>기타</label>
-
-    <div class="settings-links">
-
-    <div class="settings-link-row">
-        <span class="settings-icon help-icon"></span>
-        도움말
-    </div>
-
-    <div class="settings-link-row">
-        <span class="settings-icon support-icon"></span>
-        고객센터
-    </div>
-
-</div>
-
-</div>
-
-
-
-                </div>
-
-                <div> 
-
-                    <button type="button" id="save">저장</button>
-
-                    <button type="button" id="cancel">취소</button>
-
-                </div>
-
-            </div>
-
-        </div>      <!-- /#settings-box-->
-
-        <main id="search">
-
-            <div id="question">
-
-                
-                
-                <p>궁금하신 게 무엇인지 알려주시겠어요?</p>
-                
-
-                <form action="result.html" method="get">
-
-                    <div id="search-input-box"> 
-
-                        <textarea id="input" name="query" placeholder="What would you like to know?"></textarea>
-
-                        <button type="submit">검색</button>
+                        <button type="button" id="cancel">취소</button>
 
                     </div>
 
-                    <div id="search-actions">
-
-                        <button type="button">+</button>
-
-                        <span id="file-upload-icon" title="로컬 파일 업로드">file-upload</span> 
-                        
-                        <span id="image-search-icon" title="이미지 업로드">image-upload</span>
-
-                     </div>
-
-                </form>     <!-- /result.html -->
-
-                <div>
-                    <p>프로토 타입의 AI 검색 사이트입니다. 원하시는 정답과는 거리가 멀수있습니다.</p>
                 </div>
-            </div>      <!-- /#question -->
-        </main>     <!-- /#search -->
-    </div>   <!-- /#layout -->
 
-</body>
+            </div> <!-- /#settings-box-->
+
+            <main id="search">
+
+                <div id="question">
+
+
+
+                    <p>궁금하신 게 무엇인지 알려주시겠어요?</p>
+
+
+                    <form
+                        action="result.html"
+                        method="get"
+                    >
+
+                        <div id="search-input-box">
+
+                            <textarea id="input" name="query" placeholder="What would you like to know?"></textarea>
+
+                            <button type="submit">검색</button>
+
+                        </div>
+
+                        <div id="search-actions">
+
+                            <button type="button">+</button>
+
+                            <span id="file-upload-icon" title="로컬 파일 업로드">file-upload</span>
+
+                            <span id="image-search-icon" title="이미지 업로드">image-upload</span>
+
+                        </div>
+
+                    </form> <!-- /result.html -->
+
+                    <div>
+                        <p>프로토 타입의 AI 검색 사이트입니다. 원하시는 정답과는 거리가 멀수있습니다.</p>
+                    </div>
+
+                </div> <!-- /#question -->
+
+            </main> <!-- /#search -->
+
+        </div> <!-- /#layout -->
+
+    </body>
 </html>
