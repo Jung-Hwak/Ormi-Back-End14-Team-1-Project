@@ -1,0 +1,76 @@
+        html, body { margin: 0; padding: 0; height: 100%; }
+        body { font-family: 'Malgun Gothic', '맑은 고딕', Arial, sans-serif; background-color: white; display: flex; flex-direction: column; }
+        .container { width: 100%; min-height: 100vh; display: flex; flex-direction: column; }
+
+        header { 
+            background-color: #ffffff; 
+            height: 60px; 
+            flex-shrink: 0; 
+            display: flex; 
+            align-items: center; 
+            padding: 0 30px; 
+            border-bottom: 1px solid #e0e4e8; 
+            justify-content: center; 
+            position: relative; 
+        }
+        
+        #logo { 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        #input-logo {
+            margin: 0;
+            line-height: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        #input-logo a {
+            display: block;
+            height: 60px; /* 로고 높이 설정 */
+        }
+
+        #input-logo img {
+            height: 100%; 
+            width: auto; 
+            object-fit: contain; 
+            display: block; 
+            border: none; 
+            padding: 0; 
+        }
+
+        /* 메인 컨텐츠 */
+        main { padding: 50px 20px; text-align: center; flex-grow: 1; width: 100%; max-width: 600px; margin: 0 auto; box-sizing: border-box; }
+        
+        /* 타이틀 */
+        h1 { font-size: 28px; margin-bottom: 40px; font-weight: bold; color: #333; }
+
+        /* 폼 컨테이너 */
+        #edit-form-container { width: 100%; text-align: left; }
+
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px; color: #333; }
+
+        /* 입력창 스타일 */
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; box-sizing: border-box; outline: none; transition: border-color 0.2s;
+        }
+        input:focus { border-color: #007bff; }
+        
+        /* 읽기 전용(아이디) 스타일 */
+        input[readonly] { background-color: #f5f5f5; color: #666; cursor: default; }
+        
+        /* 비활성화된 입력창 */
+        input:disabled { background-color: #f0f0f0; color: #aaa; cursor: not-allowed; }
+
+        /* 버튼 그룹 */
+        .btn-group { display: flex; gap: 15px; margin-top: 40px; }
+        button { flex: 1; padding: 15px; font-size: 16px; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; }
+        
+        #btn-cancel { background-color: #f1f3f5; color: #495057; }
+        #btn-submit { background-color: #007bff; color: white; }
+        #btn-submit:hover { background-color: #0056b3; }
+
