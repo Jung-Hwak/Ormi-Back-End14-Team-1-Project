@@ -18,6 +18,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const userNicknameDisplay = document.getElementById('user-nickname-display');
     const logoutBtn = document.getElementById('logout-btn');
 
+    /* [신규 추가] 회원 정보 수정 버튼 탐색 */
+    // .profile-btn 클래스를 가진 요소 중 로그아웃 버튼이 아닌 것을 찾습니다.
+    const editProfileBtn = document.querySelector('.profile-btn:not(.logout)');
+
     /* [추가] 테마 설정을 위한 라디오 버튼 탐색 */
     const lightThemeRadio = document.querySelector('input[name="theme"][value="light"]');
     const darkThemeRadio = document.querySelector('input[name="theme"][value="dark"]');
@@ -56,7 +60,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // 로그인 상태일 때 초기 화면 세팅
     if (isLoggedIn) {
         // 닉네임 표시 업데이트
-        if (userNicknameDisplay) userNicknameDisplay.innerText = loggedInId;
+        if (userNicknameDisplay) userNicknameDisplay.innerText = "윤현호";
+
+        /* [신규 추가] 회원 정보 수정 버튼 기능 연결 */
+        if (editProfileBtn) {
+            editProfileBtn.addEventListener('click', () => {
+                window.location.href = 'editinfo.html'; // 회원 정보 수정 페이지로 이동
+            });
+        }
 
         // 로그아웃 버튼 기능 연결
         if (logoutBtn) {
