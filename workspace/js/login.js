@@ -68,4 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
             input.focus();
         });
     });
+
+    /* 5. 테마 설정 동기화  */
+    // localStorage에 저장된 테마를 확인하여 페이지 로드 시 다크모드 적용
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
 });
