@@ -69,6 +69,7 @@
     align-items: center;
     justify-content: center;
     font-size: 10px;
+    z-index: 5;
 }
 
 /* 추가: 로그인 실행 버튼 */
@@ -170,3 +171,44 @@
     background-color: #FEE500;
     color: #191919;
 }
+
+
+/* 추가: 다크 모드 대응 설정 */
+
+/* 바디 및 배경 */
+.dark-mode #login-main { background-color: #2a2a2a; }
+
+/* 로그인 박스 */
+.dark-mode .login-box { 
+    background-color: #333333; 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); 
+}
+
+/* 입력 필드 */
+.dark-mode .input-field input { 
+    background-color: #252525; 
+    border-color: #444444; 
+    color: #ffffff; 
+}
+.dark-mode .input-field input:focus { border-color: #007bff; }
+
+/* 삭제 버튼 (다크모드 보정) */
+.dark-mode .delete-btn { 
+    background: #555555;
+    color: #ffffff;
+    display: none;
+}
+
+/* 하단 도움 버튼 */
+.dark-mode .small-btn { 
+    background-color: #3d3d3d; 
+    border-color: #4d4d4d; 
+    color: #cccccc; 
+}
+
+/* 소셜 로그인 구분선 */
+.dark-mode #social-login-area { border-top-color: #444444; }
+.dark-mode #social-label { background-color: #333333; color: #888888; }
+
+/* 로고 설정: 남색 유지 */
+.dark-mode #input-logo img { filter: brightness(1.2) contrast(1.1); }

@@ -215,3 +215,26 @@
 .dark-mode .settings-link-row:hover { color: #4da3ff; }
 .dark-mode .settings-icon { filter: invert(0.9); } /* 도움말/고객센터 아이콘 반전 */
 .dark-mode #file-upload-icon, .dark-mode #image-search-icon { filter: invert(0.9); }
+
+
+
+/*새창버튼*/
+#new-chat-container {
+    margin-top: 12px;
+}
+
+#new-chat-btn {
+    background: none;
+    border: none;
+    padding: 6px 0;
+    width: 100%;
+    text-align: right;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #555;
+}
+
+#new-chat-btn:hover {
+    color: #000;
+}

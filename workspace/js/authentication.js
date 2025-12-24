@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextBtn = document.getElementById('next-btn');
     const logoBtn = document.getElementById('logo-btn');
     const authMessage = document.getElementById('auth-message');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalTitle = document.getElementById('modal-title');
+    const modalInput = document.getElementById('modal-input');
+
 
     // --- 1. 인증 수단 카드 클릭 이벤트 ---
     authCards.forEach(card => {
@@ -39,22 +43,89 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- 2. [인증하기] 버튼 클릭 이벤트 ---
     if (mainAuthBtn) {
         mainAuthBtn.addEventListener('click', function() {
             if (!selectedMethod) return;
 
-            // 여기서 실제 인증 팝업을 띄우거나 로직을 수행할 수 있습니다.            
-            isAuthenticated = true;
+            // 모달창 띄우기
+            let methodText = "";
+            if (selectedMethod === 'phone') methodText = "휴대폰";
+            else if (selectedMethod === 'ipin') methodText = "아이핀";
+            else if (selectedMethod === 'toss') methodText = "토스";
+            else if (selectedMethod === 'card') methodText = "카드";
+            
+            modalTitle.innerText = `${methodText} 인증`;
+            modalOverlay.style.display = 'flex';
+            modalInput.value = ''; 
+            modalInput.focus();
+        });
+    }
 
-            // 성공 메시지
-            authMessage.innerText = "✔ 인증되었습니다.";
-            authMessage.style.display = "block";
+    window.closeModal = function() {
+        modalOverlay.style.display = 'none';
+    };
 
-            // 버튼 상태 변경
-            this.innerText = "인증 완료";
-            this.disabled = true;
-            this.style.backgroundColor = "#28a745";
+    window.verifyCode = function() {
+        const inputVal = modalInput.value;
+
+        if (inputVal.length > 0) {
+            alert("인증에 성공했습니다.");
+            closeModal();
+            completeAuth();
+        } else {
+            alert("인증번호를 입력해주세요.");
+            modalInput.focus();
+        }
+    };
+
+    // 인증 성공 시 UI 변경 함수
+    function completeAuth() {
+        isAuthenticated = true;
+
+        // 성공 메시지 표시
+        authMessage.innerText = "✔ 본인 인증이 완료되었습니다.";
+        authMessage.style.display = "block";
+
+        // 메인 버튼 스타일 변경
+        mainAuthBtn.innerText = "인증 완료";
+        mainAuthBtn.disabled = true;
+        mainAuthBtn.style.backgroundColor = "#28a745";
+        mainAuthBtn.style.cursor = "default";
+        mainAuthBtn.style.boxShadow = "none";
+
+        authCards.forEach(c => {
+            if(!c.classList.contains('selected')) {
+                c.style.opacity = '0.5';
+                c.style.pointerEvents = 'none';
+            } else {
+                c.style.pointerEvents = 'none';
+            }
+        });
+    }
+
+    // 인증 성공 시 UI 변경 함수
+    function completeAuth() {
+        isAuthenticated = true;
+
+        // 성공 메시지 표시
+        authMessage.innerText = "✔ 본인 인증이 완료되었습니다.";
+        authMessage.style.display = "block";
+
+        // 메인 버튼 스타일 변경
+        mainAuthBtn.innerText = "인증 완료";
+        mainAuthBtn.disabled = true;
+        mainAuthBtn.style.backgroundColor = "#28a745"; // 성공 초록색
+        mainAuthBtn.style.cursor = "default";
+        mainAuthBtn.style.boxShadow = "none";
+
+        // 카드 선택 비활성화 (시각적 효과)
+        authCards.forEach(c => {
+            if(!c.classList.contains('selected')) {
+                c.style.opacity = '0.5';
+                c.style.pointerEvents = 'none';
+            } else {
+                c.style.pointerEvents = 'none';
+            }
         });
     }
 
@@ -70,21 +141,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- 4. [취소] 버튼 클릭 이벤트 ---
     if (cancelBtn) {
         cancelBtn.addEventListener('click', function() {
             if (confirm("인증을 취소하고 약관 동의 화면으로 돌아가시겠습니까?")) {
-                // terms.html로 이동
                 window.location.href = 'terms.html'; 
             }
         });
     }
 
-    // --- 5. [로고] 클릭 이벤트 ---
     if (logoBtn) {
         logoBtn.addEventListener('click', function() {
-            // index.html로 이동
             window.location.href = 'index.html';
         });
+    
     }
+    
 });

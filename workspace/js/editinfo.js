@@ -1,15 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-    
-    const userInfo = {
+    const savedInfo = JSON.parse(localStorage.getItem('userInfo')) || {
         email: 'hong@example.com',
         nickname: '홍길동' 
     };
 
     const formFields = [
-        { id: 'input-nickname', label: '닉네임', type: 'text', value: userInfo.nickname },
+        { id: 'input-nickname', label: '닉네임', type: 'text', value: savedInfo.nickname },
         { id: 'input-pw', label: '새 비밀번호', type: 'password', placeholder: '변경할 비밀번호를 입력해주세요 (영문, 숫자)' },
         { id: 'input-pw-check', label: '새 비밀번호 확인', type: 'password', placeholder: '비밀번호를 한번 더 입력해주세요' },
-        { id: 'input-email', label: '이메일 변경', type: 'email', value: userInfo.email }
+        { id: 'input-email', label: '이메일 변경', type: 'email', value: savedInfo.email }
     ];
 
     const container = document.getElementById('edit-form-container');
@@ -177,20 +176,24 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = document.getElementById('input-email').value;
         const nickname = document.getElementById('input-nickname').value;
         
-        const authInput = document.querySelector('#email-auth-area input');
-
         if (!email || !nickname) {
             alert('닉네임과 이메일은 필수 입력 사항입니다.');
             return;
         }
-
 
         if (pw || pwCheck) {
             if (pw !== pwCheck) {
                 alert('새 비밀번호가 일치하지 않습니다.');
                 return;
             }
+            localStorage.setItem('userPW', pw);
         }
+
+        const userInfo = {
+            email: email,
+            nickname: nickname
+        };
+        localStorage.setItem('userInfo', JSON.stringify(userInfo));
 
         alert('회원 정보가 수정되었습니다.');
         window.location.href = 'index.html'; 

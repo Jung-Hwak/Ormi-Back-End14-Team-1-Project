@@ -66,7 +66,7 @@
 
 <script>
 /* 로그인 완료 상태 가정 */
-localStorage.setItem("isLoggedIn", "true");
+
 
 const userIcon = document.getElementById("user-icon");
 const profileBox = document.getElementById("profile-box");
@@ -90,9 +90,12 @@ document.addEventListener("click", (e) => {
 const logoutBtn = document.getElementById("logout-btn");
 
 logoutBtn.addEventListener("click", () => {
-  localStorage.removeItem("isLoggedIn");
+  localStorage.removeItem("isLogin");
+  sessionStorage.removeItem("guest_chatHistory");
+  sessionStorage.removeItem("firstQueryHandled");
   window.location.href = "index.html";
 });
+
 
 </script>
 

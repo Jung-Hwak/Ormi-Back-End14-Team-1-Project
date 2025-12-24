@@ -406,10 +406,30 @@ body {
     cursor: default;
 }
 
-/* 로그아웃 버튼 정렬 */
+/* 드롭다운 내 공통 버튼 스타일 */
+.profile-btn {
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 12px; 
+    border-radius: 6px;
+    border: 1px solid #e0e4e8;
+    background-color: #ffffff;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all 0.2s;
+}
+
+.profile-btn:hover {
+    background-color: #f0f4f7;
+    border-color: #007bff;
+    color: #007bff;
+}
+
+/* 로그아웃 버튼 정렬 및 스타일 */
 #logout-btn {
     width: 100%;
     padding: 10px 0;
+    margin-bottom: 0;
     background-color: #fef0f0;
     color: #f56c6c;
     border: 1px solid #fde2e2;
@@ -462,4 +482,11 @@ body.dark-mode #user-nickname-display {
 body.dark-mode .user-avatar-large {
     background-color: #3d3d3d;
     filter: invert(0.9);
+}
+
+/* 다크모드 드롭다운 버튼 보정 */
+body.dark-mode .profile-btn {
+    background-color: #3d3d3d;
+    border-color: #555;
+    color: #ccc;
 }
