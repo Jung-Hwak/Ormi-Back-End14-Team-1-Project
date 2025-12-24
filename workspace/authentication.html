@@ -10,16 +10,16 @@
 </head>
 
 <body>
-<div class="container">
- <header>
-    <div id="logo">
-        <h1 id="input-logo">
-            <a href="index.html">
-                <img src="./images/ksh-logo.png" alt="KSH Logo">
-             </a>
-        </h1>
-     </div> 
-</header>
+    <div class="container">
+        <header>
+            <div id="logo">
+                <h1 id="input-logo">
+                    <a href="index.html">
+                        <img src="./images/ksh_logo-1.png" alt="KSH Logo">
+                    </a>
+                </h1>
+            </div> 
+        </header>
 
         <!-- 메인 컨텐츠 -->
         <main>
@@ -67,6 +67,19 @@
                 <button id="cancel-btn" class="action-btn btn-cancel">취소</button>
                 <button id="next-btn" class="action-btn btn-next">다음 단계</button>
             </div>
+
+            <div id="modal-overlay">
+                <div class="modal-box">
+                    <h3 id="modal-title">인증번호 입력</h3>
+                    <p>방금 발송된 인증번호 6자리를 입력해주세요.<br>(테스트용 알림창 확인)</p>
+                    <input type="text" id="modal-input" maxlength="6" placeholder="123456" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                    <div class="modal-btns">
+                        <button class="btn-close" onclick="closeModal()">닫기</button>
+                        <button class="btn-confirm" onclick="verifyCode()">확인</button>
+                    </div>
+                </div>
+            </div>
+
         </main>
     </div>
 </body>
