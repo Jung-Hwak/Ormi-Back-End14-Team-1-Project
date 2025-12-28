@@ -1,76 +1,111 @@
-        html, body { margin: 0; padding: 0; height: 100%; }
-        body { font-family: 'Malgun Gothic', '맑은 고딕', Arial, sans-serif; background-color: white; display: flex; flex-direction: column; }
-        .container { width: 100%; min-height: 100vh; display: flex; flex-direction: column; }
+/* 회원 정보 수정 페이지 스타일 */
 
-        header { 
-            background-color: #ffffff; 
-            height: 60px; 
-            flex-shrink: 0; 
-            display: flex; 
-            align-items: center; 
-            padding: 0 30px; 
-            border-bottom: 1px solid #e0e4e8; 
-            justify-content: center; 
-            position: relative; 
-        }
-        
-        #logo { 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-        }
+html, body { margin: 0; padding: 0; height: 100%; }
+body { font-family: 'Malgun Gothic', '맑은 고딕', Arial, sans-serif; background-color: white; display: flex; flex-direction: column; }
+.container { width: 100%; min-height: 100vh; display: flex; flex-direction: column; }
 
-        #input-logo {
-            margin: 0;
-            line-height: 0;
-            display: flex;
-            align-items: center;
-        }
+header { 
+    background-color: #ffffff; 
+    height: 60px; 
+    flex-shrink: 0; 
+    display: flex; 
+    align-items: center; 
+    padding: 0 30px; 
+    border-bottom: 1px solid #e0e4e8; 
+    justify-content: center; 
+    position: relative; 
+}
 
-        #input-logo a {
-            display: block;
-            height: 60px; /* 로고 높이 설정 */
-        }
+#logo { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
 
-        #input-logo img {
-            height: 100%; 
-            width: auto; 
-            object-fit: contain; 
-            display: block; 
-            border: none; 
-            padding: 0; 
-        }
+#input-logo {
+    margin: 0;
+    line-height: 0;
+    display: flex;
+    align-items: center;
+}
 
-        /* 메인 컨텐츠 */
-        main { padding: 50px 20px; text-align: center; flex-grow: 1; width: 100%; max-width: 600px; margin: 0 auto; box-sizing: border-box; }
-        
-        /* 타이틀 */
-        h1 { font-size: 28px; margin-bottom: 40px; font-weight: bold; color: #333; }
+#input-logo a {
+    display: block;
+    height: 60px; /* 로고 높이 설정 */
+}
 
-        /* 폼 컨테이너 */
-        #edit-form-container { width: 100%; text-align: left; }
+#input-logo img {
+    height: 100%; 
+    width: auto; 
+    object-fit: contain; 
+    display: block; 
+    border: none; 
+    padding: 0; 
+}
 
-        .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px; color: #333; }
+/* 메인 컨텐츠 */
+main { padding: 50px 20px; text-align: center; flex-grow: 1; width: 100%; max-width: 600px; margin: 0 auto; box-sizing: border-box; }
 
-        /* 입력창 스타일 */
-        input[type="text"], input[type="password"], input[type="email"] {
-            width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; box-sizing: border-box; outline: none; transition: border-color 0.2s;
-        }
-        input:focus { border-color: #007bff; }
-        
-        /* 읽기 전용(아이디) 스타일 */
-        input[readonly] { background-color: #f5f5f5; color: #666; cursor: default; }
-        
-        /* 비활성화된 입력창 */
-        input:disabled { background-color: #f0f0f0; color: #aaa; cursor: not-allowed; }
+/* 타이틀 */
+h1 { font-size: 28px; margin-bottom: 40px; font-weight: bold; color: #333; }
 
-        /* 버튼 그룹 */
-        .btn-group { display: flex; gap: 15px; margin-top: 40px; }
-        button { flex: 1; padding: 15px; font-size: 16px; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; }
-        
-        #btn-cancel { background-color: #f1f3f5; color: #495057; }
-        #btn-submit { background-color: #007bff; color: white; }
-        #btn-submit:hover { background-color: #0056b3; }
+/* 폼 컨테이너 */
+#edit-form-container { width: 100%; text-align: left; }
 
+.form-group { margin-bottom: 20px; }
+label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px; color: #333; }
+
+/* 입력창 스타일 */
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; box-sizing: border-box; outline: none; transition: border-color 0.2s;
+}
+input:focus { border-color: #007bff; }
+
+/* 읽기 전용(아이디) 스타일 */
+input[readonly] { background-color: #f5f5f5; color: #666; cursor: default; }
+
+/* 비활성화된 입력창 */
+input:disabled { background-color: #f0f0f0; color: #aaa; cursor: not-allowed; }
+
+/* 버튼 그룹 */
+.btn-group { display: flex; gap: 15px; margin-top: 40px; }
+button { flex: 1; padding: 15px; font-size: 16px; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; }
+
+#btn-cancel { background-color: #f1f3f5; color: #495057; }
+#btn-submit { background-color: #007bff; color: white; }
+#btn-submit:hover { background-color: #0056b3; }
+
+
+/* 다크 모드 대응 영역 */
+
+/* 바디 및 배경 */
+.dark-mode body { background-color: #1a1a1a; color: #e0e0e0; }
+
+/* 헤더 영역 보정 */
+.dark-mode header { background-color: #333; border-bottom: 1px solid #3d3d3d; }
+
+/* 타이틀 및 라벨 */
+.dark-mode h1 { color: #ffffff; }
+.dark-mode label { color: #cccccc; }
+
+/* 입력창 다크모드 */
+.dark-mode input[type="text"], 
+.dark-mode input[type="password"], 
+.dark-mode input[type="email"] {
+    background-color: #333;
+    border: 1px solid #444;
+    color: #fff;
+}
+
+/* 읽기 전용 및 비활성화 창 */
+.dark-mode input[readonly] { background-color: #2a2a2a; color: #888; }
+.dark-mode input:disabled { background-color: #222; color: #666; }
+
+/* 버튼 보정 */
+.dark-mode #btn-cancel { background-color: #3d4246; color: #e0e0e0; }
+
+/* 로고 설정: 남색 유지를 위해 반전(invert)을 제거하고 밝기만 조절 */
+.dark-mode #input-logo img { 
+    filter: brightness(1.2) contrast(1.1); 
+}
