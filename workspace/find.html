@@ -14,7 +14,7 @@
             <div id="logo">
                 <h1 id="input-logo">
                     <a href="index.html">
-                        <img src="./images/ksh_logo-1.png" alt="KSH Logo">
+                        <img src="./images/ksh_logo-1.png" alt="KSH">
                     </a>
                 </h1>
             </div>
@@ -23,10 +23,11 @@
         <div class="content-wrapper">
             <div id="find-box">
                 <div id="tab-menu">
-                    <button id="tab-btn-id" class="active" onclick="switchTab('id')">아이디 찾기</button>
-                    <button id="tab-btn-pw" onclick="switchTab('pw')">비밀번호 찾기</button>
+                    <button id="tab-btn-id" class="active">아이디 찾기</button>
+                    <button id="tab-btn-pw">비밀번호 찾기</button>
                 </div>
 
+                <!-- 아이디 찾기 폼 -->
                 <div id="form-id" class="active">
                     <h2>아이디 찾기</h2>
                     <p class="desc">회원가입 시 등록한 이름과 이메일을 입력해주세요.</p>
@@ -39,10 +40,10 @@
                         <label for="input-id-email">이메일</label>
                         <input type="email" id="input-id-email" placeholder="example@email.com">
                     </div>
-                    
-                    <button id="btn-find-id" onclick="findID()">아이디 찾기</button>
+                    <button id="btn-find-id">아이디 찾기</button>
                 </div>
 
+                <!-- 비밀번호 찾기 폼 -->
                 <div id="form-pw">
                     <h2>비밀번호 찾기</h2>
                     <p class="desc">가입한 아이디, 이름, 이메일을 입력하시면<br>임시 비밀번호를 발급해 드립니다.</p>
@@ -60,11 +61,12 @@
                         <input type="email" id="input-pw-email" placeholder="example@email.com">
                     </div>
 
-                    <button id="btn-find-pw" onclick="findPW()">비밀번호 찾기</button>
+                    <!-- 버튼 (onclick 제거됨) -->
+                    <button id="btn-find-pw">비밀번호 찾기</button>
                 </div>
 
                 <div id="bottom-links">
-                    <a href="index.html">로그인 하기</a> | 
+                    <a href="Login.html">로그인 하기</a> | 
                     <a href="join.html">회원가입</a>
                 </div>
                 <div style="height: 20px;"></div>
@@ -76,12 +78,10 @@
         <div id="modal-box">
             <span id="modal-icon">✅</span>
             <div id="modal-title">알림</div>
-            <div id="modal-msg">
-                내용이 여기에 들어갑니다.
-            </div>
+            <div id="modal-msg">내용이 여기에 들어갑니다.</div>
             <div id="modal-btns">
-                <button id="btn-modal-close" onclick="closeModal()">닫기</button>
-                <button id="btn-modal-login" onclick="location.href='index.html'">로그인 화면으로</button>
+                <button id="btn-modal-close">닫기</button>
+                <button id="btn-modal-login">로그인 화면으로</button>
             </div>
         </div>
     </div>
