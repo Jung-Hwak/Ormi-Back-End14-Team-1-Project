@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderRooms() {
+        if (!historyList) return;
         historyList.innerHTML = '';
         const rooms = JSON.parse(storage.getItem(roomListKey())) || [];
         const current = storage.getItem(currentRoomKey());
@@ -59,15 +60,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const chats = JSON.parse(storage.getItem(chatKey(roomId))) || [];
         chats.forEach(chat => {
-            window.addChatBubble(chat.text, chat.type);
+            // window.addChatBubble는 채팅창에 말풍선을 추가하는 별도 함수가 있다고 가정합니다.
+            if (typeof window.addChatBubble === 'function') {
+                window.addChatBubble(chat.text, chat.type);
+            }
         });
 
         renderRooms();
     }
 
-    newChatBtn.addEventListener('click', () => {
-        createRoom();
-    });
+    /* [중요] 결과 페이지의 새 채팅 버튼 클릭 이벤트 */
+    if (newChatBtn) {
+        newChatBtn.addEventListener('click', (e) => {
+            // aiportal.js에 설정된 index.html 이동 로직이 실행되지 않도록 차단
+            e.stopImmediatePropagation(); 
+            
+            // 결과 페이지 전용 로직: 새 방 생성
+            createRoom();
+        });
+    }
 
     // 최초 로딩 시
     if (!storage.getItem(currentRoomKey())) {

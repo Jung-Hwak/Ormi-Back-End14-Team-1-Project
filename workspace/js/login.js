@@ -1,8 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 0. 팀원들과 정한 로그인 정보 (여기에 정해진 값을 넣으세요)
-    const VALID_ID = "yoonhuynhozzang";
-    const VALID_PW = "251212";
+    // 0. 팀원들과 정한 로그인 정보 (초기 기본값)
+    const DEFAULT_ID = "yoonhuynhozzang";
+    const DEFAULT_PW = "251212";
+
+    // 회원정보 수정에서 변경된 비밀번호가 있다면 가져오고, 없으면 기본값 사용
+    const VALID_ID = DEFAULT_ID;
+    const VALID_PW = localStorage.getItem('userPW') || DEFAULT_PW;
 
     // 1. 로그인 폼 제출 유효성 검사 추가
     const loginForm = document.querySelector('#login-form');
@@ -13,8 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const userId = document.querySelector('#user-id').value;
             const userPw = document.querySelector('#user-pw').value;
 
+            // 로그인 시점에 최신 비밀번호 정보를 다시 확인
+            const currentValidPw = localStorage.getItem('userPW') || DEFAULT_PW;
+
             // 아이디와 비밀번호 확인 로직
-            if (userId === VALID_ID && userPw === VALID_PW) {
+            if (userId === VALID_ID && userPw === currentValidPw) {
                 alert('로그인에 성공했습니다!');
                 
                 // [추가] 로그인 상태 유지 로직: 브라우저에 유저 정보 저장
@@ -35,6 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (joinBtn) {
         joinBtn.addEventListener('click', () => {
             window.location.href = 'terms.html';
+        });
+    }
+
+    // 2-1. 아이디/비밀번호 찾기 버튼 클릭 시 이동 (추가된 부분)
+    const findBtn = document.querySelector('#helper-buttons .small-btn:not(#join-btn)');
+    if (findBtn) {
+        findBtn.addEventListener('click', () => {
+            window.location.href = 'find.html';
         });
     }
 

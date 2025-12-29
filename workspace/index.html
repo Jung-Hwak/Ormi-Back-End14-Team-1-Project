@@ -72,19 +72,17 @@
 
             <h2>KSH AI</h2>
 
-            <div>
+            <div class="menu-content">
 
-                <div>내 채팅</div>
+                <div class="chat-history-heading">내 채팅</div>
 
-                <ul>
+                <ul id="historyList"></ul>
+                
+                <div id="new-chat-container">
 
-                    <li>
-                            
-                        <span></span> 제목 1 <span>내용 1</span>
+                    <button id="new-chat-btn">＋ 새 채팅</button>
 
-                    </li>
-
-                </ul>
+                </div>
 
             </div>
 
@@ -148,13 +146,13 @@
 
                         <div class="settings-links">
 
-                            <div class="settings-link-row">
+                            <div class="settings-link-row" id="help">
 
                                 <span class="settings-icon help-icon"></span>도움말
 
                             </div>
 
-                            <div class="settings-link-row">
+                            <div class="settings-link-row" id="support">
 
                                 <span class="settings-icon support-icon"></span>고객센터
 

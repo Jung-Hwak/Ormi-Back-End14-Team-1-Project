@@ -1,83 +1,104 @@
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const tabBtnId = document.getElementById('tab-btn-id');
+    const tabBtnPw = document.getElementById('tab-btn-pw');
+    const formId = document.getElementById('form-id');
+    const formPw = document.getElementById('form-pw');
+    
+    const btnFindId = document.getElementById('btn-find-id');
+    const btnFindPw = document.getElementById('btn-find-pw');
+    
+    const modalOverlay = document.getElementById('modal-overlay');
+    const btnModalClose = document.getElementById('btn-modal-close');
+    const btnModalLogin = document.getElementById('btn-modal-login');
+
+    if (!tabBtnId || !tabBtnPw || !btnFindId || !btnFindPw) {
+        console.error("필수 요소를 찾을 수 없습니다. HTML ID를 확인해주세요.");
+        return;
+    }
+
     function switchTab(type) {
-        // ID 요소 직접 참조
-        const tabBtnId = document.getElementById('tab-btn-id');
-        const tabBtnPw = document.getElementById('tab-btn-pw');
-        const formId = document.getElementById('form-id');
-        const formPw = document.getElementById('form-pw');
-
-        // 모든 상태 초기화
-        tabBtnId.classList.remove('active');
-        tabBtnPw.classList.remove('active');
-        formId.classList.remove('active');
-        formPw.classList.remove('active');
-
-        // 선택된 탭 활성화
         if (type === 'id') {
+            // 아이디 찾기 활성화
             tabBtnId.classList.add('active');
+            tabBtnPw.classList.remove('active');
             formId.classList.add('active');
+            formPw.classList.remove('active');
         } else {
+            // 비밀번호 찾기 활성화
             tabBtnPw.classList.add('active');
+            tabBtnId.classList.remove('active');
             formPw.classList.add('active');
+            formId.classList.remove('active');
         }
     }
 
-    // 모달 관련 요소 (ID로 탐색)
-    const modal = document.getElementById('modal-overlay');
-    const modalTitle = document.getElementById('modal-title');
-    const modalMsg = document.getElementById('modal-msg');
-    const modalIcon = document.getElementById('modal-icon');
+    tabBtnId.addEventListener('click', function() { switchTab('id'); });
+    tabBtnPw.addEventListener('click', function() { switchTab('pw'); });
 
-    function openModal(title, message, isSuccess = true) {
-        modalTitle.innerText = title;
-        modalMsg.innerHTML = message;
-        modalIcon.innerText = isSuccess ? "✅" : "⚠️";
-        modal.style.display = 'flex';
-    }
 
-    function closeModal() {
-        modal.style.display = 'none';
-    }
+    btnFindId.addEventListener('click', function() {
+        const name = document.getElementById('input-id-name').value;
+        const email = document.getElementById('input-id-email').value;
 
-    // [로직 1] 아이디 찾기
-    function findID() {
-        const nameInput = document.getElementById('input-id-name');
-        const emailInput = document.getElementById('input-id-email');
-
-        if (!nameInput.value || !emailInput.value) {
+        if (!name || !email) {
             alert('이름과 이메일을 모두 입력해주세요.');
             return;
         }
 
-        // 가상 로직
-        const foundID = "user1234"; 
-        
-        const msg = `
-            회원님의 아이디는
-            <span class="highlight-text">${foundID}</span>
-            입니다.
-        `;
-        openModal("아이디 찾기 성공", msg);
-    }
+        if (name === '윤현호' && email === 'hong@example.com') {
+            showModal('아이디 찾기 성공', '회원님의 아이디는 <strong>user1234</strong> 입니다.');
+        } else {
+            alert('일치하는 회원 정보가 없습니다.');
+        }
+    });
 
-    // [로직 2] 비밀번호 찾기
-    function findPW() {
-        const idInput = document.getElementById('input-pw-id');
-        const nameInput = document.getElementById('input-pw-name');
-        const emailInput = document.getElementById('input-pw-email');
 
-        if (!idInput.value || !nameInput.value || !emailInput.value) {
+    btnFindPw.addEventListener('click', function() {
+        const id = document.getElementById('input-pw-id').value;
+        const name = document.getElementById('input-pw-name').value;
+        const email = document.getElementById('input-pw-email').value;
+
+        if (!id || !name || !email) {
             alert('모든 정보를 입력해주세요.');
             return;
         }
 
-        // 가상 로직
-        const tempPW = Math.random().toString(36).slice(-8); 
+        if (id === 'yoonhuynhozzang' && name === '윤현호' && email === 'hong@example.com') {
+            const tempPw = Math.random().toString(36).slice(-8); 
+            showModal('임시 비밀번호 발급', `이메일로 임시 비밀번호를 전송했습니다.<br>비밀번호: <strong>${tempPw}</strong>`);
+        } else {
+            alert('일치하는 회원 정보가 없습니다.');
+        }
+    });
 
-        const msg = `
-            회원님의 임시 비밀번호는
-            <span class="highlight-text">${tempPW}</span>
-            입니다.<br>
-            <span style="font-size:13px; color:#e03131;">로그인 후 반드시 비밀번호를 변경해주세요.</span>
-        `;
-        openModal("임시 비밀번호 발급", msg);
+
+    function showModal(title, msg) {
+        const titleElem = document.getElementById('modal-title');
+        const msgElem = document.getElementById('modal-msg');
+        
+        if(titleElem) titleElem.innerHTML = title;
+        if(msgElem) msgElem.innerHTML = msg;
+        
+        if(modalOverlay) modalOverlay.style.display = 'flex';
     }
+
+    function closeModal() {
+        if(modalOverlay) modalOverlay.style.display = 'none';
+    }
+
+    if(btnModalClose) btnModalClose.addEventListener('click', closeModal);
+    if(btnModalLogin) {
+        btnModalLogin.addEventListener('click', function() {
+            location.href = 'Login.html';
+        });
+    }
+
+    if(modalOverlay) {
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+    }
+});
