@@ -18,19 +18,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const userNicknameDisplay = document.getElementById('user-nickname-display');
     const logoutBtn = document.getElementById('logout-btn');
 
-    /* [신규 추가] 회원 정보 수정 버튼 탐색 */
-    // .profile-btn 클래스를 가진 요소 중 로그아웃 버튼이 아닌 것을 찾습니다.
+    /* [추가] 회원 정보 수정 버튼 탐색 */
     const editProfileBtn = document.querySelector('.profile-btn:not(.logout)');
+
+    /* [추가] 새 채팅 버튼 탐색 */
+    const newChatBtn = document.getElementById('new-chat-btn');
+
+    /* [추가] 도움말 및 고객센터 이동을 위한 요소 탐색 */
+    const helpBtn = document.getElementById('help');       // 도움말 버튼
+    const supportBtn = document.getElementById('support'); // 고객센터 버튼
 
     /* [추가] 테마 설정을 위한 라디오 버튼 탐색 */
     const lightThemeRadio = document.querySelector('input[name="theme"][value="light"]');
     const darkThemeRadio = document.querySelector('input[name="theme"][value="dark"]');
 
     /* [신규] 페이지 로드 시 저장된 테마 불러오기 */
-    const savedTheme = localStorage.getItem('theme'); // 'dark' 또는 'light' 저장된 값 가져오기
+    const savedTheme = localStorage.getItem('theme'); 
     if (savedTheme === 'dark') {
         document.body.classList.add('dark-mode');
-        if (darkThemeRadio) darkThemeRadio.checked = true; // 설정창 라디오 버튼 상태 업데이트
+        if (darkThemeRadio) darkThemeRadio.checked = true; 
     } else {
         document.body.classList.remove('dark-mode');
         if (lightThemeRadio) lightThemeRadio.checked = true;
@@ -38,20 +44,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     /* [수정] 로그인 상태 확인 및 드롭다운 제어 로직 */
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-    const loggedInId = localStorage.getItem('loggedInUserId');
 
     // 사용자 아이콘(로그인 링크) 클릭 이벤트
     if (userLink) {
         userLink.addEventListener('click', (e) => {
             if (isLoggedIn) {
-                // 로그인이 된 상태라면: 
-                e.preventDefault(); // login.html 이동 차단
+                e.preventDefault(); 
                 if (profileBox) {
-                    profileBox.classList.toggle('profile-hidden'); // 드롭다운 토글
+                    profileBox.classList.toggle('profile-hidden'); 
                 }
             } else {
-                // 로그인이 안 된 상태라면:
-                // e.preventDefault()를 호출하지 않으므로 <a> 태그의 href="login.html"이 정상 작동합니다.
                 return; 
             }
         });
@@ -59,26 +61,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 로그인 상태일 때 초기 화면 세팅
     if (isLoggedIn) {
-        // 닉네임 표시 업데이트
-        if (userNicknameDisplay) userNicknameDisplay.innerText = "윤현호";
+        const savedInfo = JSON.parse(localStorage.getItem('userInfo'));
+        if (userNicknameDisplay) {
+            userNicknameDisplay.innerText = savedInfo ? savedInfo.nickname : "윤현호";
+        }
 
-        /* [신규 추가] 회원 정보 수정 버튼 기능 연결 */
         if (editProfileBtn) {
             editProfileBtn.addEventListener('click', () => {
-                window.location.href = 'editinfo.html'; // 회원 정보 수정 페이지로 이동
+                window.location.href = 'editinfo.html'; 
             });
         }
 
-        // 로그아웃 버튼 기능 연결
         if (logoutBtn) {
             logoutBtn.addEventListener('click', (e) => {
-                e.stopPropagation(); // 드롭다운이 닫히지 않게 이벤트 전파 방지
+                e.stopPropagation(); 
                 localStorage.removeItem('isLoggedIn');
                 localStorage.removeItem('loggedInUserId');
                 alert('로그아웃 되었습니다.');
-                window.location.href = 'index.html'; // 메인으로 새로고침
+                window.location.href = 'index.html'; 
             });
         }
+    }
+
+    /* [수정] 새 채팅 버튼 클릭 시 기본 동작 (결과 페이지가 아닐 때만 작동) */
+    if (newChatBtn) {
+        newChatBtn.addEventListener('click', () => {
+            // 현재 페이지가 결과 페이지가 아닐 때만 index.html로 이동
+            if (!window.location.pathname.includes('result.html')) {
+                window.location.href = 'index.html'; 
+            }
+        });
     }
 
     // 드롭다운 외부 클릭 시 닫기
@@ -88,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    /* [유효성 검사 A] 필수 레이아웃 요소 확인 */
     if (!layout || !menubar) {
         console.error('에러 : 필수 레이아웃 요소를 찾을 수 없습니다.');
         return; 
@@ -105,21 +116,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     /* 3. 설정 박스 제어 */
-    /* [유효성 검사 B] 설정창 열기 함수 */
     const openSettings = () => {
         if (settingsBox && settingsBox.classList.contains('box-hidden')) {
             settingsBox.classList.remove('box-hidden');
         }
     };
 
-    /* [유효성 검사 C] 설정창 닫기 함수 */
     const closeSettings = () => {
         if (settingsBox && !settingsBox.classList.contains('box-hidden')) {
             settingsBox.classList.add('box-hidden');
         }
     };
 
-    // 설정 열기 버튼 클릭 시
     if (settingsBtn) {
         settingsBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -127,30 +135,36 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 닫기 관련 요소들 연결 (X 버튼, 취소 버튼, 배경 오버레이)
     if (boxClose) boxClose.addEventListener('click', closeSettings);
     if (cancelBtn) cancelBtn.addEventListener('click', closeSettings);
     if (overlay) overlay.addEventListener('click', closeSettings);
 
-    // 저장 버튼 클릭 시
     if (saveBtn) {
         saveBtn.addEventListener('click', function() {
-            /* [수정] 테마 변경 및 로컬 스토리지 저장 로직 */
             if (darkThemeRadio && darkThemeRadio.checked) {
                 document.body.classList.add('dark-mode');
-                localStorage.setItem('theme', 'dark'); // 브라우저에 'dark' 저장
+                localStorage.setItem('theme', 'dark'); 
             } else {
                 document.body.classList.remove('dark-mode');
-                localStorage.setItem('theme', 'light'); // 브라우저에 'light' 저장
+                localStorage.setItem('theme', 'light'); 
             }
-
-            // alert('설정이 저장되었습니다.'); 
             closeSettings(); 
         });
     }
 
+    if (helpBtn) {
+        helpBtn.addEventListener('click', () => {
+            window.location.href = 'help.html'; 
+        });
+    }
+
+    if (supportBtn) {
+        supportBtn.addEventListener('click', () => {
+            window.location.href = 'support.html'; 
+        });
+    }
+
     /* 4. 사용자 편의 기능 */
-    /* ESC 키를 눌렀을 때 열려있던 설정창을 닫아줍니다.*/
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && settingsBox && !settingsBox.classList.contains('box-hidden')) {
             closeSettings();
