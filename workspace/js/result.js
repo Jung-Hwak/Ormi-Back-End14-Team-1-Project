@@ -157,7 +157,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!title) return;
 
     const li = document.createElement('li');
-    li.textContent = title.substring(0, 10);
+    li.className = 'history-item';
+
+    li.innerHTML = `
+        <span class="chat-title">${title.substring(0, 20)}</span>
+        <button class="chat-more-btn">⋯</button>
+        <div class="chat-menu hidden">
+            <button class="rename-btn">이름 변경</button>
+            <button class="delete-btn">삭제</button>
+        </div>
+    `;
+
     historyList.appendChild(li);
 }
 
