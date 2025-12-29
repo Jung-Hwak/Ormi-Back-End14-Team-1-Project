@@ -171,3 +171,61 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("help-link").addEventListener("click", () => {
+        location.href = "help.html";
+    });
+
+    document.getElementById("support-link").addEventListener("click", () => {
+        location.href = "support.html";
+    });
+});
+
+
+// 사이드바 채팅내역 관리
+document.addEventListener("click", (e) => {
+
+    // 1. ... 버튼 클릭
+    if (e.target.classList.contains("chat-more-btn")) {
+        const menu = e.target.nextElementSibling;
+
+        // 다른 메뉴 닫기
+        document.querySelectorAll(".chat-menu").forEach(m => {
+            if (m !== menu) m.classList.add("hidden");
+        });
+
+        // 현재 메뉴 토글
+        menu.classList.toggle("hidden");
+        e.stopPropagation(); // 
+        return;
+    }
+
+    // 2. 이름 변경
+    if (e.target.classList.contains("rename-btn")) {
+        const item = e.target.closest(".history-item");
+        const titleEl = item.querySelector(".chat-title");
+        const newName = prompt("채팅 이름 변경", titleEl.textContent);
+
+        if (newName) {
+            titleEl.textContent = newName;
+        }
+        e.stopPropagation();
+        return;
+    }
+
+    // 3. 삭제
+    if (e.target.classList.contains("delete-btn")) {
+        const item = e.target.closest(".history-item");
+        if (confirm("이 채팅을 삭제할까요?")) {
+            item.remove();
+        }
+        e.stopPropagation();
+        return;
+    }
+
+    // 4. 메뉴 영역 밖 클릭 시만 닫기
+    document.querySelectorAll(".chat-menu").forEach(menu => {
+        menu.classList.add("hidden");
+    });
+});
