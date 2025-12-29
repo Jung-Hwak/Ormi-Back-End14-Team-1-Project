@@ -490,3 +490,40 @@ body.dark-mode .profile-btn {
     border-color: #555;
     color: #ccc;
 }
+/*사이드바 채팅 내역 관련*/
+
+/* 사이드바 채팅 항목 레이아웃 수정 */
+#menu ul li.history-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+/* 채팅 제목 */
+#menu ul li.history-item .chat-title {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ... 버튼 강제 표시 */
+#menu ul li.history-item .chat-more-btn {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #666;
+    cursor: pointer;
+    flex-shrink: 0;
+    z-index: 2;
+}
+
+.chat-menu {
+    position: absolute;
+    right: 10px;
+    top: 40px;
+    z-index: 12;
+}
+

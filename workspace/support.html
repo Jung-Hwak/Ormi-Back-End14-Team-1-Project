@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <title>KSH AI | 고객센터</title>
 
+    <!-- CSS -->
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/aiportal.css">
 
+    <!-- JS -->
     <script src="./js/aiproject.js"></script>
     <script src="./js/terms.js"></script>
 </head>
+
 <body>
 
 <nav id="nav">
@@ -21,7 +24,7 @@
     <div id="logo">
         <h1 id="input-logo">
             <a href="index.html">
-                <img src="./images/ksh-logo.png" alt="KSH Logo">
+                <img src="./images/ksh_logo-1.png" alt="KSH Logo">
             </a>
         </h1>
     </div>
@@ -35,116 +38,90 @@
 
 <div id="layout" class="active">
 
-    <div id="layout" class="active"> 
+    <!-- 사이드 메뉴 -->
+    <aside id="menu">
+        <h2>KSH AI</h2>
 
-        <aside id="menu">
+        <div class="menu-content">
+            <div class="chat-history-heading">내 채팅</div>
 
-            <h2>KSH AI</h2>
-            
-            <div> 
+            <ul>
+                <li>
+                    <span></span>
+                    제목 1
+                    <span>내용 1</span>
+                </li>
+            </ul>
+        </div>
 
-                <div>
-                    내 채팅
-                </div>
+        <button type="button" id="settings-open-btn">
+            <span id="settings-icon">setting</span>
+        </button>
+    </aside>
 
-                <ul>
-                    
-                    <li><span></span> 제목 1 <span>내용 1</span></li>
+    <!-- 설정 박스 -->
+    <div id="settings-box" class="box-hidden">
+        <div id="setting-overlay"></div>
 
-                </ul>
+        <div class="settings-content">
 
+            <div class="settings-header">
+                <h2>시스템 설정</h2>
+                <button type="button" id="box-close">&times;</button>
             </div>
 
-            <button type="button" id="settings-open-btn">
+            <div class="settings-body">
 
-                <span id="settings-icon">setting</span>
-
-            </button>
-
-        </aside>
-
-        <div id="settings-box" class="box-hidden">
-
-            <div id="setting-overlay">
-
-            </div> 
-
-            <div> 
-
-                <div> 
-
-                    <h2>시스템 설정</h2>
-
-                    <button type="button" id="box-close">&times;</button>
-
+                <div class="setting-group">
+                    <label>테마 모드</label>
+                    <div>
+                        <label>
+                            <input type="radio" name="theme" value="light" checked>
+                            라이트 모드
+                        </label>
+                        <label>
+                            <input type="radio" name="theme" value="dark">
+                            다크 모드
+                        </label>
+                    </div>
                 </div>
 
-                <div> 
+                <div class="setting-group">
+                    <label for="lang-select">언어 설정</label>
+                    <select id="lang-select">
+                        <option value="ko">한국어 (Korean)</option>
+                        <option value="en">English (US)</option>
+                        <option value="Ch">China (CH)</option>
+                    </select>
+                </div>
 
-                    <div>
+                <div class="settings-extra">
+                    <label>기타</label>
 
-                        <label>테마 모드</label>
-
-                        <div>
-
-                            <label><input type="radio" name="theme" value="light" checked> 라이트 모드</label>
-
-                            <label><input type="radio" name="theme" value="dark"> 다크 모드</label>
-
+                    <div class="settings-links">
+                        <div class="settings-link-row" id="help-link">
+                            <span class="settings-icon help-icon"></span>
+                            도움말
                         </div>
 
+                        <div class="settings-link-row" id="support-link">
+                            <span class="settings-icon support-icon"></span>
+                            고객센터
+                        </div>
                     </div>
-
-                    <div>
-
-                        <label for="lang-select">언어 설정</label>
-
-                        <select id="lang-select">
-
-                            <option value="ko">한국어 (Korean)</option>
-
-                            <option value="en">English (US)</option>
-
-                            <option value="Ch">China (CH)</option>
-
-                        </select>
-
-                    </div>
-<div class="settings-extra">
-    <label>기타</label>
-
-    <div class="settings-links">
-
-    <div class="settings-link-row" onclick="location.href='help.html'">
-     <span class="settings-icon help-icon"></span>
-    도움말
-        </div>
-
-        <div class="settings-link-row" onclick="location.href='support.html'">
-      <span class="settings-icon support-icon"></span>
-    고객센터
-        </div>
-
-</div>
-
-</div>
-
-
-
-                </div>
-
-                <div> 
-
-                    <button type="button" id="save">저장</button>
-
-                    <button type="button" id="cancel">취소</button>
-
                 </div>
 
             </div>
 
-        </div>
+            <div class="settings-footer">
+                <button type="button" id="save">저장</button>
+                <button type="button" id="cancel">취소</button>
+            </div>
 
+        </div>
+    </div>
+
+    <!-- 메인 -->
     <main id="search">
         <div id="question">
 
