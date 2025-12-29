@@ -1,154 +1,152 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>KSH AI | 도움말</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>KSH AI | 도움말</title>
+        <!-- CSS -->
+        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/common.css">
+        <link rel="stylesheet" href="./css/aiportal.css">
+        <!-- JS -->
+        <script src="./js/aiproject.js"></script>
+        <script src="./js/terms.js"></script>
+    </head>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/aiportal.css">
+    <body>
 
-    <!-- JS -->
-    <script src="./js/aiproject.js"></script>
-    <script src="./js/terms.js"></script>
-</head>
-
-<body>
-
-<nav id="nav">
-    <div>
-        <span id="hamburger-icon"></span>
-    </div>
-
-    <div id="logo">
-        <h1 id="input-logo">
-            <a href="index.html">
-                <img src="./images/ksh_logo-1.png" alt="KSH Logo">
-            </a>
-        </h1>
-    </div>
-
-    <div id="Login">
-        <a href="login.html">
-            <span id="user-icon"></span>
-        </a>
-    </div>
-</nav>
-
-<div id="layout" class="active">
-
-    <!-- 사이드 메뉴 -->
-    <aside id="menu">
-        <h2>KSH AI</h2>
-
-        <div class="menu-content">
-            <div class="chat-history-heading">내 채팅</div>
-
-            <ul>
-                <li>
-                    <span></span>
-                    제목 1
-                    <span>내용 1</span>
-                </li>
-            </ul>
-        </div>
-
-        <button type="button" id="settings-open-btn">
-            <span id="settings-icon">setting</span>
-        </button>
-    </aside>
-
-    <!-- 설정 박스 -->
-    <div id="settings-box" class="box-hidden">
-        <div id="setting-overlay"></div>
-
-        <div class="settings-content">
-
-            <div class="settings-header">
-                <h2>시스템 설정</h2>
-                <button type="button" id="box-close">&times;</button>
+        <nav id="nav">
+            <div>
+                <span id="hamburger-icon"></span>
             </div>
 
-            <div class="settings-body">
+            <div id="logo">
+                <h1 id="input-logo">
+                    <a href="index.html">
+                        <img src="./images/ksh_logo-1.png" alt="KSH Logo">
+                    </a>
+                </h1>
+            </div>
 
-                <div class="setting-group">
-                    <label>테마 모드</label>
-                    <div>
-                        <label>
-                            <input type="radio" name="theme" value="light" checked>
-                            라이트 모드
-                        </label>
-                        <label>
-                            <input type="radio" name="theme" value="dark">
-                            다크 모드
-                        </label>
+            <div id="Login">
+                <a href="login.html">
+                    <span id="user-icon"></span>
+                </a>
+            </div>
+        </nav>
+
+        <div id="layout" class="active">
+
+            <!-- 사이드 메뉴 -->
+            <aside id="menu">
+                <h2>KSH AI</h2>
+
+                <div class="menu-content">
+                    <div class="chat-history-heading">내 채팅</div>
+
+                    <ul>
+                        <li>
+                            <span></span>
+                            제목 1
+                            <span>내용 1</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <button type="button" id="settings-open-btn">
+                    <span id="settings-icon">setting</span>
+                </button>
+            </aside>
+
+            <!-- 설정 박스 -->
+            <div id="settings-box" class="box-hidden">
+                <div id="setting-overlay"></div>
+
+                <div class="settings-content">
+
+                    <div class="settings-header">
+                        <h2>시스템 설정</h2>
+                        <button type="button" id="box-close">&times;</button>
                     </div>
-                </div>
 
-                <div class="setting-group">
-                    <label for="lang-select">언어 설정</label>
-                    <select id="lang-select">
-                        <option value="ko">한국어 (Korean)</option>
-                        <option value="en">English (US)</option>
-                        <option value="Ch">China (CH)</option>
-                    </select>
-                </div>
+                    <div class="settings-body">
 
-                <div class="settings-extra">
-                    <label>기타</label>
-
-                    <div class="settings-links">
-                        <div class="settings-link-row" id="help-link">
-                            <span class="settings-icon help-icon"></span>
-                            도움말
+                        <div class="setting-group">
+                            <label>테마 모드</label>
+                            <div>
+                                <label>
+                                    <input type="radio" name="theme" value="light" checked>
+                                    라이트 모드
+                                </label>
+                                <label>
+                                    <input type="radio" name="theme" value="dark">
+                                    다크 모드
+                                </label>
+                            </div>
                         </div>
 
-                        <div class="settings-link-row" id="support-link">
-                            <span class="settings-icon support-icon"></span>
-                            고객센터
+                        <div class="setting-group">
+                            <label for="lang-select">언어 설정</label>
+                            <select id="lang-select">
+                                <option value="ko">한국어 (Korean)</option>
+                                <option value="en">English (US)</option>
+                                <option value="Ch">China (CH)</option>
+                            </select>
                         </div>
+
+                        <div class="settings-extra">
+                            <label>기타</label>
+
+                            <div class="settings-links">
+                                <div class="settings-link-row" id="help-link">
+                                    <span class="settings-icon help-icon"></span>
+                                    도움말
+                                </div>
+
+                                <div class="settings-link-row" id="support-link">
+                                    <span class="settings-icon support-icon"></span>
+                                    고객센터
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+
+                    <div class="settings-footer">
+                        <button type="button" id="save">저장</button>
+                        <button type="button" id="cancel">취소</button>
+                    </div>
+
                 </div>
-
             </div>
 
-            <div class="settings-footer">
-                <button type="button" id="save">저장</button>
-                <button type="button" id="cancel">취소</button>
-            </div>
+            <!-- 메인 -->
+            <main id="search">
+                <div id="question">
+
+                    <h2>도움말</h2>
+
+                    <p>
+                        KSH AI는 검색형 AI 프로토타입 서비스입니다.<br>
+                        사용자가 입력한 질문을 기반으로 답변을 생성합니다.
+                    </p>
+
+                    <h3>자주 묻는 질문</h3>
+
+                    <ul>
+                        <li>
+                            Q. 정확한 답변인가요?<br>
+                            A. 프로토타입으로 실제 정보와 다를 수 있습니다.
+                        </li>
+                        <li>
+                            Q. 파일 업로드는 무엇인가요?<br>
+                            A. 향후 기능 확장을 위한 UI입니다.
+                        </li>
+                    </ul>
+
+                </div>
+            </main>
 
         </div>
-    </div>
 
-    <!-- 메인 -->
-    <main id="search">
-        <div id="question">
-
-            <h2>도움말</h2>
-
-            <p>
-                KSH AI는 검색형 AI 프로토타입 서비스입니다.<br>
-                사용자가 입력한 질문을 기반으로 답변을 생성합니다.
-            </p>
-
-            <h3>자주 묻는 질문</h3>
-
-            <ul>
-                <li>
-                    Q. 정확한 답변인가요?<br>
-                    A. 프로토타입으로 실제 정보와 다를 수 있습니다.
-                </li>
-                <li>
-                    Q. 파일 업로드는 무엇인가요?<br>
-                    A. 향후 기능 확장을 위한 UI입니다.
-                </li>
-            </ul>
-
-        </div>
-    </main>
-
-</div>
-
-</body>
+    </body>
 </html>
