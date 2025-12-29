@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        if (id === 'user1234' && name === '홍길동' && email === 'hong@example.com') {
+        if (id === 'yoonhuynhozzang' && name === '윤현호' && email === 'hong@example.com') {
             const tempPw = Math.random().toString(36).slice(-8); 
             showModal('임시 비밀번호 발급', `이메일로 임시 비밀번호를 전송했습니다.<br>비밀번호: <strong>${tempPw}</strong>`);
         } else {
