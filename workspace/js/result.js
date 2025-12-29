@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     const chatContainer = document.getElementById('chatContainer');
-    const historyList = document.getElementById('historyList');
+    const historyLists = document.querySelectorAll('.historyList');
     const form = document.getElementById('chatForm');
     const input = document.getElementById('input');
 
