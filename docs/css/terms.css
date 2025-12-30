@@ -1,0 +1,178 @@
+        /* 기본 설정 */
+        html, body { 
+            margin: 0; 
+            padding: 0; 
+            height: 100%; 
+        }
+        body { 
+            font-family: 'Malgun Gothic', 
+            sans-serif; 
+            background-color: white; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .container { 
+            width: 100%; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+        }
+
+        /* 헤더 */
+        header { 
+            background-color: #ffffff; 
+            height: 60px; flex-shrink: 0; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-bottom: 1px solid #e0e4e8; 
+            position: relative; 
+        }
+        #logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%; 
+        }
+
+        #input-logo {
+            margin: 0;
+            line-height: 0;
+            display: flex; 
+            align-items: center;
+        }
+
+        #input-logo a {
+            display: block;
+            height: 60px; 
+        }
+
+        #input-logo img {
+            height: 100%; 
+            width: auto;  
+            max-width: 100%; 
+            object-fit: contain;
+            display: block; 
+        }
+
+        /* 메인 컨텐츠 */
+        main { 
+            padding: 50px 20px; 
+            text-align: center; 
+            flex-grow: 1; 
+            width: 100%; 
+            box-sizing: border-box; 
+        }
+        h1 { 
+            font-size: 32px; 
+            margin-bottom: 60px; 
+            font-weight: bold; 
+        }
+
+        /* 약관 영역 */
+        .terms-section { 
+            margin-bottom: 50px; 
+            width: 90%; 
+            max-width: 1200px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            text-align: left; 
+        }
+        h2 { 
+            font-size: 18px; 
+            text-align: left; 
+            margin-bottom: 15px; 
+            font-weight: bold; 
+            color: #333; 
+        }
+        .terms-box { 
+            width: 100%; 
+            height: 200px; 
+            border: 1px solid #ccc; 
+            padding: 20px; 
+            box-sizing: border-box; 
+            overflow-y: scroll; 
+            background-color: #f9f9f9; 
+            line-height: 1.6; 
+            resize: vertical; 
+            font-family: inherit; 
+        }
+        .terms-box:focus { outline: 2px solid #007bff; }
+
+        /* 체크박스 */
+        .checkbox-container {
+            display: flex; 
+            justify-content: flex-end; 
+            align-items: center; 
+            font-size: 16px; 
+            margin-top: 10px; 
+        }
+        .checkbox-container input {
+            width: 24px; 
+            height: 24px; 
+            margin-right: 12px; 
+            cursor: pointer;
+        }
+        .checkbox-container label { 
+            cursor: pointer; 
+            user-select: none; 
+        }
+
+        /* 다음 버튼 */
+        .submit-btn { 
+            background-color: #007bff; 
+            color: white; 
+            border: none; 
+            padding: 15px 80px; 
+            border-radius: 8px; 
+            font-size: 18px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            margin: 40px 0; 
+            transition: all 0.3s; 
+        }
+        .submit-btn:hover { 
+            background-color: #0056b3; 
+            transform: translateY(-2px); 
+        }
+
+        /* 팝업창(모달) 스타일 */
+        .modal-overlay { 
+            display: none; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1000; 
+            justify-content: center; 
+            align-items: center; 
+        }
+        .modal { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 12px; 
+            text-align: center; 
+            width: 90%; 
+            max-width: 350px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+        }
+        .modal-message { 
+            margin-bottom: 25px; 
+            font-size: 16px; line-height: 
+            1.5; color: #333; 
+        }
+        .modal-btn { 
+            background-color: #007bff; 
+            color: white; border: none; 
+            padding: 10px 30px; 
+            border-radius: 6px; 
+            font-size: 16px; 
+            cursor: pointer; 
+        }
+        .modal-icon { 
+            font-size: 40px; 
+            margin-bottom: 15px; 
+            display: block; 
+        }
