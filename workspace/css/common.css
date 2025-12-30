@@ -163,8 +163,6 @@ body {
 
 /* 채팅 리스트 내 미리보기 텍스트 숨기기 설정 */
 #menu > div:nth-child(2) > ul > li > span:nth-child(2) {
-    font-size: 0.8em;
-    color: #999;
     display: block;
     color: transparent;
     font-size: 0;
@@ -182,6 +180,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     transition: background-color 0.2s;
+    width: 100%;
 }
 
 #settings-open-btn:hover {
@@ -456,6 +455,9 @@ body.dark-mode #nav > #Login > a { color: #e0e0e0; }
 
 body.dark-mode #menu > div:nth-child(2) > ul > li:hover { background-color: #3d3d3d; }
 
+/* 다크모드 채팅 내역 ... 버튼 흰색 설정 */
+body.dark-mode #menu ul li.history-item .chat-more-btn { color: #ffffff; }
+
 /* 설정창 다크모드 가시성 보정 */
 body.dark-mode #settings-box > div:nth-child(2) { background-color: #2d2d2d; color: #e0e0e0; border: 1px solid #444; }
 
@@ -490,6 +492,7 @@ body.dark-mode .profile-btn {
     border-color: #555;
     color: #ccc;
 }
+
 /*사이드바 채팅 내역 관련*/
 
 /* 사이드바 채팅 항목 레이아웃 수정 */
@@ -498,10 +501,12 @@ body.dark-mode .profile-btn {
     align-items: center;
     justify-content: space-between;
     gap: 6px;
+    position: relative;
+    overflow: visible; 
 }
 
 /* 채팅 제목 */
-#menu ul li.history-item .chat-title {
+.chat-title {
     flex: 1;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -509,7 +514,7 @@ body.dark-mode .profile-btn {
 }
 
 /* ... 버튼 강제 표시 */
-#menu ul li.history-item .chat-more-btn {
+.chat-more-btn {
     display: block;
     background: none;
     border: none;
@@ -518,6 +523,10 @@ body.dark-mode .profile-btn {
     cursor: pointer;
     flex-shrink: 0;
     z-index: 2;
+    width: auto;
+    min-width: 24px;
+    padding: 4px 6px;
+    line-height: 1;
 }
 
 .chat-menu {
@@ -526,4 +535,3 @@ body.dark-mode .profile-btn {
     top: 40px;
     z-index: 12;
 }
-

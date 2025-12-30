@@ -146,18 +146,57 @@
             <aside id="menu">
                 <h2 class="logo">KSH AI</h2>
                 <div class="menu-content">
-                    <div class="chat-history-heading">내 채팅</div>
-                    <ul class="historyList">
-                        </ul>
-                    <div id="new-chat-container">
-                        <button type="button" id="new-chat-btn">＋ 새 채팅</button>
+                <div class="chat-history-heading">내 채팅</div>
+                <ul id="historyList"></ul>
+                <div id="new-chat-container">
+                    <button id="new-chat-btn">＋ 새 채팅</button>
+                </div>
+            </div>
+            <button type="button" id="settings-open-btn">
+                <span id="settings-icon">setting</span>
+            </button>
+        </aside>
+        <div id="settings-box" class="box-hidden">
+            <div id="setting-overlay"></div>
+            <div>
+                <div>
+                    <h2>시스템 설정</h2>
+                    <button type="button" id="box-close">&times;</button>
+                </div>
+                <div>
+                    <div>
+                        <label>테마 모드</label>
+                        <div>
+                            <label><input type="radio" name="theme" value="light" checked> 라이트 모드</label>
+                            <label><input type="radio" name="theme" value="dark"> 다크 모드</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="lang-select">언어 설정</label>
+                        <select id="lang-select">
+                            <option value="ko">한국어 (Korean)</option>
+                            <option value="en">English (US)</option>
+                            <option value="Ch">China (CH)</option>
+                        </select>
+                    </div>
+                    <div class="settings-extra">
+                        <label>기타</label>
+                        <div class="settings-links">
+                            <div class="settings-link-row" id="help">
+                                <span class="settings-icon help-icon"></span>도움말
+                            </div>
+                            <div class="settings-link-row" id="support">
+                                <span class="settings-icon support-icon"></span>고객센터
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <button type="button" id="settings-open-btn">
-                    <span id="settings-icon"></span>
-                    <span class="visually-hidden">설정 열기</span>
-                </button>
-            </aside>
+                <div>
+                    <button type="button" id="save">저장</button>
+                    <button type="button" id="cancel">취소</button>
+                </div>
+            </div>
+        </div> 
 
             <main id="search">
                 <div id="question">
