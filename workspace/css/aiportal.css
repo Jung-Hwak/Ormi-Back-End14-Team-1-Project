@@ -129,6 +129,7 @@
     font-size: 0;
     line-height: 0;
     overflow: hidden;
+    display: inline-block;
 }
 
 /* 파일 업로드 아이콘 이미지 경로 */
@@ -206,15 +207,16 @@
 }
 
 /* 4. 다크 모드 (메인 검색 대응) */
-.dark-mode #search > #question > p:first-child { color: #e0e0e0; }
-.dark-mode #search > #question > form > div:nth-child(1) { background-color: #333; }
-.dark-mode #search > #question > form > div:nth-child(1) > textarea { background-color: #333; color: #fff; }
+body.dark-mode #search > #question > p:first-child { color: #e0e0e0; }
+body.dark-mode #search > #question > form > div:nth-child(1) { background-color: #333; }
+body.dark-mode #search > #question > form > div:nth-child(1) > textarea { background-color: #333; color: #fff; }
 
 /* 설정창 내부 도움말/고객센터 다크모드 가시성 보정 */
-.dark-mode .settings-link-row { color: #e0e0e0; } /* 글자색을 밝게 변경 */
-.dark-mode .settings-link-row:hover { color: #4da3ff; }
-.dark-mode .settings-icon { filter: invert(0.9); } /* 도움말/고객센터 아이콘 반전 */
-.dark-mode #file-upload-icon, .dark-mode #image-search-icon { filter: invert(0.9); }
+body.dark-mode .settings-link-row { color: #e0e0e0; } /* 글자색을 밝게 변경 */
+body.dark-mode .settings-link-row:hover { color: #4da3ff; }
+body.dark-mode .settings-icon { filter: invert(0.9); } /* 도움말/고객센터 아이콘 반전 */
+body.dark-mode #file-upload-icon, 
+body.dark-mode #image-search-icon { filter: invert(0.9); }
 
 
 
@@ -226,7 +228,6 @@
 #new-chat-btn {
     background: none;
     border: none;
-    padding: 6px 0;
     width: 100%;
     text-align: right;
     font-size: 16px;
@@ -256,12 +257,24 @@
     text-overflow: ellipsis;
 }
 
+/* 공통 클래스와 다크모드 선택자 조합으로 !important 제거 */
 .chat-more-btn {
     background: none;
     border: none;
     font-size: 18px;
     cursor: pointer;
-    padding: 2px 6px;
+    padding: 4px 6px;
+    display: block;
+    color: #333;
+    line-height: 1;
+    z-index: 20;
+    width: auto;
+    min-width: 24px;
+}
+
+/* 다크모드 우선순위 (body.dark-mode 사용) */
+body.dark-mode .chat-more-btn {
+    color: #ffffff;
 }
 
 .chat-menu {
@@ -293,44 +306,4 @@
 
 .hidden {
     display: none;
-}
-
-.chat-more-btn {
-    display: block !important;
-    color: #333 !important;
-    font-size: 18px !important;
-    line-height: 1 !important;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 20;
-}
-
-
-.history-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    .history-item {
-    overflow: visible !important;
-}
-
-}
-
-.chat-title {
-    flex: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.chat-more-btn {
-    width: auto;              
-    min-width: 24px;
-    background: none;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-    padding: 4px 6px;
 }
