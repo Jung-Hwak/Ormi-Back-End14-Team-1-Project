@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 aiAnswer = responses.estsoft;
             } else if (cleanText.includes("est소프트입사") || cleanText.includes("이스트소프트입사") || cleanText.includes("입사하기위해")) {
                 aiAnswer = responses.recruit;
-            } else if (cleanText.includes("개그해줘") || cleanText.includes("나를 웃겨줘") || cleanText.includes("심심해")) {
+            } else if (cleanText.includes("개그해줘") || cleanText.includes("나를 웃겨줘") || cleanText.includes("심심해") || cleanText.includes("아재 개그")) {
                 aiAnswer = responses.joke;
             }
 
