@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
         alert(name + '님, 회원가입이 완료되었습니다!');
         
         // 요청사항: Login.html로 이동
-        window.location.href = 'Login.html'; 
+        window.location.href = 'login.html'; 
     }
 
     // 로고 클릭 이벤트
