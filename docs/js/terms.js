@@ -27,7 +27,7 @@ function checkAgreement() {
         showModal("✅", "모든 약관에 동의하셨습니다.<br>본인인증 페이지로 이동합니다.", true);
         
         setTimeout(() => { 
-            window.location.href = 'Authentication.html'; 
+            window.location.href = 'authentication.html'; 
         }, 1500);
         
     } else {
