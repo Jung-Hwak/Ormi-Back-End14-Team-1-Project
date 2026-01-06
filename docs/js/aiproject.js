@@ -172,16 +172,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("help-link").addEventListener("click", () => {
-        location.href = "help.html";
-    });
-
-    document.getElementById("support-link").addEventListener("click", () => {
-        location.href = "support.html";
-    });
-});
-
 
 // 사이드바 채팅내역 관리
 document.addEventListener("click", (e) => {
